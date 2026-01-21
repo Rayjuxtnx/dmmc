@@ -4,13 +4,13 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MessageSquare, X, Bot, Send, Maximize, Minimize } from 'lucide-react';
+import { MessageSquare, X, Bot, Send, Maximize, Minimize, Paperclip } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { generalChat } from '@/ai/flows/chatbot-flow';
+import { generalChat, type GeneralChatInput } from '@/ai/flows/chatbot-flow';
 import { cn } from '@/lib/utils';
 
 // Data from the site, centralized for the chatbot
@@ -298,6 +298,7 @@ export function Chatbot() {
   const [pendingQuery, setPendingQuery] = useState<string | null>(null);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -311,7 +312,7 @@ export function Chatbot() {
             inputRef.current?.focus();
         }, 100);
     }
-  }, [isOpen]);
+  }, [isOpen, isFullScreen]);
 
   const AiMarkdownResponse = ({ text }: { text: string }) => {
     if (typeof text !== 'string' || !text.includes('# **')) {
@@ -378,7 +379,7 @@ export function Chatbot() {
         setIsThinking(true);
         try {
             const searchType = nextNodeId === 'deepSearch' ? 'deep' : 'basic';
-            const aiResponse = await generalChat(pendingQuery, searchType);
+            const aiResponse = await generalChat({query: pendingQuery, searchType});
 
             const botMessage: Message = {
                 id: Date.now() + 2,
@@ -412,6 +413,70 @@ export function Chatbot() {
     }
   };
 
+  const handleImageUpload = async (file: File) => {
+    if (!file || isThinking) return;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = async (e) => {
+        const imageDataUri = e.target?.result as string;
+        if (!imageDataUri) return;
+
+        const userMessage: Message = {
+            id: Date.now(),
+            node: { 
+                id: `user-img-${Date.now()}`, 
+                sender: 'user', 
+                content: (
+                    <div className="space-y-2">
+                        <p className="text-sm italic">Image Uploaded</p>
+                        <img src={imageDataUri} alt="Uploaded content" className="rounded-lg max-w-full h-auto max-h-48" />
+                    </div>
+                )
+            },
+        };
+        setHistory(prev => [...prev, userMessage]);
+        setIsThinking(true);
+
+        try {
+            const aiResponse = await generalChat({
+                query: 'Please analyze this image and give me detailed feedback.',
+                searchType: 'deep',
+                imageDataUri: imageDataUri
+            });
+
+            const botMessage: Message = {
+                id: Date.now() + 1,
+                node: {
+                    id: `ai-img-${Date.now()}`,
+                    sender: 'bot',
+                    content: <AiMarkdownResponse text={aiResponse} />,
+                    options: [{ text: '↩️ Back to modes', nextNode: 'start' }],
+                },
+            };
+            setHistory(prev => [...prev, botMessage]);
+        } catch (error) {
+            console.error("Error calling AI flow for image:", error);
+            const errorMessage: Message = {
+                id: Date.now() + 2,
+                node: { ...conversationTree.unrecognized, id: 'unrecognized' },
+            };
+            setHistory(prev => [...prev, errorMessage]);
+        } finally {
+            setIsThinking(false);
+        }
+    };
+  };
+
+  const handleFileSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+        handleImageUpload(file);
+    }
+    event.target.value = '';
+  };
+
+
   const handleTextInputSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const text = inputValue.trim();
@@ -429,7 +494,7 @@ export function Chatbot() {
     if (lastBotNodeId === 'ask') {
       setIsThinking(true);
       try {
-        const aiResponse = await generalChat(text, 'deep');
+        const aiResponse = await generalChat({ query: text, searchType: 'deep' });
         const botMessage: Message = {
           id: Date.now() + 1,
           node: {
@@ -617,8 +682,26 @@ export function Chatbot() {
               </AnimatePresence>
               {isThinking && <TypingIndicator />}
             </CardContent>
-            <CardFooter className="p-4 border-t">
+            <CardFooter className="p-4 border-t flex flex-col items-start gap-2">
               <form onSubmit={handleTextInputSubmit} className="w-full flex items-center gap-2">
+                 <input
+                  type="file"
+                  ref={imageInputRef}
+                  onChange={handleFileSelected}
+                  className="hidden"
+                  accept="image/*"
+                  disabled={isThinking}
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => imageInputRef.current?.click()}
+                  disabled={isThinking}
+                  aria-label="Upload Image"
+                >
+                  <Paperclip className="h-4 w-4" />
+                </Button>
                 <Input
                   ref={inputRef}
                   value={inputValue}
@@ -631,6 +714,9 @@ export function Chatbot() {
                   <Send className="h-4 w-4" />
                 </Button>
               </form>
+               <p className="text-xs text-muted-foreground pt-1 text-center w-full">
+                DMMC AI can make mistakes. This chat is encrypted and your conversations are not shared.
+              </p>
             </CardFooter>
           </Card>
         </PopoverContent>
