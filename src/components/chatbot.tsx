@@ -3,10 +3,11 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MessageSquare, X, Bot } from 'lucide-react';
+import { MessageSquare, X, Bot, Send } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 // Data from the site, centralized for the chatbot
@@ -63,7 +64,7 @@ type ConversationNode = {
 const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
   start: {
     sender: 'bot',
-    content: "Hi there! 👋 I'm the DMMC assistant. How can I help you today? Choose one of the topics below.",
+    content: "Hi there! 👋 I'm the DMMC assistant. How can I help you today? Choose one of the topics below, or type your question.",
     options: [
       { text: 'Tell me about the church', nextNode: 'about' },
       { text: 'Upcoming Events', nextNode: 'events' },
@@ -243,7 +244,17 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     ),
     options: [{ text: "I'm ready to pray now", nextNode: 'salvation_prayer' }, { text: 'Ask another question', nextNode: 'start' }],
   },
-
+  unrecognized: {
+    sender: 'bot',
+    content: "I'm sorry, I didn't quite understand that. How can I help you? You can choose from the topics below.",
+    options: [
+      { text: 'About the Church', nextNode: 'about' },
+      { text: 'Upcoming Events', nextNode: 'events' },
+      { text: 'Get Involved', nextNode: 'getInvolved' },
+      { text: 'Our Leaders', nextNode: 'ourLeaders' },
+      { text: 'Know Jesus', nextNode: 'salvation' },
+    ],
+  },
 };
 
 type Message = {
@@ -257,16 +268,25 @@ export function Chatbot() {
   const [history, setHistory] = useState<Message[]>([
       { id: 0, node: { ...conversationTree.start, id: 'start' } }
   ]);
+  const [inputValue, setInputValue] = useState('');
   const scrollAreaRef = useRef<HTMLDivElement>(null);
-  const latestMessageId = history[history.length - 1]?.id ?? 0;
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
   }, [history]);
+  
+  useEffect(() => {
+    if (isOpen) {
+        setTimeout(() => {
+            inputRef.current?.focus();
+        }, 100);
+    }
+  }, [isOpen]);
 
-  const handleOptionSelect = (text: string, nextNode: string) => {
+  const handleOptionSelect = (text: string, nextNodeId: string) => {
     const userMessage: Message = {
         id: history.length,
         node: { id: `user-${history.length}`, sender: 'user', content: text },
@@ -274,10 +294,54 @@ export function Chatbot() {
 
     const botResponse: Message = {
         id: history.length + 1,
-        node: { ...conversationTree[nextNode], id: nextNode }
+        node: { ...conversationTree[nextNodeId], id: nextNodeId }
     };
     
     setHistory(prev => [...prev, userMessage, botResponse]);
+  };
+
+  const handleTextInputSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = inputValue.trim();
+    if (!text) return;
+
+    const userMessage: Message = {
+        id: history.length,
+        node: { id: `user-${history.length}`, sender: 'user', content: text },
+    };
+    
+    const lowerCaseInput = text.toLowerCase();
+    let nextNodeId = 'unrecognized';
+
+    if (lowerCaseInput.includes('hello') || lowerCaseInput.includes('hi')) {
+        nextNodeId = 'start';
+    } else if (lowerCaseInput.includes('about') || (lowerCaseInput.includes('church') && !lowerCaseInput.includes('leader'))) {
+        nextNodeId = 'about';
+    } else if (lowerCaseInput.includes('event')) {
+        nextNodeId = 'events';
+    } else if (lowerCaseInput.includes('involved') || lowerCaseInput.includes('join')) {
+        nextNodeId = 'getInvolved';
+    } else if (lowerCaseInput.includes('leader') || lowerCaseInput.includes('bishop') || lowerCaseInput.includes('dag')) {
+        nextNodeId = 'ourLeaders';
+    } else if (lowerCaseInput.includes('jesus') || lowerCaseInput.includes('salvation') || lowerCaseInput.includes('pray')) {
+        nextNodeId = 'salvation';
+    } else if (lowerCaseInput.includes('sing') || lowerCaseInput.includes('choir')) {
+        nextNodeId = 'getInvolved_singing';
+    } else if (lowerCaseInput.includes('danc')) {
+        nextNodeId = 'getInvolved_dancing';
+    } else if (lowerCaseInput.includes('media') || lowerCaseInput.includes('creative') || lowerCaseInput.includes('poster')) {
+        nextNodeId = 'getInvolved_media';
+    } else if (lowerCaseInput.includes('usher') || lowerCaseInput.includes('greet')) {
+        nextNodeId = 'getInvolved_ushers';
+    }
+
+    const botResponse: Message = {
+        id: history.length + 1,
+        node: { ...conversationTree[nextNodeId], id: nextNodeId }
+    };
+    
+    setHistory(prev => [...prev, userMessage, botResponse]);
+    setInputValue('');
   };
 
   const ChatBubble = ({ message, onSelect }: { message: Message, onSelect: (text: string, nextNode: string) => void }) => {
@@ -298,7 +362,7 @@ export function Chatbot() {
                     {content}
                 </div>
             </div>
-            {isBot && options && (
+            {isBot && options && message.id === history[history.length-1].id && (
                 <div className="flex flex-col gap-2 mt-3 pl-10 w-full">
                     {options.map((option, index) => (
                         <Button key={index} variant="outline" size="sm" className="justify-start h-auto py-2" onClick={() => onSelect(option.text, option.nextNode)}>
@@ -332,7 +396,9 @@ export function Chatbot() {
             className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground"
             aria-label="Open Chat"
           >
-            <MessageSquare className="h-8 w-8" />
+            <AnimatePresence>
+                {isOpen ? <X className="h-8 w-8" /> : <MessageSquare className="h-8 w-8" />}
+            </AnimatePresence>
           </Button>
         </PopoverTrigger>
         <PopoverContent
@@ -367,6 +433,20 @@ export function Chatbot() {
                 ))}
               </AnimatePresence>
             </CardContent>
+            <CardFooter className="p-4 border-t">
+              <form onSubmit={handleTextInputSubmit} className="w-full flex items-center gap-2">
+                <Input
+                  ref={inputRef}
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder="Type your message..."
+                  autoComplete="off"
+                />
+                <Button type="submit" size="icon" aria-label="Send Message">
+                  <Send className="h-4 w-4" />
+                </Button>
+              </form>
+            </CardFooter>
           </Card>
         </PopoverContent>
       </Popover>
