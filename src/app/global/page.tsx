@@ -1,99 +1,178 @@
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Globe, Handshake, Mail } from 'lucide-react';
+"use client";
 
-const missionPartners = [
-  { name: 'Hope for Nations', location: 'East Asia', focus: 'Community Development' },
-  { name: 'Living Water Intl.', location: 'Sub-Saharan Africa', focus: 'Clean Water Projects' },
-  { name: 'Frontier Missions', location: 'South America', focus: 'Church Planting' },
-]
+import { useState, useMemo } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Globe, Search, Phone, Mail, MapPin } from 'lucide-react';
+
+const locations = [
+  { country: 'Ghana', region: 'West Africa', count: 28 },
+  { country: 'China', region: 'Asia', count: 5 },
+  { country: 'Tahiti', region: 'Pacific', count: 1 },
+  { country: 'United Kingdom', region: 'Europe', count: 32 },
+  { country: 'Switzerland', region: 'Europe', count: 5 },
+  { country: 'Sweden', region: 'Europe', count: 1 },
+  { country: 'Portugal', region: 'Europe', count: 1 },
+  { country: 'Ukraine', region: 'Europe', count: 2 },
+  { country: 'USA', region: 'North America', count: 22 },
+  { country: 'Canada', region: 'North America', count: 1 },
+  { country: 'Dominica', region: 'Caribbean', count: 1 },
+  { country: 'Guadeloupe', region: 'Caribbean', count: 1 },
+  { country: 'Grenada', region: 'Caribbean', count: 1 },
+  { country: 'Dominica republic', region: 'Caribbean', count: 1 },
+  { country: 'Belize', region: 'Central America', count: 1 },
+  { country: 'Sierra Leone', region: 'West Africa', count: 5 },
+  { country: 'Nigeria', region: 'West Africa', count: 3 },
+  { country: 'Liberia', region: 'West Africa', count: 2 },
+  { country: 'Cape Verde', region: 'West Africa', count: 1 },
+  { country: 'Guinea-Bissau', region: 'West Africa', count: 1 },
+  { country: 'Botswana', region: 'Southern Africa', count: 12 },
+  { country: 'Zambia', region: 'Southern Africa', count: 10 },
+  { country: 'Seychelles', region: 'East Africa', count: 3 },
+  { country: 'Uganda', region: 'East Africa', count: 1 },
+  { country: 'Zimbabwe', region: 'Southern Africa', count: 4 },
+  { country: 'Malawi', region: 'Southern Africa', count: 4 },
+  { country: 'Cameroon', region: 'Central Africa', count: 1 },
+  { country: 'Dr Congo', region: 'Central Africa', count: 4 },
+  { country: 'Kenya', region: 'East Africa', count: 2 },
+  { country: 'Philippines', region: 'Asia', count: 2 },
+];
+
+const regions = [
+  "All Regions",
+  "Asia",
+  "Caribbean",
+  "Central Africa",
+  "Central America",
+  "East Africa",
+  "Europe",
+  "North America",
+  "Pacific",
+  "Southern Africa",
+  "West Africa",
+];
+
+const totalLocations = locations.reduce((sum, loc) => sum + loc.count, 0);
+const totalCountries = locations.length;
+
+function RotatingGlobe() {
+  return (
+    <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto mb-8">
+      <div className="absolute inset-0 border-2 border-primary/30 rounded-full animate-spin-slow"></div>
+      <div className="absolute inset-2 border border-primary/20 rounded-full animate-spin-medium"></div>
+      <Globe className="absolute inset-0 w-full h-full p-8 text-primary animate-pulse" />
+    </div>
+  );
+}
 
 export default function GlobalPage() {
-  const outreachImage = PlaceHolderImages.find(img => img.id === 'global-outreach');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('All Regions');
+
+  const filteredLocations = useMemo(() => {
+    return locations.filter(location => {
+      const matchesRegion = selectedRegion === 'All Regions' || location.region === selectedRegion;
+      const matchesSearch = location.country.toLowerCase().includes(searchTerm.toLowerCase()) || location.region.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesRegion && matchesSearch;
+    });
+  }, [searchTerm, selectedRegion]);
 
   return (
     <div>
-      <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {outreachImage && (
-          <Image
-            src={outreachImage.imageUrl}
-            alt={outreachImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={outreachImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 p-4 max-w-4xl">
-          <h1 className="font-headline text-4xl md:text-6xl font-bold">Global Outreach</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            Impacting the world with the love and message of Jesus Christ.
+      <section className="py-20 text-center">
+        <div className="container mx-auto px-4">
+          <RotatingGlobe />
+          <h1 className="font-headline text-4xl md:text-6xl font-bold">Global Presence</h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-foreground/80">
+            First Love Church is present in {totalCountries} countries with over {totalLocations} locations worldwide, spreading the message of Jesus Christ and making disciples of all nations.
           </p>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-              <Globe className="mx-auto h-12 w-12 text-primary" />
-              <h2 className="mt-4 font-headline text-3xl md:text-4xl font-bold">Our Global Vision</h2>
-              <p className="mt-4 text-lg text-foreground/80">
-                We are committed to fulfilling the Great Commission by taking the gospel to all nations. We partner with missionaries and organizations around the world to bring hope, share the gospel, and meet practical needs in underserved communities.
-              </p>
-          </div>
+          <Card className="max-w-5xl mx-auto">
+            <CardHeader>
+              <CardTitle className="font-headline text-2xl md:text-3xl">Find a First Love Church Near You</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col md:flex-row gap-4 mb-8">
+                <div className="relative flex-grow">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search for a country or city..."
+                    className="pl-10"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                </div>
+                <Select value={selectedRegion} onValueChange={setSelectedRegion}>
+                  <SelectTrigger className="w-full md:w-[240px]">
+                    <SelectValue placeholder="Filter by region" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {regions.map(region => (
+                      <SelectItem key={region} value={region}>{region}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="mb-8 text-sm text-muted-foreground">
+                <p>Found {filteredLocations.reduce((acc, loc) => acc + loc.count, 0)} locations in {filteredLocations.length} countries across {new Set(filteredLocations.map(l => l.region)).size} regions.</p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredLocations.length > 0 ? (
+                  filteredLocations.map((location) => (
+                    <div key={location.country} className="p-4 rounded-lg border border-border/20 bg-card/50">
+                      <h3 className="font-bold text-lg text-primary">{location.country}</h3>
+                      <p className="text-sm text-muted-foreground">{location.region}</p>
+                      <p className="mt-2 font-semibold">{location.count} {location.count > 1 ? 'locations' : 'location'}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12">
+                    <MapPin className="mx-auto h-12 w-12 text-muted-foreground" />
+                    <h3 className="mt-4 font-headline text-2xl font-bold">No Locations Found</h3>
+                    <p className="mt-2 text-muted-foreground">Try adjusting your search or filter criteria.</p>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
-
-      <section className="py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto px-4">
-            <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Our Mission Partners</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {missionPartners.map(partner => (
-                <Card key={partner.name}>
-                  <CardHeader>
-                    <Handshake className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-headline text-xl">{partner.name}</CardTitle>
-                    <p className="text-sm font-semibold text-primary">{partner.location}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground/80"><strong>Focus:</strong> {partner.focus}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-      </section>
-
+      
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-           <div className="text-center max-w-3xl mx-auto">
-             <h2 className="mt-4 font-headline text-3xl md:text-4xl font-bold">How You Can Get Involved</h2>
-             <p className="mt-4 text-lg text-foreground/80">
-              There are many ways to be a part of our global mission. You can pray, give, or go.
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+            <h2 className="font-headline text-3xl font-bold mb-8">Need Help Finding a Church?</h2>
+             <div className="grid md:grid-cols-2 gap-8 text-left">
+                 <Card>
+                     <CardContent className="pt-6 flex items-start gap-4">
+                        <Phone className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                            <h3 className="font-bold">WhatsApp us for directions</h3>
+                            <a href="https://wa.me/233246389779" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all">+233 24 638 9779</a>
+                        </div>
+                     </CardContent>
+                 </Card>
+                 <Card>
+                     <CardContent className="pt-6 flex items-start gap-4">
+                        <Mail className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                            <h3 className="font-bold">Email Us</h3>
+                            <a href="mailto:admin@firstlovecenter.com" className="text-primary hover:underline break-all">admin@firstlovecenter.com</a>
+                        </div>
+                     </CardContent>
+                 </Card>
+             </div>
+             <p className="mt-8 text-foreground/80">
+                Our team is available to help you find the nearest First Love Church location and provide any information you need about our services and activities.
              </p>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="space-y-2">
-                    <h3 className="font-headline text-2xl font-semibold">Pray</h3>
-                    <p className="text-foreground/70">Commit to praying regularly for our missionaries and the people they serve.</p>
-                </div>
-                <div className="space-y-2">
-                    <h3 className="font-headline text-2xl font-semibold">Give</h3>
-                    <p className="text-foreground/70">Financially support our global partners and short-term mission trips.</p>
-                </div>
-                <div className="space-y-2">
-                    <h3 className="font-headline text-2xl font-semibold">Go</h3>
-                    <p className="text-foreground/70">Join one of our short-term mission trips to serve on the field.</p>
-                </div>
-            </div>
-             <Button asChild size="lg" className="mt-12">
-               <a href="mailto:missions@dmmc.org">
-                <Mail className="mr-2 h-4 w-4"/> Contact our Missions Team
-               </a>
-             </Button>
-           </div>
         </div>
       </section>
     </div>
