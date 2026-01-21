@@ -21,7 +21,7 @@
     {
       "id": "event-2",
       "description": "People engaged in a bible study session in a cozy room.",
-      "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaWJsZSUyMHN0dWR5fGVufDB8fHx8MTc2OTAyMjU1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaWJsZSUyMHN0dWR5fGVufDB8fHx8fDE3NjkwMjI1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bible study"
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": "testimonial-2",
       "description": "Portrait of another smiling person.",
-      "imageUrl": "https://images.unsplash.com/photo-1607529378676-a20456ee2f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbWlsaW5nJTIwcGVyc29ufGVufDB8fHx8MTc2ODkxNzgxOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1607529378676-a20456ee2f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbWlsaW5nJTIwcGVyc29ufGVufDB8fHx8fDE3Njg5MTc4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "smiling person"
     },
     {
@@ -59,6 +59,12 @@
       "description": "A serene landscape with a path leading towards a bright light.",
       "imageUrl": "https://images.unsplash.com/photo-1631123471942-9fd6ed03c263?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYXRoJTIwbGlnaHR8ZW58MHx8fHwxNzY5MDIyNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "path light"
+    },
+    {
+      "id": "world-map-dark",
+      "description": "A dark equirectangular projection of the world map.",
+      "imageUrl": "https://images.unsplash.com/photo-1607503323565-df0558e85843?q=80&w=2000&auto=format&fit=crop",
+      "imageHint": "world map"
     }
   ]
 }

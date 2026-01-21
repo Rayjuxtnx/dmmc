@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Globe, Search, Phone, Mail, MapPin } from 'lucide-react';
+import { Search, Phone, Mail, MapPin } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const locations = [
   { country: 'Ghana', region: 'West Africa', count: 28 },
@@ -57,15 +58,30 @@ const regions = [
 const totalLocations = locations.reduce((sum, loc) => sum + loc.count, 0);
 const totalCountries = locations.length;
 
+const worldMapImage = PlaceHolderImages.find(img => img.id === 'world-map-dark');
+
 function RotatingGlobe() {
   return (
-    <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto mb-8">
-      <div className="absolute inset-0 border-2 border-primary/30 rounded-full animate-spin-slow"></div>
-      <div className="absolute inset-2 border border-primary/20 rounded-full animate-spin-medium"></div>
-      <Globe className="absolute inset-0 w-full h-full p-8 text-primary animate-pulse" />
+    <div className="w-64 h-64 md:w-80 md:h-80 mx-auto mb-8">
+      <div 
+        className="w-full h-full rounded-full animate-globe-spin shadow-2xl shadow-primary/20"
+        style={{
+          backgroundImage: `url(${worldMapImage?.imageUrl})`,
+          backgroundSize: '2000px auto',
+          boxShadow: 'inset 0 0 40px rgba(0,0,0,0.9), inset 0 0 15px hsl(var(--primary)), 0 0 20px -5px hsl(var(--primary)/0.5)',
+        }}
+      >
+        <div 
+          className="w-full h-full rounded-full"
+          style={{
+            background: 'radial-gradient(circle at 30% 30%, hsla(0,0%,100%,.1), hsla(0,0%,100%,0) 60%)',
+          }}
+        />
+      </div>
     </div>
   );
 }
+
 
 export default function GlobalPage() {
   const [searchTerm, setSearchTerm] = useState('');

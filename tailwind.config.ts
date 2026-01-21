@@ -88,12 +88,15 @@ export default {
             height: '0',
           },
         },
+        'globe-spin': {
+          'from': { 'background-position-x': '0px' },
+          'to': { 'background-position-x': '-2000px' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'spin-slow': 'spin 15s linear infinite',
-        'spin-medium': 'spin 10s linear infinite reverse',
+        'globe-spin': 'globe-spin 40s linear infinite',
       },
     },
   },
