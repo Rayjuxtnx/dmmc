@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-home",
+      "description": "A wide-angle shot of a modern church sanctuary, filled with light, empty pews facing the stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1641824106850-0e963ab4f719?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaHVyY2glMjBzYW5jdHVhcnl8ZW58MHx8fHwxNzY5MDIyNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "church sanctuary"
+    },
+    {
+      "id": "about-us-leadership",
+      "description": "A group photo of the church leadership team, smiling and looking welcoming.",
+      "imageUrl": "https://images.unsplash.com/photo-1716703742287-2b06c3c6d81a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWFtJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4OTQ0NTk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team portrait"
+    },
+    {
+      "id": "event-1",
+      "description": "A vibrant community gathering, people talking and laughing at an outdoor event.",
+      "imageUrl": "https://images.unsplash.com/photo-1654868537177-86c35bb6b226?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21tdW5pdHklMjBldmVudHxlbnwwfHx8fDE3NjkwMTM2NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community event"
+    },
+    {
+      "id": "event-2",
+      "description": "People engaged in a bible study session in a cozy room.",
+      "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaWJsZSUyMHN0dWR5fGVufDB8fHx8MTc2OTAyMjU1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bible study"
+    },
+    {
+      "id": "resource-book",
+      "description": "A person reading a book in a comfortable chair.",
+      "imageUrl": "https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyZWFkaW5nJTIwYm9va3xlbnwwfHx8fDE3Njg5NjM4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "reading book"
+    },
+    {
+      "id": "global-outreach",
+      "description": "A group of volunteers working on a construction project in a rural village.",
+      "imageUrl": "https://images.unsplash.com/photo-1634051808311-8cfc09fae985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtaXNzaW9uJTIwdHJpcHxlbnwwfHx8fDE3NjkwMjI1NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mission trip"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Portrait of a smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwZXJzb258ZW58MHx8fHwxNzY4OTI1NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy person"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Portrait of another smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1607529378676-a20456ee2f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbWlsaW5nJTIwcGVyc29ufGVufDB8fHx8MTc2ODkxNzgxOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling person"
+    },
+    {
+      "id": "connect-location",
+      "description": "The exterior of a modern church building on a sunny day.",
+      "imageUrl": "https://images.unsplash.com/photo-1661240576949-167764711fe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaHVyY2glMjBleHRlcmlvcnxlbnwwfHx8fDE3NjkwMjI1NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "church exterior"
+    },
+    {
+      "id": "jesus-page-image",
+      "description": "A serene landscape with a path leading towards a bright light.",
+      "imageUrl": "https://images.unsplash.com/photo-1631123471942-9fd6ed03c263?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYXRoJTIwbGlnaHR8ZW58MHx8fHwxNzY5MDIyNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "path light"
+    }
+  ]
 }
