@@ -1,14 +1,11 @@
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, CalendarDays, BookOpen, HeartHandshake } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-home');
-
   const events = [
     {
       title: "Sunday Worship",
@@ -30,17 +27,16 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
+      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full z-[-1]">
+          <iframe
+            src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1&mute=1&loop=1&playlist=LXb3EKWsInQ&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&autohide=1"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            className="absolute top-1/2 left-1/2 w-screen min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
+            title="background-video"
+          ></iframe>
+        </div>
         <div className="absolute inset-0 bg-primary/60" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
