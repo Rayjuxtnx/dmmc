@@ -144,7 +144,7 @@ export default function ConnectPage() {
                   <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold">Service Times</h3>
-                    <p className="text-foreground/80">Sundays at 9:00 AM & 11:00 AM</p>
+                    <p className="text-foreground/80">starts at 9:00 AM</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
