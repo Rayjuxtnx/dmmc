@@ -143,22 +143,24 @@ export default function GlobalPage() {
                   <p>Found {filteredLocations.reduce((acc, loc) => acc + loc.count, 0)} locations in {filteredLocations.length} countries across {new Set(filteredLocations.map(l => l.region)).size} regions.</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredLocations.length > 0 ? (
-                    filteredLocations.map((location, index) => (
-                      <Animate key={location.country} transition={{ delay: index * 0.05 }} className="p-4 rounded-lg border border-border/20 bg-card/50">
-                        <h3 className="font-bold text-lg text-primary">{location.country}</h3>
-                        <p className="text-sm text-muted-foreground">{location.region}</p>
-                        <p className="mt-2 font-semibold">{location.count} {location.count > 1 ? 'locations' : 'location'}</p>
-                      </Animate>
-                    ))
-                  ) : (
-                    <div className="col-span-full text-center py-12">
-                      <MapPin className="mx-auto h-12 w-12 text-muted-foreground" />
-                      <h3 className="mt-4 font-headline text-2xl font-bold">No Locations Found</h3>
-                      <p className="mt-2 text-muted-foreground">Try adjusting your search or filter criteria.</p>
-                    </div>
-                  )}
+                <div className="max-h-[60vh] overflow-y-auto pr-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredLocations.length > 0 ? (
+                      filteredLocations.map((location, index) => (
+                        <Animate key={location.country} transition={{ delay: index * 0.05 }} className="p-4 rounded-lg border border-border/20 bg-card/50">
+                          <h3 className="font-bold text-lg text-primary">{location.country}</h3>
+                          <p className="text-sm text-muted-foreground">{location.region}</p>
+                          <p className="mt-2 font-semibold">{location.count} {location.count > 1 ? 'locations' : 'location'}</p>
+                        </Animate>
+                      ))
+                    ) : (
+                      <div className="col-span-full text-center py-12">
+                        <MapPin className="mx-auto h-12 w-12 text-muted-foreground" />
+                        <h3 className="mt-4 font-headline text-2xl font-bold">No Locations Found</h3>
+                        <p className="mt-2 text-muted-foreground">Try adjusting your search or filter criteria.</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>

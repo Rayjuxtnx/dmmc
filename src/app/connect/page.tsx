@@ -37,8 +37,6 @@ const prayerFormSchema = z.object({
     prayerRequest: z.string().min(10, "Prayer request must be at least 10 characters."),
 });
 
-const formspreeEndpoint = "https://formspree.io/f/xaqqkgvr";
-
 export default function ConnectPage() {
   const contactForm = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
@@ -63,9 +61,9 @@ export default function ConnectPage() {
     },
   });
 
-  async function handleFormSubmit(values: any, form: any, successMessage: string) {
+  async function onContactSubmit(values: z.infer<typeof contactFormSchema>) {
      try {
-      const response = await fetch(formspreeEndpoint, {
+      const response = await fetch("https://formspree.io/f/xaqqkgvr", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,9 +74,37 @@ export default function ConnectPage() {
       if (response.ok) {
         toast({
           title: "Message Sent!",
-          description: successMessage,
+          description: "Thank you for reaching out. We'll get back to you soon.",
         });
-        form.reset();
+        contactForm.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "Could not send your message. Please try again.",
+      });
+    }
+  }
+
+  async function onPrayerSubmit(values: z.infer<typeof prayerFormSchema>) {
+     try {
+      const response = await fetch("https://formspree.io/f/xaqqkgvr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Your prayer request has been received. We are praying for you.",
+        });
+        prayerForm.reset();
       } else {
         throw new Error("Form submission failed");
       }
@@ -112,7 +138,7 @@ export default function ConnectPage() {
                 </CardHeader>
                 <CardContent>
                   <Form {...contactForm}>
-                    <form onSubmit={contactForm.handleSubmit((values) => handleFormSubmit(values, contactForm, "Thank you for reaching out. We'll get back to you soon."))} className="space-y-6">
+                    <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-6">
                       <FormField
                         control={contactForm.control}
                         name="name"
@@ -258,7 +284,7 @@ export default function ConnectPage() {
                     </CardHeader>
                     <CardContent>
                         <Form {...prayerForm}>
-                            <form onSubmit={prayerForm.handleSubmit((values) => handleFormSubmit(values, prayerForm, "Your prayer request has been received. We are praying for you."))} className="space-y-6">
+                            <form onSubmit={prayerForm.handleSubmit(onPrayerSubmit)} className="space-y-6">
                                 <FormField
                                     control={prayerForm.control}
                                     name="name"
