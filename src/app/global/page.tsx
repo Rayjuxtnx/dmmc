@@ -68,7 +68,7 @@ function RotatingGlobe() {
         style={{
           backgroundImage: `url(${worldMapImage?.imageUrl})`,
           backgroundSize: '2000px auto',
-          boxShadow: 'inset 0 0 40px rgba(0,0,0,0.9), inset 0 0 15px hsl(var(--primary)), 0 0 20px -5px hsl(var(--primary)/0.5)',
+          boxShadow: 'inset 0 0 30px rgba(0,0,0,0.6), inset 0 0 12px hsl(var(--primary)), 0 0 20px -10px hsl(var(--primary)/0.5)',
         }}
       >
         <div 
