@@ -302,6 +302,53 @@ export function Chatbot() {
     }
   }, [isOpen]);
 
+  const AiMarkdownResponse = ({ text }: { text: string }) => {
+    if (typeof text !== 'string' || !text.includes('# **')) {
+        return <>{text}</>;
+    }
+
+    const lines = text.split('\n').filter(line => line.trim() !== '');
+    
+    const headingLine = lines.find(l => l.startsWith('# **'));
+    const heading = headingLine ? headingLine.replace('# **', '').replace('**', '').trim() : '';
+
+    const headingIndex = lines.findIndex(l => l.startsWith('# **'));
+    const followUpIndex = lines.findIndex(line => line.startsWith('###'));
+
+    const bodyLines = lines.slice(
+        headingIndex + 1, 
+        followUpIndex > -1 ? followUpIndex : lines.length
+    ).filter(line => !line.startsWith('---') && line.trim() !== '');
+
+    const questionLines = followUpIndex > -1 ? lines.slice(followUpIndex + 1) : [];
+
+    const questions = questionLines.filter(line => line.match(/^\d\.\s/)).map(line => line.replace(/^\d\.\s*/, ''));
+
+    return (
+        <div>
+            {heading && (
+                <h3 className="font-headline text-lg font-bold text-accent mb-3">
+                    {heading}
+                </h3>
+            )}
+            {bodyLines.map((paragraph, i) => (
+                <p key={i} className="mb-2 last:mb-0">{paragraph}</p>
+            ))}
+
+            {questions.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-border/50">
+                    <h4 className="font-semibold mb-2 text-base">Let's keep talking!</h4>
+                    <ol className="list-decimal list-inside space-y-1.5 text-sm">
+                        {questions.map((q, i) => (
+                            <li key={i}>{q}</li>
+                        ))}
+                    </ol>
+                </div>
+            )}
+        </div>
+    );
+  };
+
   const handleOptionSelect = async (text: string, nextNodeId: string) => {
     const userMessage: Message = {
         id: Date.now() + 1,
@@ -327,10 +374,12 @@ export function Chatbot() {
                 node: {
                     id: `ai-${Date.now()}`,
                     sender: 'bot',
-                    content: aiResponse,
-                    options: [
-                        { text: 'Ask another question', nextNode: 'start' }
-                    ]
+                    content: searchType === 'deep' 
+                        ? <AiMarkdownResponse text={aiResponse} /> 
+                        : aiResponse,
+                    options: searchType === 'deep'
+                        ? [{ text: 'Back to topics', nextNode: 'start' }]
+                        : [{ text: 'Ask another question', nextNode: 'start' }]
                 }
             };
             setHistory(prev => [...prev, botMessage]);
@@ -426,7 +475,7 @@ export function Chatbot() {
                     {content}
                 </div>
             </div>
-            {isBot && options && message.id === history[history.length-1]?.id && (
+            {isBot && options && options.length > 0 && message.id === history[history.length-1]?.id && (
                 <div className="flex flex-col gap-2 mt-3 pl-10 w-full">
                     {options.map((option, index) => (
                         <Button key={index} variant="outline" size="sm" className="justify-start h-auto py-2" onClick={() => onSelect(option.text, option.nextNode)}>
