@@ -3,6 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
+import Image from "next/image"
+import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -32,6 +34,7 @@ const formSchema = z.object({
 })
 
 export default function GivePage() {
+  const heroImage = PlaceHolderImages.find(img => img.id === 'give-hero');
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,14 +61,23 @@ export default function GivePage() {
 
   return (
     <div>
-      <Animate>
-        <section className="bg-primary text-primary-foreground py-20 text-center">
-          <div className="container mx-auto px-4">
-            <h1 className="font-headline text-4xl md:text-6xl font-bold">Give Generously</h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Your faithfulness helps us continue our mission of sharing the love of Christ.</p>
-          </div>
-        </section>
-      </Animate>
+      <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
+        {heroImage && (
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover"
+            priority
+            data-ai-hint={heroImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-primary/70" />
+        <Animate className="relative z-10 p-4 max-w-4xl">
+          <h1 className="font-headline text-4xl md:text-6xl font-bold">Give Generously</h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Your faithfulness helps us continue our mission of sharing the love of Christ.</p>
+        </Animate>
+      </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-4xl">

@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Search, Phone, Mail, MapPin } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Animate } from '@/components/ui/animate';
+import Image from 'next/image';
 
 const locations = [
   { country: 'Ghana', region: 'West Africa', count: 28 },
@@ -59,34 +60,11 @@ const regions = [
 const totalLocations = locations.reduce((sum, loc) => sum + loc.count, 0);
 const totalCountries = locations.length;
 
-const worldMapImage = PlaceHolderImages.find(img => img.id === 'world-map-dark');
-
-function RotatingGlobe() {
-  return (
-    <div className="w-64 h-64 md:w-80 md:h-80 mx-auto mb-8">
-      <div 
-        className="w-full h-full rounded-full animate-globe-spin shadow-2xl shadow-primary/20"
-        style={{
-          backgroundImage: `url(${worldMapImage?.imageUrl})`,
-          backgroundSize: '2000px auto',
-          boxShadow: 'inset 0 0 30px rgba(0,0,0,0.6), inset 0 0 12px hsl(var(--primary)), 0 0 20px -10px hsl(var(--primary)/0.5)',
-        }}
-      >
-        <div 
-          className="w-full h-full rounded-full"
-          style={{
-            background: 'radial-gradient(circle at 30% 30%, hsla(0,0%,100%,.1), hsla(0,0%,100%,0) 60%)',
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
 
 export default function GlobalPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All Regions');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'global-hero');
 
   const filteredLocations = useMemo(() => {
     return locations.filter(location => {
@@ -98,11 +76,21 @@ export default function GlobalPage() {
 
   return (
     <div>
-      <section className="py-20 text-center">
-        <Animate className="container mx-auto px-4">
-          <RotatingGlobe />
+      <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
+        {heroImage && (
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover"
+            priority
+            data-ai-hint={heroImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-primary/70" />
+        <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Global Presence</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-foreground/80">
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
             First Love Church is present in {totalCountries} countries with over {totalLocations} locations worldwide, spreading the message of Jesus Christ and making disciples of all nations.
           </p>
         </Animate>

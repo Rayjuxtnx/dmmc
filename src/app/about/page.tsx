@@ -22,11 +22,23 @@ const beliefs = [
 
 export default function AboutPage() {
   const aboutImage = PlaceHolderImages.find(img => img.id === 'about-us-leadership');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'about-hero');
 
   return (
     <div>
-      <section className="bg-primary text-primary-foreground py-20 text-center">
-        <Animate className="container mx-auto px-4">
+      <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
+        {heroImage && (
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover"
+            priority
+            data-ai-hint={heroImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-primary/70" />
+        <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">About DMMC</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Get to know our story, our mission, and the people who lead our church family.</p>
         </Animate>
