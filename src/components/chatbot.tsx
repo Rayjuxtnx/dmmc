@@ -416,63 +416,79 @@ export function Chatbot() {
     if (!text || isThinking) return;
 
     const userMessage: Message = {
-        id: Date.now(),
-        node: { id: `user-${Date.now()}`, sender: 'user', content: text },
+      id: Date.now(),
+      node: { id: `user-${Date.now()}`, sender: 'user', content: text },
     };
-    
     setHistory(prev => [...prev, userMessage]);
     setInputValue('');
-    
+
     const lastBotNodeId = [...history].reverse().find(m => m.node.sender === 'bot')?.node.id;
 
     if (lastBotNodeId === 'ask') {
-        setPendingQuery(text);
-        const askNode: Message = {
-            id: Date.now() + 1,
-            node: { ...conversationTree.askDeepSearch, id: 'askDeepSearch' }
+      setIsThinking(true);
+      try {
+        const aiResponse = await generalChat(text, 'deep');
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          node: {
+            id: `ai-${Date.now()}`,
+            sender: 'bot',
+            content: <AiMarkdownResponse text={aiResponse} />,
+            options: [{ text: '↩️ Back to modes', nextNode: 'start' }],
+          },
         };
-        setHistory(prev => [...prev, askNode]);
-        return;
+        setHistory(prev => [...prev, botMessage]);
+      } catch (error) {
+        console.error("Error calling AI flow:", error);
+        const errorMessage: Message = {
+          id: Date.now() + 2,
+          node: { ...conversationTree.unrecognized, id: 'unrecognized' },
+        };
+        setHistory(prev => [...prev, errorMessage]);
+      } finally {
+        setIsThinking(false);
+      }
+      return;
     }
 
     const lowerCaseInput = text.toLowerCase();
     let nextNodeId = 'unrecognized';
 
     if (lowerCaseInput.includes('hello') || lowerCaseInput.includes('hi')) {
-        nextNodeId = 'start';
+      nextNodeId = 'start';
     } else if (lowerCaseInput.includes('about') || (lowerCaseInput.includes('church') && !lowerCaseInput.includes('leader'))) {
-        nextNodeId = 'about';
+      nextNodeId = 'about';
     } else if (lowerCaseInput.includes('event')) {
-        nextNodeId = 'events';
+      nextNodeId = 'events';
     } else if (lowerCaseInput.includes('involved') || lowerCaseInput.includes('join')) {
-        nextNodeId = 'getInvolved';
+      nextNodeId = 'getInvolved';
     } else if (lowerCaseInput.includes('leader') || lowerCaseInput.includes('bishop') || lowerCaseInput.includes('dag')) {
-        nextNodeId = 'ourLeaders';
+      nextNodeId = 'ourLeaders';
     } else if (lowerCaseInput.includes('jesus') || lowerCaseInput.includes('salvation') || lowerCaseInput.includes('pray')) {
-        nextNodeId = 'salvation';
+      nextNodeId = 'salvation';
     } else if (lowerCaseInput.includes('sing') || lowerCaseInput.includes('choir')) {
-        nextNodeId = 'getInvolved_singing';
+      nextNodeId = 'getInvolved_singing';
     } else if (lowerCaseInput.includes('danc')) {
-        nextNodeId = 'getInvolved_dancing';
+      nextNodeId = 'getInvolved_dancing';
     } else if (lowerCaseInput.includes('media') || lowerCaseInput.includes('creative') || lowerCaseInput.includes('poster')) {
-        nextNodeId = 'getInvolved_media';
+      nextNodeId = 'getInvolved_media';
     } else if (lowerCaseInput.includes('usher') || lowerCaseInput.includes('greet')) {
-        nextNodeId = 'getInvolved_ushers';
+      nextNodeId = 'getInvolved_ushers';
     }
 
     if (nextNodeId !== 'unrecognized') {
-        const botResponse: Message = {
-            id: Date.now() + 1,
-            node: { ...conversationTree[nextNodeId], id: nextNodeId }
-        };
-        setHistory(prev => [...prev, botResponse]);
+      const botResponse: Message = {
+        id: Date.now() + 1,
+        node: { ...conversationTree[nextNodeId], id: nextNodeId },
+      };
+      setHistory(prev => [...prev, botResponse]);
     } else {
-        setPendingQuery(text);
-        const askNode: Message = {
-            id: Date.now() + 1,
-            node: { ...conversationTree.askDeepSearch, id: 'askDeepSearch' }
-        };
-        setHistory(prev => [...prev, askNode]);
+      setPendingQuery(text);
+      const askNode: Message = {
+        id: Date.now() + 1,
+        node: { ...conversationTree.askDeepSearch, id: 'askDeepSearch' },
+      };
+      setHistory(prev => [...prev, askNode]);
     }
   };
 
@@ -609,5 +625,3 @@ export function Chatbot() {
     </>
   );
 }
-
-    
