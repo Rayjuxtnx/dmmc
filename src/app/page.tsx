@@ -41,7 +41,7 @@ export default function Home() {
       <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full z-[-1]">
           <iframe
-            src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1&mute=1&loop=1&playlist=LXb3EKWsInQ&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&autohide=1"
+            src="https://www.youtube.com/embed/L58jjTB_4to?autoplay=1&mute=1&loop=1&playlist=L58jjTB_4to&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&autohide=1"
             frameBorder="0"
             allow="autoplay; encrypted-media"
             className="absolute top-1/2 left-1/2 w-screen min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
