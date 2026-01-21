@@ -249,6 +249,15 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     ),
     options: [{ text: "I'm ready to pray now", nextNode: 'salvation_prayer' }, { text: 'Ask another question', nextNode: 'start' }],
   },
+  askDeepSearch: {
+    sender: 'bot',
+    content: "That's an interesting question! I can do a quick search or a more detailed 'deep search' for you. A deep search will give you a longer, more story-like answer. Which would you prefer? 🤔",
+    options: [
+      { text: 'Just the basics, please', nextNode: 'basicSearch' },
+      { text: 'Give me the deep search!', nextNode: 'deepSearch' },
+      { text: 'Back to start', nextNode: 'start' },
+    ],
+  },
   unrecognized: {
     sender: 'bot',
     content: "I'm sorry, I'm still learning and didn't quite understand your request. Could you perhaps rephrase it? Or, you can choose from one of the main topics below, and I'll do my best to guide you.",
@@ -275,6 +284,7 @@ export function Chatbot() {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isThinking, setIsThinking] = useState(false);
+  const [pendingQuery, setPendingQuery] = useState<string | null>(null);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -292,18 +302,56 @@ export function Chatbot() {
     }
   }, [isOpen]);
 
-  const handleOptionSelect = (text: string, nextNodeId: string) => {
+  const handleOptionSelect = async (text: string, nextNodeId: string) => {
     const userMessage: Message = {
         id: Date.now() + 1,
         node: { id: `user-${Date.now()}`, sender: 'user', content: text },
     };
-
-    const botResponse: Message = {
-        id: Date.now() + 2,
-        node: { ...conversationTree[nextNodeId], id: nextNodeId }
-    };
     
-    setHistory(prev => [...prev, userMessage, botResponse]);
+    setHistory(prev => [...prev, userMessage]);
+
+    if (nextNodeId === 'basicSearch' || nextNodeId === 'deepSearch') {
+        if (!pendingQuery) {
+            const errorMessage: Message = { id: Date.now() + 2, node: { ...conversationTree.unrecognized, id: 'unrecognized' } };
+            setHistory(prev => [...prev, errorMessage]);
+            return;
+        }
+
+        setIsThinking(true);
+        try {
+            const searchType = nextNodeId === 'deepSearch' ? 'deep' : 'basic';
+            const aiResponse = await generalChat(pendingQuery, searchType);
+
+            const botMessage: Message = {
+                id: Date.now() + 2,
+                node: {
+                    id: `ai-${Date.now()}`,
+                    sender: 'bot',
+                    content: aiResponse,
+                    options: [
+                        { text: 'Ask another question', nextNode: 'start' }
+                    ]
+                }
+            };
+            setHistory(prev => [...prev, botMessage]);
+        } catch (error) {
+            console.error("Error calling AI flow:", error);
+            const errorMessage: Message = {
+                id: Date.now() + 2,
+                node: { ...conversationTree.unrecognized, id: 'unrecognized' }
+            };
+            setHistory(prev => [...prev, errorMessage]);
+        } finally {
+            setIsThinking(false);
+            setPendingQuery(null);
+        }
+    } else {
+        const botResponse: Message = {
+            id: Date.now() + 2,
+            node: { ...conversationTree[nextNodeId], id: nextNodeId }
+        };
+        setHistory(prev => [...prev, botResponse]);
+    }
   };
 
   const handleTextInputSubmit = async (e: React.FormEvent) => {
@@ -351,31 +399,12 @@ export function Chatbot() {
         };
         setHistory(prev => [...prev, botResponse]);
     } else {
-        setIsThinking(true);
-        try {
-            const aiResponse = await generalChat(text);
-            const botMessage: Message = {
-                id: Date.now() + 1,
-                node: {
-                    id: `ai-${Date.now()}`,
-                    sender: 'bot',
-                    content: aiResponse,
-                    options: [
-                        { text: 'Ask another question', nextNode: 'start' }
-                    ]
-                }
-            };
-            setHistory(prev => [...prev, botMessage]);
-        } catch (error) {
-            console.error("Error calling AI flow:", error);
-            const errorMessage: Message = {
-                id: Date.now() + 1,
-                node: { ...conversationTree.unrecognized, id: 'unrecognized' }
-            };
-            setHistory(prev => [...prev, errorMessage]);
-        } finally {
-            setIsThinking(false);
-        }
+        setPendingQuery(text);
+        const askNode: Message = {
+            id: Date.now() + 1,
+            node: { ...conversationTree.askDeepSearch, id: 'askDeepSearch' }
+        };
+        setHistory(prev => [...prev, askNode]);
     }
   };
 
