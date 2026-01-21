@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/events", label: "Events" },
   { href: "/resources", label: "Resources" },
   { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
+  { href: "/get-involved", label: "Get Involved" },
   { href: "/connect", label: "Connect" },
   { href: "/give", label: "Give" },
 ];

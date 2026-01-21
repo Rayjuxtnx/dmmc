@@ -65,6 +65,96 @@
       "description": "A dark equirectangular projection of the world map.",
       "imageUrl": "https://images.unsplash.com/photo-1607503323565-df0558e85843?q=80&w=2000&auto=format&fit=crop",
       "imageHint": "world map"
+    },
+    {
+      "id": "ministry-dance-1",
+      "description": "Dancers in motion during a performance.",
+      "imageUrl": "https://images.unsplash.com/photo-1718908721930-31120bc1beb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYW5jZXJzJTIwcGVyZm9ybWluZ3xlbnwwfHx8fDE3NjkwMjYzNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dancers performing"
+    },
+    {
+      "id": "ministry-dance-2",
+      "description": "A group of dancers posing.",
+      "imageUrl": "https://images.unsplash.com/photo-1746983062953-74c19d0dfc5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkYW5jZSUyMGdyb3VwfGVufDB8fHx8MTc2ODk1NDA2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dance group"
+    },
+    {
+      "id": "ministry-dance-3",
+      "description": "A solo dancer in a dynamic pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1758526387735-9b4b0d6f120a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c29sbyUyMGRhbmNlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "solo dancer"
+    },
+    {
+      "id": "ministry-choir-1",
+      "description": "A choir singing with passion.",
+      "imageUrl": "https://images.unsplash.com/photo-1709054754811-6c8d2d1ab015?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaG9pciUyMHNpbmdpbmd8ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "choir singing"
+    },
+    {
+      "id": "ministry-choir-2",
+      "description": "Portrait of a choir member singing.",
+      "imageUrl": "https://images.unsplash.com/photo-1745852738000-f6b7e53f9662?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaG9pciUyMHNpbmdlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "choir singer"
+    },
+    {
+      "id": "ministry-choir-3",
+      "description": "The choir during a service.",
+      "imageUrl": "https://images.unsplash.com/photo-1548795835-264877304664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaHVyY2glMjBjaG9pcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "church choir"
+    },
+    {
+      "id": "ministry-media-1",
+      "description": "A person operating a camera during a service.",
+      "imageUrl": "https://images.unsplash.com/photo-1646816221077-964aec055534?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYW1lcmElMjBvcGVyYXRvcnxlbnwwfHx8fDE3Njg5NjUwMjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera operator"
+    },
+    {
+      "id": "ministry-media-2",
+      "description": "A soundboard with hands adjusting levels.",
+      "imageUrl": "https://images.unsplash.com/photo-1588650033940-30ebeffe46ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb3VuZCUyMGVuZ2luZWVyfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sound engineer"
+    },
+    {
+      "id": "ministry-media-3",
+      "description": "A team managing a live stream production.",
+      "imageUrl": "https://images.unsplash.com/photo-1594394489098-74ac04c0fc2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsaXZlJTIwc3RyZWFtfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "live stream"
+    },
+    {
+      "id": "ministry-usher-1",
+      "description": "A friendly usher greeting at the door.",
+      "imageUrl": "https://images.unsplash.com/photo-1599355576964-069f01306344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaHVyY2glMjB1c2hlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "church usher"
+    },
+    {
+      "id": "ministry-usher-2",
+      "description": "An usher handing out a program.",
+      "imageUrl": "https://picsum.photos/seed/U2/400/400",
+      "imageHint": "usher program"
+    },
+    {
+      "id": "ministry-usher-3",
+      "description": "A team of ushers smiling together.",
+      "imageUrl": "https://images.unsplash.com/photo-1666558889375-798fa96b559a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1c2hlciUyMHRlYW18ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "usher team"
+    },
+    {
+      "id": "ministry-design-1",
+      "description": "A person designing a graphic on a computer.",
+      "imageUrl": "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduZXJ8ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "graphic designer"
+    },
+    {
+      "id": "ministry-design-2",
+      "description": "A collection of printed church flyers.",
+      "imageUrl": "https://images.unsplash.com/photo-1715079946886-d2aea1333a1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjaHVyY2glMjBmbHllcnN8ZW58MHx8fHwxNzY5MDI2MzQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "church flyers"
+    },
+    {
+      "id": "ministry-design-3",
+      "description": "A person sketching ideas in a notebook.",
+      "imageUrl": "https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkZXNpZ24lMjBza2V0Y2h8ZW58MHx8fHwxNzY4OTE4NjE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "design sketch"
     }
   ]
 }

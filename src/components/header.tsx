@@ -17,6 +17,7 @@ const navLinks = [
   { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
   { href: "/global", label: "Global" },
   { href: "/stories", label: "Our Stories" },
+  { href: "/get-involved", label: "Get Involved" },
   { href: "/connect", label: "Connect" },
 ];
 
