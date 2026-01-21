@@ -26,8 +26,9 @@ const formSchema = z.object({
     required_error: "Please select a frequency.",
   }),
   name: z.string().min(2, "Please enter your full name."),
-  email: z.string().email("Please enter a valid email."),
-  phoneNumber: z.string().optional(),
+  phoneNumber: z.string().min(10, "Please enter a valid phone number."),
+  location: z.string().min(2, "Please enter your location."),
+  email: z.string().email("Please enter a valid email address.").optional().or(z.literal('')),
 })
 
 export default function GivePage() {
@@ -37,16 +38,20 @@ export default function GivePage() {
       amount: 50,
       frequency: "one-time",
       name: "",
-      email: "",
       phoneNumber: "",
+      location: "",
+      email: "",
     },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
+    const description = values.email
+      ? `Your ${values.frequency} donation of $${values.amount} has been processed. A receipt has been sent to ${values.email}.`
+      : `Your ${values.frequency} donation of $${values.amount} has been processed.`
     toast({
       title: "Thank You For Your Gift!",
-      description: `Your ${values.frequency} donation of $${values.amount} has been processed. A receipt has been sent to ${values.email}.`,
+      description: description,
     })
     form.reset()
   }
@@ -147,14 +152,27 @@ export default function GivePage() {
                               </FormItem>
                             )}
                           />
-                          <FormField
+                           <FormField
                             control={form.control}
-                            name="email"
+                            name="phoneNumber"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Email for Receipt</FormLabel>
+                                <FormLabel>Phone Number</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="you@example.com" {...field} />
+                                  <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                           <FormField
+                            control={form.control}
+                            name="location"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>City / Country</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Nairobi, Kenya" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -162,12 +180,12 @@ export default function GivePage() {
                           />
                           <FormField
                             control={form.control}
-                            name="phoneNumber"
+                            name="email"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Phone Number (Optional)</FormLabel>
+                                <FormLabel>Email (Optional, for receipt)</FormLabel>
                                 <FormControl>
-                                  <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                                  <Input placeholder="you@example.com" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>

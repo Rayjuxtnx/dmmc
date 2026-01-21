@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -25,8 +24,9 @@ import { Animate } from "@/components/ui/animate";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Please enter your full name."),
-  email: z.string().email("Please enter a valid email address."),
-  phoneNumber: z.string().optional(),
+  phoneNumber: z.string().min(10, "Please enter a valid phone number."),
+  location: z.string().min(2, "Please enter your location."),
+  email: z.string().email("Please enter a valid email address.").optional().or(z.literal('')),
   hasPrayed: z.literal(true, {
     errorMap: () => ({ message: "Please check the box to confirm you've prayed." }),
   }),
@@ -40,8 +40,9 @@ export default function JesusPage() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
-      email: "",
       phoneNumber: "",
+      location: "",
+      email: "",
       hasPrayed: false,
     },
   });
@@ -134,14 +135,27 @@ export default function JesusPage() {
                         </FormItem>
                       )}
                     />
-                     <FormField
+                    <FormField
                       control={form.control}
-                      name="email"
+                      name="phoneNumber"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel>Phone Number</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="you@example.com" {...field} />
+                            <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="location"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>City / Country</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Nairobi, Kenya" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -149,12 +163,12 @@ export default function JesusPage() {
                     />
                      <FormField
                       control={form.control}
-                      name="phoneNumber"
+                      name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number (Optional)</FormLabel>
+                          <FormLabel>Email (Optional)</FormLabel>
                           <FormControl>
-                            <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                            <Input type="email" placeholder="you@example.com" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

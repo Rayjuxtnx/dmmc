@@ -116,8 +116,9 @@ const ministries = [
 
 const signupSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  phoneNumber: z.string().optional(),
+  phoneNumber: z.string().min(10, "Please enter a valid phone number."),
+  location: z.string().min(2, "Please enter your location."),
+  email: z.string().email("Please enter a valid email address.").optional().or(z.literal('')),
   ministry: z.string(),
 });
 
@@ -129,8 +130,9 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
     resolver: zodResolver(signupSchema),
     defaultValues: {
       fullName: '',
-      email: '',
       phoneNumber: '',
+      location: '',
+      email: '',
       ministry: ministryName,
     },
   });
@@ -198,12 +200,12 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="phoneNumber"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email Address</FormLabel>
+              <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="you@example.com" {...field} />
+                <Input type="tel" placeholder="(123) 456-7890" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -211,12 +213,25 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
         />
         <FormField
           control={form.control}
-          name="phoneNumber"
+          name="location"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone Number (Optional)</FormLabel>
+              <FormLabel>City / Country</FormLabel>
               <FormControl>
-                <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                <Input placeholder="Nairobi, Kenya" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email Address (Optional)</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="you@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

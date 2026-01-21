@@ -17,32 +17,55 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, HeartHandshake } from "lucide-react"
 import { Animate } from "@/components/ui/animate"
 
-const formSchema = z.object({
+const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  phoneNumber: z.string().optional(),
+  phoneNumber: z.string().min(10, "Please enter a valid phone number."),
+  location: z.string().min(2, "Please enter your location."),
+  email: z.string().email("Please enter a valid email address.").optional().or(z.literal('')),
   subject: z.string().min(5, "Subject must be at least 5 characters."),
   message: z.string().min(10, "Message must be at least 10 characters."),
 })
 
+const prayerFormSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters."),
+    phoneNumber: z.string().min(10, "Please enter a valid phone number."),
+    location: z.string().min(2, "Please enter your location."),
+    email: z.string().email("Please enter a valid email address.").optional().or(z.literal('')),
+    prayerRequest: z.string().min(10, "Prayer request must be at least 10 characters."),
+});
+
+const formspreeEndpoint = "https://formspree.io/f/xaqqkgvr";
+
 export default function ConnectPage() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const contactForm = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
-      email: "",
       phoneNumber: "",
+      location: "",
+      email: "",
       subject: "",
       message: "",
     },
   })
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      const response = await fetch("https://formspree.io/f/xaqqkgvr", {
+  const prayerForm = useForm<z.infer<typeof prayerFormSchema>>({
+    resolver: zodResolver(prayerFormSchema),
+    defaultValues: {
+      name: "",
+      phoneNumber: "",
+      location: "",
+      email: "",
+      prayerRequest: "",
+    },
+  });
+
+  async function handleFormSubmit(values: any, form: any, successMessage: string) {
+     try {
+      const response = await fetch(formspreeEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +76,7 @@ export default function ConnectPage() {
       if (response.ok) {
         toast({
           title: "Message Sent!",
-          description: "Thank you for reaching out. We'll get back to you soon.",
+          description: successMessage,
         });
         form.reset();
       } else {
@@ -88,10 +111,10 @@ export default function ConnectPage() {
                   <CardTitle className="font-headline text-2xl">Send us a Message</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <Form {...contactForm}>
+                    <form onSubmit={contactForm.handleSubmit((values) => handleFormSubmit(values, contactForm, "Thank you for reaching out. We'll get back to you soon."))} className="space-y-6">
                       <FormField
-                        control={form.control}
+                        control={contactForm.control}
                         name="name"
                         render={({ field }) => (
                           <FormItem>
@@ -104,11 +127,37 @@ export default function ConnectPage() {
                         )}
                       />
                       <FormField
-                        control={form.control}
+                        control={contactForm.control}
+                        name="phoneNumber"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Phone Number</FormLabel>
+                                <FormControl>
+                                <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                       />
+                       <FormField
+                        control={contactForm.control}
+                        name="location"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>City / Country</FormLabel>
+                                <FormControl>
+                                <Input placeholder="Nairobi, Kenya" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                       />
+                      <FormField
+                        control={contactForm.control}
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Email Address</FormLabel>
+                            <FormLabel>Email Address (Optional)</FormLabel>
                             <FormControl>
                               <Input placeholder="you@example.com" {...field} />
                             </FormControl>
@@ -117,20 +166,7 @@ export default function ConnectPage() {
                         )}
                       />
                       <FormField
-                        control={form.control}
-                        name="phoneNumber"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Phone Number (Optional)</FormLabel>
-                                <FormControl>
-                                <Input type="tel" placeholder="(123) 456-7890" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                        />
-                      <FormField
-                        control={form.control}
+                        control={contactForm.control}
                         name="subject"
                         render={({ field }) => (
                           <FormItem>
@@ -143,7 +179,7 @@ export default function ConnectPage() {
                         )}
                       />
                       <FormField
-                        control={form.control}
+                        control={contactForm.control}
                         name="message"
                         render={({ field }) => (
                           <FormItem>
@@ -208,6 +244,92 @@ export default function ConnectPage() {
               </div>
             </Animate>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container mx-auto px-4 max-w-2xl">
+            <Animate>
+                <Card>
+                    <CardHeader className="text-center">
+                        <HeartHandshake className="mx-auto h-12 w-12 text-primary" />
+                        <CardTitle className="font-headline text-3xl">Request Prayer</CardTitle>
+                        <p className="text-muted-foreground pt-2">Let us know how we can pray for you. All requests are kept confidential.</p>
+                    </CardHeader>
+                    <CardContent>
+                        <Form {...prayerForm}>
+                            <form onSubmit={prayerForm.handleSubmit((values) => handleFormSubmit(values, prayerForm, "Your prayer request has been received. We are praying for you."))} className="space-y-6">
+                                <FormField
+                                    control={prayerForm.control}
+                                    name="name"
+                                    render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Full Name</FormLabel>
+                                        <FormControl>
+                                        <Input placeholder="John Doe" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={prayerForm.control}
+                                    name="phoneNumber"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Phone Number</FormLabel>
+                                            <FormControl>
+                                            <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={prayerForm.control}
+                                    name="location"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>City / Country</FormLabel>
+                                            <FormControl>
+                                            <Input placeholder="Nairobi, Kenya" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={prayerForm.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Email Address (Optional)</FormLabel>
+                                        <FormControl>
+                                        <Input placeholder="you@example.com" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={prayerForm.control}
+                                    name="prayerRequest"
+                                    render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Prayer Request</FormLabel>
+                                        <FormControl>
+                                        <Textarea placeholder="Please pray for..." className="min-h-[150px]" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                    )}
+                                />
+                                <Button type="submit" className="w-full">Submit Request</Button>
+                            </form>
+                        </Form>
+                    </CardContent>
+                </Card>
+            </Animate>
         </div>
       </section>
     </div>
