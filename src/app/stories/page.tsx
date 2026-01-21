@@ -1,152 +1,63 @@
-"use client"
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/hooks/use-toast"
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Animate } from "@/components/ui/animate";
-
-const testimonials = [
-  {
-    name: "Sarah L.",
-    story: "Finding DMMC was like coming home. The community is so welcoming, and the teachings have truly deepened my faith. I've found purpose and lifelong friends here.",
-    image: PlaceHolderImages.find(img => img.id === 'testimonial-1'),
-  },
-  {
-    name: "Michael B.",
-    story: "I was in a dark place before I came to this church. Through the support of the pastoral team and my small group, I've experienced incredible healing and restoration.",
-    image: PlaceHolderImages.find(img => img.id === 'testimonial-2'),
-  },
-   {
-    name: "The Chen Family",
-    story: "As a family, we've grown so much closer to God and to each other through DMMC. The kids' ministry is fantastic, and we love serving together as a family.",
-    image: { imageUrl: "https://picsum.photos/seed/T3/400/400", description: "A happy family", imageHint: "family portrait"}
-  },
-];
-
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  story: z.string().min(20, "Your story must be at least 20 characters long."),
-})
+import { ArrowRight } from 'lucide-react';
 
 export default function StoriesPage() {
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: { name: "", email: "", story: "" },
-    })
-
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
-        toast({
-        title: "Story Submitted!",
-        description: "Thank you for sharing your story with us. We'll review it shortly.",
-        })
-        form.reset()
-    }
+  const dagImage = PlaceHolderImages.find(img => img.id === 'dag-heward-mills-portrait');
 
   return (
     <div>
       <section className="bg-primary text-primary-foreground py-20 text-center">
         <Animate className="container mx-auto px-4">
-          <h1 className="font-headline text-4xl md:text-6xl font-bold">Stories of Transformation</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Read about the incredible things God is doing in the lives of people at DMMC.</p>
+          <h1 className="font-headline text-4xl md:text-6xl font-bold">The Founder's Story</h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Read about the incredible journey of our founder, Dag Heward-Mills.</p>
         </Animate>
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-            {testimonials.map((testimonial, index) => (
-              <Animate key={index} className="break-inside-avoid" transition={{ delay: index * 0.1 }}>
-                <Card>
-                  <CardHeader className="flex-row items-center gap-4">
-                    {testimonial.image && (
-                      <Avatar className="h-16 w-16">
-                          <Image src={testimonial.image.imageUrl} alt={testimonial.name} width={64} height={64} className="object-cover" data-ai-hint={testimonial.image.imageHint}/>
-                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                    )}
-                    <h3 className="font-headline text-xl font-semibold">{testimonial.name}</h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground/80">"{testimonial.story}"</p>
-                  </CardContent>
-                </Card>
-              </Animate>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4 max-w-2xl">
-            <Animate className="text-center">
-                <MessageCircle className="mx-auto h-12 w-12 text-primary" />
-                <h2 className="mt-4 font-headline text-3xl md:text-4xl font-bold">Share Your Story</h2>
-                <p className="mt-4 text-lg text-foreground/80">
-                    Has God worked in your life through this community? We'd love to hear about it. Your story could be an encouragement to others.
-                </p>
-            </Animate>
+        <div className="container mx-auto px-4 max-w-4xl">
             <Animate>
-              <Card className="mt-12">
-                  <CardContent className="pt-6">
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Your Name</FormLabel>
-                            <FormControl><Input placeholder="John D." {...field} /></FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email Address (kept private)</FormLabel>
-                            <FormControl><Input placeholder="you@example.com" {...field} /></FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="story"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Your Story</FormLabel>
-                            <FormControl><Textarea placeholder="Tell us what God has done..." className="min-h-[150px]" {...field} /></FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <Button type="submit" className="w-full">Submit My Story</Button>
-                    </form>
-                  </Form>
-                  </CardContent>
-              </Card>
+                <Card className="overflow-hidden">
+                    <div className="md:flex md:gap-8">
+                        <div className="md:w-1/3 p-6 flex items-center justify-center">
+                            {dagImage && (
+                                <div className="relative w-64 h-64">
+                                    <Image
+                                        src={dagImage.imageUrl}
+                                        alt="Dag Heward-Mills"
+                                        fill
+                                        className="rounded-full shadow-lg object-cover"
+                                        data-ai-hint={dagImage.imageHint}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div className="md:w-2/3">
+                            <CardHeader>
+                                <CardTitle className="font-headline text-3xl">Dag Heward-Mills</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4 text-foreground/80">
+                                <p>Dag Heward-Mills is a mega church pastor, and the founder of the United Denominations Originating from the Lighthouse Group of Churches. Spanning ten denominations, he oversees over 3000 churches on every continent of the globe. Amongst these denominations is the First Love Church.</p>
+                                <p>He is also a prolific, best-selling author, with the best selling Makarios collection of 60 books. His writings have been translated into over 50 languages all over the world.</p>
+                                <p>Dag Heward-Mills' Healing Jesus Campaigns holds large evangelistic crusades all over Africa and are among the largest evangelistic efforts on the continent.</p>
+                                <p>Dag can be heard or watched ministering to millions on various television, radio and internet platforms.</p>
+                                <div className="pt-4">
+                                    <p className="font-semibold text-foreground">Click below to find out more about our leader!</p>
+                                    <Button asChild className="mt-2">
+                                        <Link href="https://daghewardmills.org/" target="_blank" rel="noopener noreferrer">
+                                            Visit Website <ArrowRight className="ml-2 h-4 w-4" />
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </div>
+                    </div>
+                </Card>
             </Animate>
         </div>
       </section>

@@ -155,6 +155,12 @@
       "description": "A person sketching ideas in a notebook.",
       "imageUrl": "https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkZXNpZ24lMjBza2V0Y2h8ZW58MHx8fHwxNzY4OTE4NjE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "design sketch"
+    },
+    {
+      "id": "dag-heward-mills-portrait",
+      "description": "Portrait of Dag Heward-Mills.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjkwMDgzMTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
     }
   ]
 }
