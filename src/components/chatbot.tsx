@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useRef, useEffect, Fragment } from 'react';
@@ -78,8 +79,8 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>We are a diverse family united by our love for Jesus! ❤️ We are passionate about sharing His message of hope and building a community where everyone feels they belong.</p>
-            <p className="mt-2">Would you like to know more about our mission and vision?</p>
+            <p>That's a great question! At DMMC, we see ourselves as a diverse family, all brought together by our shared love for Jesus Christ ❤️. Our main goal is to share His message of hope and create a welcoming community where everyone feels they truly belong.</p>
+            <p className="mt-2">Would you like me to tell you more about our specific mission and vision?</p>
         </>
     ),
     options: [{ text: 'Yes, tell me more!', nextNode: 'aboutMore' }, { text: 'Back to topics', nextNode: 'start' }],
@@ -88,7 +89,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
       <>
-        <p>Our mission is to lead people into a growing relationship with Jesus Christ. You can read all about our story, our beliefs, and meet the team on our 'Who We Are' page!</p>
+        <p>Absolutely! Our core mission is to help people grow in their relationship with Jesus Christ. We do this by creating environments where people feel encouraged and equipped. For a deeper dive into our story, our core beliefs, and to meet the wonderful people on our team, I recommend visiting our 'Who We Are' page. It has all the details!</p>
         <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/about">Learn More About Us</Link></Button>
       </>
     ),
@@ -100,11 +101,11 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
       <>
-        <p>We've always got something exciting happening! Here's a peek at what's coming up:</p>
+        <p>There's always something wonderful happening at DMMC! We love getting together as a community. Here are a few of our regular events to give you an idea:</p>
         <ul className="mt-2 list-disc list-inside space-y-1">
           {events.map(event => <li key={event.title}>{event.title} - {event.description}</li>)}
         </ul>
-        <p className="mt-2">For dates, times, and more details, check out our full events calendar!</p>
+        <p className="mt-2">This is just a small sample, of course! For all the details, including dates, times, and locations for these and other special events, you'll want to check out our full events page.</p>
         <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/events">View All Events</Link></Button>
       </>
     ),
@@ -126,11 +127,11 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>Our choirs are the heart of our worship! We have several amazing groups:</p>
+            <p>That's wonderful to hear! Music is a huge part of our worship experience. We are blessed with several amazing choirs, each with its own unique sound and style:</p>
             <ul className="mt-2 list-disc list-inside space-y-1">
                 {choirs.map(choir => <li key={choir}>{choir}</li>)}
             </ul>
-            <p className="mt-2">Each has a unique style. Find out more and how to join on our ministries page!</p>
+            <p className="mt-2">They all contribute so much to our services. You can learn more about each one and find out how to get involved by visiting our ministries page.</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Join a Ministry</Link></Button>
         </>
     ),
@@ -140,7 +141,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>Our 'Dancing Stars' ministry expresses worship through movement! 🕺 They minister during services and special events. If you love to dance, this is the place for you!</p>
+            <p>Fantastic! Our 'Dancing Stars' ministry is a vibrant group that expresses worship through the beautiful art of movement 🕺. They minister during services and special events, bringing so much energy and passion. If you have a heart for dance, it's a wonderful place to use your gift!</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Learn about Dancing Stars</Link></Button>
         </>
     ),
@@ -150,7 +151,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>The Media and 'Air Posters' (Creatives) teams are vital! 💻 From camera operation and sound engineering to graphic design for events, they make our services accessible and beautiful.</p>
+            <p>Excellent choice! The Media team and our 'Air Posters' (the creatives) are absolutely vital to our mission 💻. They handle everything from camera operation and sound engineering to creating beautiful graphics for our events. They're the ones who make sure our services are accessible and look great, both in person and online.</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Join the Creative Team</Link></Button>
         </>
     ),
@@ -160,7 +161,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>Our Ushers are the first friendly face visitors see! 😊 They create a welcoming atmosphere and assist with the service flow. It's a crucial and rewarding role.</p>
+            <p>That's such an important ministry! Our Ushers are often the very first friendly face that visitors and members see when they arrive 😊. They do an amazing job of creating a warm, welcoming atmosphere and helping services run smoothly. It's a truly crucial and rewarding role in our church family.</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Become an Usher</Link></Button>
         </>
     ),
@@ -181,7 +182,8 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>{leaders.dag.summary}</p>
+            <p>Of course! Here's a little about our founder, {leaders.dag.name}:</p>
+            <p className="mt-2">{leaders.dag.summary}</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href={leaders.dag.link}>Read His Full Story</Link></Button>
         </>
     ),
@@ -191,7 +193,8 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>{leaders.commey.summary}</p>
+            <p>Certainly! Here is some information about {leaders.commey.name}:</p>
+            <p className="mt-2">{leaders.commey.summary}</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href={leaders.commey.link}>Read His Full Story</Link></Button>
         </>
     ),
@@ -201,7 +204,8 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>{leaders.frantz.summary}</p>
+            <p>I'd be happy to tell you about {leaders.frantz.name}:</p>
+            <p className="mt-2">{leaders.frantz.summary}</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href={leaders.frantz.link}>Read His Full Story</Link></Button>
         </>
     ),
@@ -237,8 +241,8 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     sender: 'bot',
     content: (
         <>
-            <p>It's great that you're seeking. The Bible says in Romans 3:23 that "all have sinned and fall short of the glory of God," but God's love is so great He made a way for us to be with Him forever through Jesus.</p>
-            <p className="mt-2">We have more information about this incredible gift on our website.</p>
+            <p>I'm so glad you're asking. It's the most important question anyone can explore. The Bible explains that we've all made mistakes, or 'sinned,' which separates us from God (Romans 3:23). But the amazing news is that God's love is so immense, He provided a way for us to be reconnected with Him forever through His son, Jesus.</p>
+            <p className="mt-2">We've put together some more information about this incredible gift on our website, which I think you'll find helpful.</p>
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/jesus">Learn about salvation</Link></Button>
         </>
     ),
@@ -246,7 +250,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
   },
   unrecognized: {
     sender: 'bot',
-    content: "I'm sorry, I didn't quite understand that. How can I help you? You can choose from the topics below.",
+    content: "I'm sorry, I'm still learning and didn't quite understand your request. Could you perhaps rephrase it? Or, you can choose from one of the main topics below, and I'll do my best to guide you.",
     options: [
       { text: 'About the Church', nextNode: 'about' },
       { text: 'Upcoming Events', nextNode: 'events' },
@@ -384,7 +388,7 @@ export function Chatbot() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/50 backdrop-blur-md"
+            className="fixed inset-0 z-40 bg-background/50 backdrop-blur-xl"
             onClick={() => setIsOpen(false)}
           />
         )}
@@ -453,3 +457,5 @@ export function Chatbot() {
     </>
   );
 }
+
+    
