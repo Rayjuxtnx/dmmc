@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
@@ -127,75 +127,88 @@ export function Chatbot() {
   }
 
   return (
-    <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          size="lg"
-          className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground"
-          aria-label="Open Chat"
+    <>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-white/10 backdrop-blur-md"
+          />
+        )}
+      </AnimatePresence>
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            size="lg"
+            className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground"
+            aria-label="Open Chat"
+          >
+            <MessageSquare className="h-8 w-8" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          side="top"
+          align="end"
+          className="w-[calc(100vw-2rem)] sm:w-[400px] h-[500px] p-0 border-none shadow-2xl mr-4 mb-2"
+          onOpenAutoFocus={(e) => e.preventDefault()}
         >
-          <MessageSquare className="h-8 w-8" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent
-        side="top"
-        align="end"
-        className="w-[calc(100vw-2rem)] sm:w-[400px] h-[500px] p-0 border-none shadow-2xl mr-4 mb-2"
-        onOpenAutoFocus={(e) => e.preventDefault()}
-      >
-        <Card className="h-full flex flex-col">
-          <CardHeader className="flex flex-row items-center justify-between border-b">
-            <div>
-              <CardTitle className="font-headline">DMMC Assistant</CardTitle>
-              <CardDescription>Ask me anything about our church!</CardDescription>
-            </div>
-             <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="rounded-full">
-                <X className="h-4 w-4" />
-             </Button>
-          </CardHeader>
-          <CardContent className="flex-1 overflow-y-auto p-4 space-y-4" ref={scrollAreaRef}>
-            <AnimatePresence initial={false}>
-              {messages.map((message, index) => (
-                <motion.div
-                  key={message.id}
-                  layout
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className={`flex items-end gap-2 ${message.sender === 'user' ? 'justify-end' : ''}`}
-                >
-                  {message.sender === 'bot' && <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold font-headline text-sm">D</div>}
-                  <div
-                    className={`max-w-[80%] rounded-lg p-3 text-sm ${
-                      message.sender === 'bot'
-                        ? 'bg-secondary text-secondary-foreground'
-                        : 'bg-primary text-primary-foreground'
-                    }`}
-                  >
-                    {message.content}
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-            {showTopics && (
-                <motion.div
+          <Card className="h-full flex flex-col">
+            <CardHeader className="flex flex-row items-center justify-between border-b">
+              <div>
+                <CardTitle className="font-headline">DMMC Assistant</CardTitle>
+                <CardDescription>Ask me anything about our church!</CardDescription>
+              </div>
+               <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="rounded-full">
+                  <X className="h-4 w-4" />
+               </Button>
+            </CardHeader>
+            <CardContent className="flex-1 overflow-y-auto p-4 space-y-4" ref={scrollAreaRef}>
+              <AnimatePresence initial={false}>
+                {messages.map((message, index) => (
+                  <motion.div
+                    key={message.id}
                     layout
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: messages.length * 0.1 }}
-                >
-                    <TopicSelector onSelectTopic={handleSelectTopic} />
-                </motion.div>
-            )}
-          </CardContent>
-            {!showTopics && (
-                <CardFooter className="border-t pt-4">
-                    <Button onClick={handleRestart} className="w-full">Ask another question</Button>
-                </CardFooter>
-            )}
-        </Card>
-      </PopoverContent>
-    </Popover>
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className={`flex items-end gap-2 ${message.sender === 'user' ? 'justify-end' : ''}`}
+                  >
+                    {message.sender === 'bot' && <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold font-headline text-sm">D</div>}
+                    <div
+                      className={`max-w-[80%] rounded-lg p-3 text-sm ${
+                        message.sender === 'bot'
+                          ? 'bg-secondary text-secondary-foreground'
+                          : 'bg-primary text-primary-foreground'
+                      }`}
+                    >
+                      {message.content}
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+              {showTopics && (
+                  <motion.div
+                      layout
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: messages.length * 0.1 }}
+                  >
+                      <TopicSelector onSelectTopic={handleSelectTopic} />
+                  </motion.div>
+              )}
+            </CardContent>
+              {!showTopics && (
+                  <CardFooter className="border-t pt-4">
+                      <Button onClick={handleRestart} className="w-full">Ask another question</Button>
+                  </CardFooter>
+              )}
+          </Card>
+        </PopoverContent>
+      </Popover>
+    </>
   );
 }
