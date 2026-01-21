@@ -130,7 +130,7 @@ export default function GetInvolvedPage() {
                       ))}
                     </div>
                     <Button variant="outline" asChild>
-                        <Link href="#">See More Details</Link>
+                        <Link href="/connect">Be part of this</Link>
                     </Button>
                   </CardContent>
                 </Card>
