@@ -27,6 +27,7 @@ const formSchema = z.object({
   }),
   name: z.string().min(2, "Please enter your full name."),
   email: z.string().email("Please enter a valid email."),
+  phoneNumber: z.string().optional(),
 })
 
 export default function GivePage() {
@@ -35,6 +36,9 @@ export default function GivePage() {
     defaultValues: {
       amount: 50,
       frequency: "one-time",
+      name: "",
+      email: "",
+      phoneNumber: "",
     },
   })
 
@@ -151,6 +155,19 @@ export default function GivePage() {
                                 <FormLabel>Email for Receipt</FormLabel>
                                 <FormControl>
                                   <Input placeholder="you@example.com" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="phoneNumber"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Phone Number (Optional)</FormLabel>
+                                <FormControl>
+                                  <Input type="tel" placeholder="(123) 456-7890" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>

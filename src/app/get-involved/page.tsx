@@ -117,6 +117,7 @@ const ministries = [
 const signupSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
+  phoneNumber: z.string().optional(),
   ministry: z.string(),
 });
 
@@ -129,6 +130,7 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
     defaultValues: {
       fullName: '',
       email: '',
+      phoneNumber: '',
       ministry: ministryName,
     },
   });
@@ -202,6 +204,19 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
               <FormLabel>Email Address</FormLabel>
               <FormControl>
                 <Input type="email" placeholder="you@example.com" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phoneNumber"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone Number (Optional)</FormLabel>
+              <FormControl>
+                <Input type="tel" placeholder="(123) 456-7890" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

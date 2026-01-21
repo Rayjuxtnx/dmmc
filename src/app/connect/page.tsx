@@ -23,6 +23,7 @@ import { Animate } from "@/components/ui/animate"
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
+  phoneNumber: z.string().optional(),
   subject: z.string().min(5, "Subject must be at least 5 characters."),
   message: z.string().min(10, "Message must be at least 10 characters."),
 })
@@ -33,6 +34,7 @@ export default function ConnectPage() {
     defaultValues: {
       name: "",
       email: "",
+      phoneNumber: "",
       subject: "",
       message: "",
     },
@@ -114,6 +116,19 @@ export default function ConnectPage() {
                           </FormItem>
                         )}
                       />
+                      <FormField
+                        control={form.control}
+                        name="phoneNumber"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Phone Number (Optional)</FormLabel>
+                                <FormControl>
+                                <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
                       <FormField
                         control={form.control}
                         name="subject"
