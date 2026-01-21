@@ -3,6 +3,7 @@ import './globals.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from "@/components/ui/toaster"
+import { Chatbot } from '@/components/chatbot';
 
 export const metadata: Metadata = {
   title: 'DMMC',
@@ -29,6 +30,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <Toaster />
+        <Chatbot />
       </body>
     </html>
   );
