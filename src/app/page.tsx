@@ -87,7 +87,7 @@ export default function Home() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-headline text-xl">
                     <CalendarDays className="h-6 w-6 text-primary" />
-                    Our Events
+                    Announcements
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -127,7 +127,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 text-center">
           <Animate>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">Upcoming Events</h2>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold">Upcoming Announcements</h2>
             <p className="mt-2 text-lg max-w-2xl mx-auto text-foreground/80">Join us and get connected with the community.</p>
           </Animate>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
           <Animate>
             <Button asChild className="mt-12">
-              <Link href="/events">View All Events</Link>
+              <Link href="/events">View All Announcements</Link>
             </Button>
           </Animate>
         </div>

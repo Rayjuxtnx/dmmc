@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { Events, type Event } from '@/lib/events';
@@ -31,14 +32,14 @@ export default function EventsPage() {
         )}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
-          <h1 className="font-headline text-4xl md:text-6xl font-bold">Church Events</h1>
+          <h1 className="font-headline text-4xl md:text-6xl font-bold">Announcements</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">There's always something happening at DMMC. Find your place to connect and grow.</p>
         </Animate>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <Animate as="h2" className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Upcoming Events</Animate>
+          <Animate as="h2" className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Latest Announcements</Animate>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {eventsWithImages.map((event, index) => (
               <Animate key={event.title} transition={{ delay: index * 0.1 }}>
