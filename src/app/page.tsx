@@ -61,7 +61,7 @@ export default function Home() {
               <Link href="/connect">Plan Your Visit</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <Link href="/about">I'm New Here</Link>
+              <Link href="https://youtu.be/L58jjTB_4to" target="_blank" rel="noopener noreferrer">Watch Live</Link>
             </Button>
           </div>
         </Animate>
