@@ -1,9 +1,11 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, CalendarDays, BookOpen, HeartHandshake } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Home() {
   const events = [
@@ -23,6 +25,15 @@ export default function Home() {
       description: "A fun and engaging night for teens.",
     },
   ];
+
+  const activityImages = [
+    PlaceHolderImages.find(img => img.id === 'activity-1'),
+    PlaceHolderImages.find(img => img.id === 'activity-2'),
+    PlaceHolderImages.find(img => img.id === 'activity-3'),
+    PlaceHolderImages.find(img => img.id === 'activity-4'),
+    PlaceHolderImages.find(img => img.id === 'activity-5'),
+    PlaceHolderImages.find(img => img.id === 'activity-6'),
+  ].filter(Boolean);
 
   return (
     <div className="flex flex-col">
@@ -85,6 +96,30 @@ export default function Home() {
               </Card>
             </Animate>
           </div>
+        </div>
+      </section>
+      
+      {/* Activity Gallery Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <Animate>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {activityImages.map((image, index) => (
+                image && (
+                  <div key={index} className="relative overflow-hidden rounded-lg shadow-lg aspect-[3/2]">
+                    <Image
+                      src={image.imageUrl}
+                      alt={image.description}
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      data-ai-hint={image.imageHint}
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                    />
+                  </div>
+                )
+              ))}
+            </div>
+          </Animate>
         </div>
       </section>
 
