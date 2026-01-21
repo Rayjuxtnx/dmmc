@@ -1,11 +1,34 @@
+"use client";
 
+import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Users, Music, Video, Hand, Paintbrush } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
+
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/hooks/use-toast";
 
 const ministries = [
   {
@@ -90,6 +113,109 @@ const ministries = [
   },
 ];
 
+
+const signupSchema = z.object({
+  fullName: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  ministry: z.string(),
+});
+
+type SignupFormValues = z.infer<typeof signupSchema>;
+
+function MinistrySignupForm({ ministryName }: { ministryName: string }) {
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const form = useForm<SignupFormValues>({
+    resolver: zodResolver(signupSchema),
+    defaultValues: {
+      fullName: '',
+      email: '',
+      ministry: ministryName,
+    },
+  });
+
+  async function onSubmit(values: SignupFormValues) {
+    try {
+      const response = await fetch("https://formspree.io/f/xaqqkgvr", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Registration Submitted!',
+          description: `Thanks for your interest in the ${ministryName} ministry. We'll be in touch!`,
+        });
+        form.reset();
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Something went wrong.',
+        description: 'Could not submit your registration. Please try again.',
+      });
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="text-center py-8">
+        <h3 className="font-bold text-lg mb-2">Thank You!</h3>
+        <p className="text-muted-foreground">
+          Your registration for the {ministryName} ministry has been received. Someone from our team will be in touch with you soon.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-4">
+        <FormField
+          control={form.control}
+          name="ministry"
+          render={({ field }) => <input type="hidden" {...field} />}
+        />
+        <FormField
+          control={form.control}
+          name="fullName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Full Name</FormLabel>
+              <FormControl>
+                <Input placeholder="John Doe" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email Address</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="you@example.com" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="w-full">
+          Submit
+        </Button>
+      </form>
+    </Form>
+  );
+}
+
+
 export default function GetInvolvedPage() {
   return (
     <div>
@@ -129,9 +255,20 @@ export default function GetInvolvedPage() {
                         )
                       ))}
                     </div>
-                    <Button variant="outline" asChild>
-                        <Link href="/connect">Be part of this</Link>
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline">Be part of this</Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[425px]">
+                        <DialogHeader>
+                          <DialogTitle>Join the {ministry.name} Ministry</DialogTitle>
+                          <DialogDescription>
+                            Fill out the form below to express your interest. We'll get back to you soon!
+                          </DialogDescription>
+                        </DialogHeader>
+                        <MinistrySignupForm ministryName={ministry.name} />
+                      </DialogContent>
+                    </Dialog>
                   </CardContent>
                 </Card>
               </Animate>
