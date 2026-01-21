@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/about", label: "Who We Are" },
   { href: "/events", label: "Events" },
   { href: "/resources", label: "Resources" },
+  { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
   { href: "/global", label: "Global" },
   { href: "/stories", label: "Our Stories" },
   { href: "/connect", label: "Connect" },
@@ -36,6 +37,8 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className={cn(
                 "transition-colors hover:text-primary",
                 pathname === link.href ? "text-primary font-semibold" : "text-foreground/60"
@@ -71,6 +74,8 @@ export function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
+                      target={link.href.startsWith('http') ? '_blank' : undefined}
+                      rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary",

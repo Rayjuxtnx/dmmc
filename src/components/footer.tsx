@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/events", label: "Events" },
   { href: "/resources", label: "Resources" },
+  { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
   { href: "/connect", label: "Connect" },
   { href: "/give", label: "Give" },
 ];
@@ -49,7 +50,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:underline text-foreground/80 hover:text-foreground">
+                  <Link 
+                    href={link.href} 
+                    className="text-sm hover:underline text-foreground/80 hover:text-foreground"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
                     {link.label}
                   </Link>
                 </li>
