@@ -162,8 +162,15 @@ export default function ConnectPage() {
                   </div>
                 </div>
               </div>
-              <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
-                <p className="text-muted-foreground">Map Placeholder</p>
+              <div className="h-80 rounded-lg overflow-hidden">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.806612089408!2d36.85796258882583!3d-1.2933522355830962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11549f5d7533%3A0xd380a08ed803767e!2sDouble%20Mega%20Missionary%20Church%20Kenya%20HQ!5e0!3m2!1sen!2ske!4v1719503698748!5m2!1sen!2ske"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </Animate>
           </div>
