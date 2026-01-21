@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { generalChat } from '@/ai/flows/chatbot-flow';
 
 // Data from the site, centralized for the chatbot
 const events = [
@@ -273,6 +274,7 @@ export function Chatbot() {
       { id: 0, node: { ...conversationTree.start, id: 'start' } }
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isThinking, setIsThinking] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -280,7 +282,7 @@ export function Chatbot() {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
-  }, [history]);
+  }, [history, isThinking]);
   
   useEffect(() => {
     if (isOpen) {
@@ -292,27 +294,30 @@ export function Chatbot() {
 
   const handleOptionSelect = (text: string, nextNodeId: string) => {
     const userMessage: Message = {
-        id: history.length,
-        node: { id: `user-${history.length}`, sender: 'user', content: text },
+        id: Date.now() + 1,
+        node: { id: `user-${Date.now()}`, sender: 'user', content: text },
     };
 
     const botResponse: Message = {
-        id: history.length + 1,
+        id: Date.now() + 2,
         node: { ...conversationTree[nextNodeId], id: nextNodeId }
     };
     
     setHistory(prev => [...prev, userMessage, botResponse]);
   };
 
-  const handleTextInputSubmit = (e: React.FormEvent) => {
+  const handleTextInputSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const text = inputValue.trim();
-    if (!text) return;
+    if (!text || isThinking) return;
 
     const userMessage: Message = {
-        id: history.length,
-        node: { id: `user-${history.length}`, sender: 'user', content: text },
+        id: Date.now(),
+        node: { id: `user-${Date.now()}`, sender: 'user', content: text },
     };
+    
+    setHistory(prev => [...prev, userMessage]);
+    setInputValue('');
     
     const lowerCaseInput = text.toLowerCase();
     let nextNodeId = 'unrecognized';
@@ -339,13 +344,39 @@ export function Chatbot() {
         nextNodeId = 'getInvolved_ushers';
     }
 
-    const botResponse: Message = {
-        id: history.length + 1,
-        node: { ...conversationTree[nextNodeId], id: nextNodeId }
-    };
-    
-    setHistory(prev => [...prev, userMessage, botResponse]);
-    setInputValue('');
+    if (nextNodeId !== 'unrecognized') {
+        const botResponse: Message = {
+            id: Date.now() + 1,
+            node: { ...conversationTree[nextNodeId], id: nextNodeId }
+        };
+        setHistory(prev => [...prev, botResponse]);
+    } else {
+        setIsThinking(true);
+        try {
+            const aiResponse = await generalChat(text);
+            const botMessage: Message = {
+                id: Date.now() + 1,
+                node: {
+                    id: `ai-${Date.now()}`,
+                    sender: 'bot',
+                    content: aiResponse,
+                    options: [
+                        { text: 'Ask another question', nextNode: 'start' }
+                    ]
+                }
+            };
+            setHistory(prev => [...prev, botMessage]);
+        } catch (error) {
+            console.error("Error calling AI flow:", error);
+            const errorMessage: Message = {
+                id: Date.now() + 1,
+                node: { ...conversationTree.unrecognized, id: 'unrecognized' }
+            };
+            setHistory(prev => [...prev, errorMessage]);
+        } finally {
+            setIsThinking(false);
+        }
+    }
   };
 
   const ChatBubble = ({ message, onSelect }: { message: Message, onSelect: (text: string, nextNode: string) => void }) => {
@@ -366,7 +397,7 @@ export function Chatbot() {
                     {content}
                 </div>
             </div>
-            {isBot && options && message.id === history[history.length-1].id && (
+            {isBot && options && message.id === history[history.length-1]?.id && (
                 <div className="flex flex-col gap-2 mt-3 pl-10 w-full">
                     {options.map((option, index) => (
                         <Button key={index} variant="outline" size="sm" className="justify-start h-auto py-2" onClick={() => onSelect(option.text, option.nextNode)}>
@@ -378,6 +409,28 @@ export function Chatbot() {
         </div>
     );
   };
+
+  const TypingIndicator = () => (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-col items-start"
+    >
+      <div className="flex items-end gap-2">
+        <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold font-headline text-sm"><Bot size={20} /></div>
+        <div className="max-w-[85%] rounded-lg p-3 text-sm bg-secondary text-secondary-foreground">
+           <div className="flex gap-1.5 items-center">
+              <span className="h-2 w-2 bg-current rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
+              <span className="h-2 w-2 bg-current rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+              <span className="h-2 w-2 bg-current rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+            </div>
+        </div>
+      </div>
+    </motion.div>
+  );
 
   return (
     <>
@@ -436,6 +489,7 @@ export function Chatbot() {
                   </motion.div>
                 ))}
               </AnimatePresence>
+              {isThinking && <TypingIndicator />}
             </CardContent>
             <CardFooter className="p-4 border-t">
               <form onSubmit={handleTextInputSubmit} className="w-full flex items-center gap-2">
@@ -445,8 +499,9 @@ export function Chatbot() {
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
                   autoComplete="off"
+                  disabled={isThinking}
                 />
-                <Button type="submit" size="icon" aria-label="Send Message">
+                <Button type="submit" size="icon" aria-label="Send Message" disabled={isThinking}>
                   <Send className="h-4 w-4" />
                 </Button>
               </form>
@@ -457,5 +512,3 @@ export function Chatbot() {
     </>
   );
 }
-
-    
