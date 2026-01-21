@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Search } from 'lucide-react';
+import { Animate } from '@/components/ui/animate';
 
 const allResources = [
   { title: "The Joy of Generosity", category: "Sermon", imageId: "resource-book", description: "A message on the blessings of a generous life." },
@@ -37,15 +38,15 @@ export default function ResourcesPage() {
   return (
     <div>
       <section className="bg-primary text-primary-foreground py-20 text-center">
-        <div className="container mx-auto px-4">
+        <Animate className="container mx-auto px-4">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Resources</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Explore sermons, articles, and media to help you grow in your faith journey.</p>
-        </div>
+        </Animate>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 mb-12">
+          <Animate className="flex flex-col md:flex-row gap-4 mb-12">
             <div className="relative flex-grow">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
@@ -66,29 +67,31 @@ export default function ResourcesPage() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
+          </Animate>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredResources.length > 0 ? (
-              filteredResources.map((resource) => {
+              filteredResources.map((resource, index) => {
                 const image = PlaceHolderImages.find(img => img.id === resource.imageId);
                 return (
-                  <Card key={resource.title} className="overflow-hidden">
-                    {image && (
-                      <div className="relative h-48 w-full">
-                        <Image src={image.imageUrl} alt={resource.title} fill className="object-cover" data-ai-hint={image.imageHint} />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <CardTitle className="font-headline text-xl">{resource.title}</CardTitle>
-                        <Badge variant="secondary">{resource.category}</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-foreground/80">{resource.description}</p>
-                    </CardContent>
-                  </Card>
+                  <Animate key={resource.title} transition={{ delay: index * 0.1 }}>
+                    <Card className="overflow-hidden h-full">
+                      {image && (
+                        <div className="relative h-48 w-full">
+                          <Image src={image.imageUrl} alt={resource.title} fill className="object-cover" data-ai-hint={image.imageHint} />
+                        </div>
+                      )}
+                      <CardHeader>
+                        <div className="flex justify-between items-start">
+                          <CardTitle className="font-headline text-xl">{resource.title}</CardTitle>
+                          <Badge variant="secondary">{resource.category}</Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-foreground/80">{resource.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Animate>
                 );
               })
             ) : (

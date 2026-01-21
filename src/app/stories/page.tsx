@@ -20,6 +20,7 @@ import { toast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { MessageCircle } from "lucide-react";
+import { Animate } from "@/components/ui/animate";
 
 const testimonials = [
   {
@@ -63,30 +64,32 @@ export default function StoriesPage() {
   return (
     <div>
       <section className="bg-primary text-primary-foreground py-20 text-center">
-        <div className="container mx-auto px-4">
+        <Animate className="container mx-auto px-4">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Stories of Transformation</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Read about the incredible things God is doing in the lives of people at DMMC.</p>
-        </div>
+        </Animate>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="break-inside-avoid">
-                <CardHeader className="flex-row items-center gap-4">
-                  {testimonial.image && (
-                     <Avatar className="h-16 w-16">
-                        <Image src={testimonial.image.imageUrl} alt={testimonial.name} width={64} height={64} className="object-cover" data-ai-hint={testimonial.image.imageHint}/>
-                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                  )}
-                  <h3 className="font-headline text-xl font-semibold">{testimonial.name}</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-foreground/80">"{testimonial.story}"</p>
-                </CardContent>
-              </Card>
+              <Animate key={index} className="break-inside-avoid" transition={{ delay: index * 0.1 }}>
+                <Card>
+                  <CardHeader className="flex-row items-center gap-4">
+                    {testimonial.image && (
+                      <Avatar className="h-16 w-16">
+                          <Image src={testimonial.image.imageUrl} alt={testimonial.name} width={64} height={64} className="object-cover" data-ai-hint={testimonial.image.imageHint}/>
+                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                    )}
+                    <h3 className="font-headline text-xl font-semibold">{testimonial.name}</h3>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-foreground/80">"{testimonial.story}"</p>
+                  </CardContent>
+                </Card>
+              </Animate>
             ))}
           </div>
         </div>
@@ -94,55 +97,57 @@ export default function StoriesPage() {
 
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 max-w-2xl">
-            <div className="text-center">
+            <Animate className="text-center">
                 <MessageCircle className="mx-auto h-12 w-12 text-primary" />
                 <h2 className="mt-4 font-headline text-3xl md:text-4xl font-bold">Share Your Story</h2>
                 <p className="mt-4 text-lg text-foreground/80">
                     Has God worked in your life through this community? We'd love to hear about it. Your story could be an encouragement to others.
                 </p>
-            </div>
-            <Card className="mt-12">
-                <CardContent className="pt-6">
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Your Name</FormLabel>
-                          <FormControl><Input placeholder="John D." {...field} /></FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email Address (kept private)</FormLabel>
-                          <FormControl><Input placeholder="you@example.com" {...field} /></FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="story"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Your Story</FormLabel>
-                          <FormControl><Textarea placeholder="Tell us what God has done..." className="min-h-[150px]" {...field} /></FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button type="submit" className="w-full">Submit My Story</Button>
-                  </form>
-                </Form>
-                </CardContent>
-            </Card>
+            </Animate>
+            <Animate>
+              <Card className="mt-12">
+                  <CardContent className="pt-6">
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Your Name</FormLabel>
+                            <FormControl><Input placeholder="John D." {...field} /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email Address (kept private)</FormLabel>
+                            <FormControl><Input placeholder="you@example.com" {...field} /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="story"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Your Story</FormLabel>
+                            <FormControl><Textarea placeholder="Tell us what God has done..." className="min-h-[150px]" {...field} /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <Button type="submit" className="w-full">Submit My Story</Button>
+                    </form>
+                  </Form>
+                  </CardContent>
+              </Card>
+            </Animate>
         </div>
       </section>
     </div>

@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Animate } from "@/components/ui/animate"
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -49,80 +50,82 @@ export default function ConnectPage() {
   return (
     <div>
       <section className="bg-primary text-primary-foreground py-20 text-center">
-        <div className="container mx-auto px-4">
+        <Animate className="container mx-auto px-4">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Connect With Us</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">We'd love to hear from you. Let us know how we can help.</p>
-        </div>
+        </Animate>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl">Send us a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Full Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="John Doe" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email Address</FormLabel>
-                          <FormControl>
-                            <Input placeholder="you@example.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Subject</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Question about..." {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message</FormLabel>
-                          <FormControl>
-                            <Textarea placeholder="Your message here..." className="min-h-[120px]" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button type="submit" className="w-full">Send Message</Button>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
-            <div className="space-y-8">
+            <Animate variant="fadeInLeft">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="font-headline text-2xl">Send us a Message</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Full Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="John Doe" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email Address</FormLabel>
+                            <FormControl>
+                              <Input placeholder="you@example.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Subject</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Question about..." {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                              <Textarea placeholder="Your message here..." className="min-h-[120px]" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <Button type="submit" className="w-full">Send Message</Button>
+                    </form>
+                  </Form>
+                </CardContent>
+              </Card>
+            </Animate>
+            <Animate variant="fadeInRight" className="space-y-8">
               <div>
                 <h2 className="font-headline text-3xl font-bold text-primary">Get in Touch</h2>
                 <p className="mt-2 text-foreground/80">Find us, call us, or join us for a service. We look forward to connecting with you.</p>
@@ -160,7 +163,7 @@ export default function ConnectPage() {
               <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
                 <p className="text-muted-foreground">Map Placeholder</p>
               </div>
-            </div>
+            </Animate>
           </div>
         </div>
       </section>

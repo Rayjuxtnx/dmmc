@@ -21,6 +21,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart } from "lucide-react";
+import { Animate } from "@/components/ui/animate";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Please enter your full name."),
@@ -68,16 +69,16 @@ export default function JesusPage() {
           />
         )}
         <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 p-4 max-w-4xl">
+        <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">SALVATION</h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
             Who He is and What His Love means to us
           </p>
-        </div>
+        </Animate>
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <Animate className="container mx-auto px-4 max-w-3xl">
           <div className="prose prose-lg dark:prose-invert max-w-none mx-auto text-foreground/80">
             <p>
               "The great love of God will change your life forever. This love is greater than anything found on Earth... Your mother may love you, your father may love you, but none of them will die for you. Your boyfriend may love you, your girlfriend may love you, but none will die for you."
@@ -184,7 +185,7 @@ export default function JesusPage() {
                 </Form>
             </CardContent>
           </Card>
-        </div>
+        </Animate>
       </section>
     </div>
   );

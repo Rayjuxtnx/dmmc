@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, CalendarDays, BookOpen, HeartHandshake } from 'lucide-react';
+import { Animate } from '@/components/ui/animate';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-home');
@@ -63,7 +64,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <Animate variant="fadeInLeft">
               <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">A Church That Feels Like Family</h2>
               <p className="mt-4 text-lg text-foreground/80">
                 At Double Mega Missionary Church, we are a diverse family united by our love for Jesus. We are passionate about sharing His message of hope and building a community where everyone feels they belong.
@@ -73,8 +74,8 @@ export default function Home() {
                   Learn More About Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
+            </Animate>
+            <Animate variant="fadeInRight" className="grid grid-cols-2 gap-4">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-headline text-xl">
@@ -97,7 +98,7 @@ export default function Home() {
                   <p>Explore sermons, books, and articles to help you grow.</p>
                 </CardContent>
               </Card>
-            </div>
+            </Animate>
           </div>
         </div>
       </section>
@@ -105,31 +106,37 @@ export default function Home() {
       {/* Events Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Upcoming Events</h2>
-          <p className="mt-2 text-lg max-w-2xl mx-auto text-foreground/80">Join us and get connected with the community.</p>
+          <Animate>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold">Upcoming Events</h2>
+            <p className="mt-2 text-lg max-w-2xl mx-auto text-foreground/80">Join us and get connected with the community.</p>
+          </Animate>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
             {events.map((event, index) => (
-              <Card key={index} className="flex flex-col">
-                <CardHeader>
-                  <CardTitle className="font-headline">{event.title}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{event.date}</p>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p>{event.description}</p>
-                </CardContent>
-              </Card>
+              <Animate key={index} transition={{ delay: index * 0.1 }}>
+                <Card className="flex flex-col h-full">
+                  <CardHeader>
+                    <CardTitle className="font-headline">{event.title}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{event.date}</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p>{event.description}</p>
+                  </CardContent>
+                </Card>
+              </Animate>
             ))}
           </div>
-          <Button asChild className="mt-12">
-            <Link href="/events">View All Events</Link>
-          </Button>
+          <Animate>
+            <Button asChild className="mt-12">
+              <Link href="/events">View All Events</Link>
+            </Button>
+          </Animate>
         </div>
       </section>
 
       {/* Giving Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-           <div className="text-center max-w-3xl mx-auto">
+           <Animate className="text-center max-w-3xl mx-auto">
              <HeartHandshake className="mx-auto h-12 w-12 text-primary" />
              <h2 className="mt-4 font-headline text-3xl md:text-4xl font-bold">Partner With Us</h2>
              <p className="mt-4 text-lg text-foreground/80">
@@ -138,7 +145,7 @@ export default function Home() {
              <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
                <Link href="/give">Give Online</Link>
              </Button>
-           </div>
+           </Animate>
         </div>
       </section>
     </div>
