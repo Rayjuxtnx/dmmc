@@ -8,7 +8,6 @@ import { Animate } from '@/components/ui/animate';
 const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/events", label: "Events" },
-  { href: "/resources", label: "Resources" },
   { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
   { href: "/get-involved", label: "Get Involved" },
   { href: "/connect", label: "Connect" },

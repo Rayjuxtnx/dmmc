@@ -14,7 +14,6 @@ const navLinks = [
   { href: "/jesus", label: "Jesus" },
   { href: "/about", label: "Who We Are" },
   { href: "/events", label: "Events" },
-  { href: "/resources", label: "Resources" },
   { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
   { href: "/global", label: "Global" },
   { href: "/stories", label: "Our Stories" },

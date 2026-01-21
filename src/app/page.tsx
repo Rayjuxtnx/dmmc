@@ -75,7 +75,7 @@ export default function Home() {
                 </Link>
               </Button>
             </Animate>
-            <Animate variant="fadeInRight" className="grid grid-cols-2 gap-4">
+            <Animate variant="fadeInRight" className="grid grid-cols-1 gap-4">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-headline text-xl">
@@ -85,17 +85,6 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p>Discover community gatherings, worship nights, and more.</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-headline text-xl">
-                    <BookOpen className="h-6 w-6 text-primary" />
-                    Resources
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>Explore sermons, books, and articles to help you grow.</p>
                 </CardContent>
               </Card>
             </Animate>
