@@ -21,7 +21,7 @@
     {
       "id": "event-1",
       "description": "A vibrant community gathering, people talking and laughing at an outdoor event.",
-      "imageUrl": "https://images.unsplash.com/photo-1654868537177-86c35bb6b226?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21tdW5pdHklMjBldmVudHxlbnwwfHx8fDE3NjkwMTM2NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1654868537177-86c35bb6b226?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21tdW5pdHklMjBldmVudHxlbnwwfHx8fDE3NjkwMTM2NDl8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "community event"
     },
     {
@@ -29,6 +29,12 @@
       "description": "People engaged in a bible study session in a cozy room.",
       "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaWJsZSUyMHN0dWR5fGVufDB8fHx8fDE3NjkwMjI1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bible study"
+    },
+    {
+      "id": "event-youth-camp",
+      "description": "Teens around a campfire",
+      "imageUrl": "https://images.unsplash.com/photo-1464808322410-1a934aab61e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGNhbXB8ZW58MHx8fHwxNzY5MDM1Nzg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "youth camp"
     },
     {
       "id": "resource-book",
@@ -45,7 +51,7 @@
     {
       "id": "testimonial-1",
       "description": "Portrait of a smiling person.",
-      "imageUrl": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwZXJzb258ZW58MHx8fHwxNzY4OTI1NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwZXJzb258ZW58MHx8fHwxNzY4OTI1NzE2fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "happy person"
     },
     {
@@ -57,7 +63,7 @@
     {
       "id": "connect-location",
       "description": "The exterior of a modern church building on a sunny day.",
-      "imageUrl": "https://images.unsplash.com/photo-1661240576949-167764711fe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaHVyY2glMjBleHRlcmlvcnxlbnwwfHx8fDE3NjkwMjI1NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661240576949-167764711fe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaHVyY2glMjBleHRlcmlvcnxlbnwwfHx8fDE3NjkwMjI1NjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "church exterior"
     },
     {
@@ -99,13 +105,13 @@
     {
       "id": "ministry-choir-2",
       "description": "Portrait of a choir member singing.",
-      "imageUrl": "https://images.unsplash.com/photo-1745852738000-f6b7e53f9662?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaG9pciUyMHNpbmdlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1745852738000-f6b7e53f9662?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaG9pciUyMHNpbmdlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "choir singer"
     },
     {
       "id": "ministry-choir-3",
       "description": "The choir during a service.",
-      "imageUrl": "https://images.unsplash.com/photo-1548795835-264877304664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaHVyY2glMjBjaG9pcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1548795835-264877304664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaHVyY2glMjBjaG9pcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "church choir"
     },
     {
@@ -117,7 +123,7 @@
     {
       "id": "ministry-media-2",
       "description": "A soundboard with hands adjusting levels.",
-      "imageUrl": "https://images.unsplash.com/photo-1588650033940-30ebeffe46ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb3VuZCUyMGVuZ2luZWVyfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1588650033940-30ebeffe46ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb3VuZCUyMGVuZ2luZWVyfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "sound engineer"
     },
     {
@@ -141,7 +147,7 @@
     {
       "id": "ministry-usher-3",
       "description": "A team of ushers smiling together.",
-      "imageUrl": "https://images.unsplash.com/photo-1666558889375-798fa96b559a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1c2hlciUyMHRlYW18ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1666558889375-798fa96b559a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1c2hlciUyMHRlYW18ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "usher team"
     },
     {
@@ -165,7 +171,7 @@
     {
       "id": "dag-heward-mills-portrait",
       "description": "Portrait of Dag Heward-Mills.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjkwMDgzMTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjkwMDgzMTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "man portrait"
     },
     {
@@ -183,13 +189,13 @@
     {
       "id": "activity-1",
       "description": "People raising hands in worship",
-      "imageUrl": "https://images.unsplash.com/photo-1630449156471-c426a4afb1da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b3JzaGlwJTIwc2VydmljZXxlbnwwfHx8fDE3NjkwMzM4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1630449156471-c426a4afb1da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b3JzaGlwJTIwc2VydmljZXxlbnwwfHx8fDE3NjkwMzM4Nzd8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "worship service"
     },
     {
       "id": "activity-2",
       "description": "Group of people in a prayer circle",
-      "imageUrl": "https://images.unsplash.com/photo-1609234656381-73e732808098?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcmF5ZXIlMjBncm91cHxlbnwwfHx8fDE3NjkwMzM4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1609234656381-73e732808098?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcmF5ZXIlMjBncm91cHxlbnwwfHx8fDE3NjkwMzM4Nzd8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "prayer group"
     },
     {
@@ -201,7 +207,7 @@
     {
       "id": "activity-4",
       "description": "Children listening to a story in Sunday school",
-      "imageUrl": "https://images.unsplash.com/photo-1709375635395-7774ae07995a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaGlsZHJlbiUyMG1pbmlzdHJ5fGVufDB8fHx8MTc2OTAzMzg3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1709375635395-7774ae07995a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaGlsZHJlbiUyMG1pbmlzdHJ5fGVufDB8fHx8MTc2OTAzMzg3N3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "children ministry"
     },
     {
