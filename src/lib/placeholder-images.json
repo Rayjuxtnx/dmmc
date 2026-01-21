@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "site-logo",
+      "description": "The main logo for the DMMC website.",
+      "imageUrl": "https://images.unsplash.com/photo-1719500718275-d7fec17c7dc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBsb2dvfGVufDB8fHx8MTc2ODk5NzQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "church logo"
+    },
+    {
       "id": "hero-home",
       "description": "A wide-angle shot of a modern church sanctuary, filled with light, empty pews facing the stage.",
       "imageUrl": "https://images.unsplash.com/photo-1641824106850-0e963ab4f719?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaHVyY2glMjBzYW5jdHVhcnl8ZW58MHx8fHwxNzY5MDIyNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -111,7 +117,7 @@
     {
       "id": "ministry-media-2",
       "description": "A soundboard with hands adjusting levels.",
-      "imageUrl": "https://images.unsplash.com/photo-1588650033940-30ebeffe46ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb3VuZCUyMGVuZ2luZWVyfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1588650033940-30ebeffe46ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb3VuZCUyMGVuZ2luZWVyfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sound engineer"
     },
     {
@@ -135,7 +141,7 @@
     {
       "id": "ministry-usher-3",
       "description": "A team of ushers smiling together.",
-      "imageUrl": "https://images.unsplash.com/photo-1666558889375-798fa96b559a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1c2hlciUyMHRlYW18ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1666558889375-798fa96b559a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1c2hlciUyMHRlYW18ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "usher team"
     },
     {
@@ -189,7 +195,7 @@
     {
       "id": "activity-3",
       "description": "Volunteers handing out food",
-      "imageUrl": "https://images.unsplash.com/photo-1565103001996-3fa52eb269d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21tdW5pdHklMjBvdXRyZWFjaHxlbnwwfHx8fDE3NjkwMzM4Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1565103001996-3fa52eb269d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21tdW5pdHklMjBvdXRyZWFjaHxlbnwwfHx8fDE3NjkwMzM4Nzh8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "community outreach"
     },
     {
@@ -201,13 +207,13 @@
     {
       "id": "activity-5",
       "description": "A person being baptized",
-      "imageUrl": "https://images.unsplash.com/photo-1643487563696-95398e3b1290?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiYXB0aXNtJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4OTU2NzE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1643487563696-95398e3b1290?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiYXB0aXNtJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4OTU2NzE0fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "baptism water"
     },
     {
       "id": "activity-6",
       "description": "Youth group having fun",
-      "imageUrl": "https://images.unsplash.com/photo-1566135235200-616a028972c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx5b3V0aCUyMGdyb3VwfGVufDB8fHx8MTc2OTAzMzg3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1566135235200-616a028972c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx5b3V0aCUyMGdyb3VwfGVufDB8fHx8MTc2OTAzMzg3N3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "youth group"
     }
   ]

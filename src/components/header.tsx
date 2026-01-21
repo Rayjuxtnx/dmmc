@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Church, Menu, X } from 'lucide-react';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { Animate } from '@/components/ui/animate';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -24,12 +26,17 @@ const navLinks = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const logo = PlaceHolderImages.find(img => img.id === 'site-logo');
 
   return (
     <Animate as="header" className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Church className="h-6 w-6 text-primary" />
+          {logo ? (
+            <Image src={logo.imageUrl} alt="DMMC Logo" width={32} height={32} data-ai-hint={logo.imageHint} className="rounded-full" />
+          ) : (
+            <Church className="h-6 w-6 text-primary" />
+          )}
           <span className="font-headline text-lg font-bold">DMMC</span>
         </Link>
 
@@ -66,7 +73,11 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between pb-4 border-b">
                   <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Church className="h-6 w-6 text-primary" />
+                    {logo ? (
+                        <Image src={logo.imageUrl} alt="DMMC Logo" width={24} height={24} data-ai-hint={logo.imageHint} className="rounded-full"/>
+                    ) : (
+                        <Church className="h-6 w-6 text-primary" />
+                    )}
                     <span className="font-headline text-lg font-bold">DMMC</span>
                   </Link>
                 </div>

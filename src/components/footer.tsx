@@ -1,9 +1,11 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Church, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Animate } from '@/components/ui/animate';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const navLinks = [
   { href: "/about", label: "About Us" },
@@ -23,6 +25,7 @@ const socialLinks = [
 
 export function Footer() {
   const [year, setYear] = useState<number>();
+  const logo = PlaceHolderImages.find(img => img.id === 'site-logo');
 
   useEffect(() => {
     setYear(new Date().getFullYear());
@@ -34,7 +37,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Church className="h-8 w-8 text-primary" />
+              {logo ? (
+                <Image src={logo.imageUrl} alt="DMMC Logo" width={32} height={32} data-ai-hint={logo.imageHint} className="rounded-full" />
+              ) : (
+                <Church className="h-8 w-8 text-primary" />
+              )}
               <span className="font-headline text-xl font-semibold">DMMC</span>
             </Link>
             <p className="text-sm text-foreground/80">

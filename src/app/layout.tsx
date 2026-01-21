@@ -8,9 +8,6 @@ import { Chatbot } from '@/components/chatbot';
 export const metadata: Metadata = {
   title: 'DMMC',
   description: 'PRINCE OF PEACE CATHEDRAL NAIROBI',
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
