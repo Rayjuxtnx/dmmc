@@ -42,9 +42,9 @@ export default function Home() {
           />
         )}
         <div className="absolute inset-0 bg-primary/60" />
-        <div className="relative z-10 p-4 max-w-4xl">
+        <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            Welcome to DMMC Connect
+            Welcome to DMMC
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
             A place to find hope, community, and purpose. We're so glad you're here.
@@ -57,7 +57,7 @@ export default function Home() {
               <Link href="/about">I'm New Here</Link>
             </Button>
           </div>
-        </div>
+        </Animate>
       </section>
 
       {/* About Section */}
@@ -67,7 +67,7 @@ export default function Home() {
             <Animate variant="fadeInLeft">
               <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">A Church That Feels Like Family</h2>
               <p className="mt-4 text-lg text-foreground/80">
-                At Double Mega Missionary Church, we are a diverse family united by our love for Jesus. We are passionate about sharing His message of hope and building a community where everyone feels they belong.
+                At PRINCE OF PEACE CATHEDRAL NAIROBI, we are a diverse family united by our love for Jesus. We are passionate about sharing His message of hope and building a community where everyone feels they belong.
               </p>
               <Button asChild className="mt-6">
                 <Link href="/about">

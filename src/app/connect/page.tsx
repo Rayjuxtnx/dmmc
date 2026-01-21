@@ -49,12 +49,14 @@ export default function ConnectPage() {
 
   return (
     <div>
-      <section className="bg-primary text-primary-foreground py-20 text-center">
-        <Animate className="container mx-auto px-4">
-          <h1 className="font-headline text-4xl md:text-6xl font-bold">Connect With Us</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">We'd love to hear from you. Let us know how we can help.</p>
-        </Animate>
-      </section>
+      <Animate>
+        <section className="bg-primary text-primary-foreground py-20 text-center">
+          <div className="container mx-auto px-4">
+            <h1 className="font-headline text-4xl md:text-6xl font-bold">Connect With Us</h1>
+            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">We'd love to hear from you. Let us know how we can help.</p>
+          </div>
+        </section>
+      </Animate>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -135,7 +137,7 @@ export default function ConnectPage() {
                   <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold">Our Location</h3>
-                    <p className="text-foreground/80">123 Church Street, Faith City, 12345</p>
+                    <p className="text-foreground/80">Off Jogoo Road, near Aquinas High School, Nairobi</p>
                   </div>
                 </div>
                  <div className="flex items-start gap-4">

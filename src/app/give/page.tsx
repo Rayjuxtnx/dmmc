@@ -49,12 +49,14 @@ export default function GivePage() {
 
   return (
     <div>
-      <section className="bg-primary text-primary-foreground py-20 text-center">
-        <Animate className="container mx-auto px-4">
-          <h1 className="font-headline text-4xl md:text-6xl font-bold">Give Generously</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Your faithfulness helps us continue our mission of sharing the love of Christ.</p>
-        </Animate>
-      </section>
+      <Animate>
+        <section className="bg-primary text-primary-foreground py-20 text-center">
+          <div className="container mx-auto px-4">
+            <h1 className="font-headline text-4xl md:text-6xl font-bold">Give Generously</h1>
+            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Your faithfulness helps us continue our mission of sharing the love of Christ.</p>
+          </div>
+        </section>
+      </Animate>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -73,7 +75,7 @@ export default function GivePage() {
                         </CardHeader>
                         <CardContent className="space-y-2 text-sm">
                             <p><span className="font-semibold">In Person:</span> You can give during our Sunday services.</p>
-                            <p><span className="font-semibold">By Mail:</span> Send checks to 123 Church Street, Faith City, 12345.</p>
+                            <p><span className="font-semibold">By Mail:</span> Send checks to PRINCE OF PEACE CATHEDRAL NAIROBI, Off Jogoo Road, near Aquinas High School, Nairobi.</p>
                         </CardContent>
                     </Card>
                 </Animate>

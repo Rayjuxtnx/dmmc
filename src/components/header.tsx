@@ -7,6 +7,7 @@ import { Church, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { Animate } from '@/components/ui/animate';
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -26,11 +27,11 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <Animate as="header" className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <Church className="h-6 w-6 text-primary" />
-          <span className="font-headline text-lg font-bold">DMMC Connect</span>
+          <span className="font-headline text-lg font-bold">DMMC</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -67,7 +68,7 @@ export function Header() {
                 <div className="flex items-center justify-between pb-4 border-b">
                   <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                     <Church className="h-6 w-6 text-primary" />
-                    <span className="font-headline text-lg font-bold">DMMC Connect</span>
+                    <span className="font-headline text-lg font-bold">DMMC</span>
                   </Link>
                 </div>
                 <nav className="flex-grow mt-6 flex flex-col gap-4">
@@ -97,6 +98,6 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </Animate>
   );
 }

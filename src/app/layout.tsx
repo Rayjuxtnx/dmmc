@@ -5,8 +5,8 @@ import { Footer } from '@/components/footer';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'DMMC Connect',
-  description: 'Welcome to Double Mega Missionary Church',
+  title: 'DMMC',
+  description: 'PRINCE OF PEACE CATHEDRAL NAIROBI',
   icons: {
     icon: '/favicon.ico',
   },
