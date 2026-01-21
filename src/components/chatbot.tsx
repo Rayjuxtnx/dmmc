@@ -286,7 +286,91 @@ type Message = {
   node: ConversationNode;
 };
 
-// --- Component ---
+// --- Helper Components ---
+const SimpleRenderer = ({ text }: { text: string }) => {
+    const lines = text.split('\n');
+
+    return (
+        <div>
+            {lines.map((line, lineIndex) => {
+                const parts = line.split(/(\*\*.*?\*\*)/g);
+                return (
+                    <p key={lineIndex} className="mb-2 last:mb-0">
+                        {parts.map((part, partIndex) => {
+                            if (part.startsWith('**') && part.endsWith('**')) {
+                                return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
+                            }
+                            return <Fragment key={partIndex}>{part}</Fragment>;
+                        })}
+                    </p>
+                );
+            })}
+        </div>
+    );
+};
+
+const AiMarkdownResponse = ({ text }: { text: string }) => {
+    if (typeof text !== 'string' || !text.includes('# **')) {
+        return <SimpleRenderer text={text} />;
+    }
+
+    const lines = text.split('\n').filter(line => line.trim() !== '');
+    
+    const headingLine = lines.find(l => l.startsWith('# **'));
+    const heading = headingLine ? headingLine.replace('# **', '').replace('**', '').trim() : '';
+
+    const headingIndex = lines.findIndex(l => l.startsWith('# **'));
+    const followUpIndex = lines.findIndex(line => line.startsWith('###'));
+    
+    const verseLine = lines.find(line => line.startsWith('> **'));
+    const verseText = verseLine ? verseLine.replace('> **', '').replace('**', '').trim() : null;
+    const verseIndex = verseLine ? lines.indexOf(verseLine) : -1;
+
+    let bodyEndIndex = followUpIndex > -1 ? followUpIndex : lines.length;
+    if (verseIndex > headingIndex && verseIndex < bodyEndIndex) {
+      bodyEndIndex = verseIndex;
+    }
+
+    const bodyLines = lines.slice(
+        headingIndex + 1, 
+        bodyEndIndex
+    ).filter(line => line.trim() !== '' && !line.startsWith('---') && !line.startsWith('> **'));
+
+    const questionLines = followUpIndex > -1 ? lines.slice(followUpIndex + 1) : [];
+    const questions = questionLines.filter(line => line.match(/^\d\.\s/)).map(line => line.replace(/^\d\.\s*/, ''));
+
+    return (
+        <div>
+            {heading && (
+                <h3 className="font-headline text-lg font-bold text-accent mb-3">
+                    {heading}
+                </h3>
+            )}
+            {bodyLines.map((paragraph, i) => (
+                <p key={i} className="mb-2 last:mb-0">{paragraph}</p>
+            ))}
+
+            {verseText && (
+                 <blockquote className="my-4 border-l-4 border-primary pl-4 italic font-semibold text-foreground/90">
+                    {verseText}
+                </blockquote>
+            )}
+
+            {questions.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-border/50">
+                    <h4 className="font-semibold mb-2 text-base">Let's keep talking!</h4>
+                    <ol className="list-decimal list-inside space-y-1.5 text-sm">
+                        {questions.map((q, i) => (
+                            <li key={i}>{q}</li>
+                        ))}
+                    </ol>
+                </div>
+            )}
+        </div>
+    );
+};
+
+// --- Main Component ---
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -313,53 +397,6 @@ export function Chatbot() {
         }, 100);
     }
   }, [isOpen, isFullScreen]);
-
-  const AiMarkdownResponse = ({ text }: { text: string }) => {
-    if (typeof text !== 'string' || !text.includes('# **')) {
-        return <>{text}</>;
-    }
-
-    const lines = text.split('\n').filter(line => line.trim() !== '');
-    
-    const headingLine = lines.find(l => l.startsWith('# **'));
-    const heading = headingLine ? headingLine.replace('# **', '').replace('**', '').trim() : '';
-
-    const headingIndex = lines.findIndex(l => l.startsWith('# **'));
-    const followUpIndex = lines.findIndex(line => line.startsWith('###'));
-
-    const bodyLines = lines.slice(
-        headingIndex + 1, 
-        followUpIndex > -1 ? followUpIndex : lines.length
-    ).filter(line => !line.startsWith('---') && line.trim() !== '');
-
-    const questionLines = followUpIndex > -1 ? lines.slice(followUpIndex + 1) : [];
-
-    const questions = questionLines.filter(line => line.match(/^\d\.\s/)).map(line => line.replace(/^\d\.\s*/, ''));
-
-    return (
-        <div>
-            {heading && (
-                <h3 className="font-headline text-lg font-bold text-accent mb-3">
-                    {heading}
-                </h3>
-            )}
-            {bodyLines.map((paragraph, i) => (
-                <p key={i} className="mb-2 last:mb-0">{paragraph}</p>
-            ))}
-
-            {questions.length > 0 && (
-                <div className="mt-4 pt-3 border-t border-border/50">
-                    <h4 className="font-semibold mb-2 text-base">Let's keep talking!</h4>
-                    <ol className="list-decimal list-inside space-y-1.5 text-sm">
-                        {questions.map((q, i) => (
-                            <li key={i}>{q}</li>
-                        ))}
-                    </ol>
-                </div>
-            )}
-        </div>
-    );
-  };
 
   const handleOptionSelect = async (text: string, nextNodeId: string) => {
     const userMessage: Message = {
@@ -388,7 +425,7 @@ export function Chatbot() {
                     sender: 'bot',
                     content: searchType === 'deep' 
                         ? <AiMarkdownResponse text={aiResponse} /> 
-                        : aiResponse,
+                        : <SimpleRenderer text={aiResponse} />,
                     options: [{ text: '↩️ Back to modes', nextNode: 'start' }]
                 }
             };
