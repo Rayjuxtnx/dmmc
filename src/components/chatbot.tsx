@@ -66,16 +66,31 @@ type ConversationNode = {
 const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
   start: {
     sender: 'bot',
-    content: "Hi there! 👋 I'm the DMMC assistant. How can I help you today? Choose one of the topics below, or type your question.",
+    content: "Hi there! I'm the DMMC assistant. Please choose a mode to get started.",
+    options: [
+      { text: '🧭 Explore Topics', nextNode: 'explore' },
+      { text: '❓ Ask a Question', nextNode: 'ask' },
+    ],
+  },
+  explore: {
+    sender: 'bot',
+    content: "Great! I can guide you through our site. What can I help you find?",
     options: [
       { text: 'Tell me about the church', nextNode: 'about' },
       { text: 'Upcoming Events', nextNode: 'events' },
       { text: 'How to Get Involved', nextNode: 'getInvolved' },
       { text: 'Our Leaders', nextNode: 'ourLeaders' },
       { text: 'I want to know Jesus', nextNode: 'salvation' },
+      { text: '↩️ Back to modes', nextNode: 'start' },
     ],
   },
-  // About branch
+  ask: {
+    sender: 'bot',
+    content: "Of course. Please type your question below, and I'll do my best to answer it.",
+    options: [
+        { text: '↩️ Back to modes', nextNode: 'start' },
+    ]
+  },
   about: {
     sender: 'bot',
     content: (
@@ -84,7 +99,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <p className="mt-2">Would you like me to tell you more about our specific mission and vision?</p>
         </>
     ),
-    options: [{ text: 'Yes, tell me more!', nextNode: 'aboutMore' }, { text: 'Back to topics', nextNode: 'start' }],
+    options: [{ text: 'Yes, tell me more!', nextNode: 'aboutMore' }, { text: 'Back to topics', nextNode: 'explore' }],
   },
   aboutMore: {
     sender: 'bot',
@@ -94,10 +109,9 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
         <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/about">Learn More About Us</Link></Button>
       </>
     ),
-    options: [{ text: 'Ask another question', nextNode: 'start' }],
+    options: [{ text: 'Back to topics', nextNode: 'explore' }],
   },
 
-  // Events branch
   events: {
     sender: 'bot',
     content: (
@@ -110,10 +124,9 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
         <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/events">View All Events</Link></Button>
       </>
     ),
-    options: [{ text: 'Ask another question', nextNode: 'start' }],
+    options: [{ text: 'Back to topics', nextNode: 'explore' }],
   },
 
-  // Get Involved branch
   getInvolved: {
     sender: 'bot',
     content: "That's wonderful! 🙌 There are so many ways to use your talents for God. What are you passionate about?",
@@ -122,6 +135,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
         { text: "Dancing 💃", nextNode: 'getInvolved_dancing' },
         { text: "Media / Creative 🎨", nextNode: 'getInvolved_media' },
         { text: "Greeting / Ushering 🙏", nextNode: 'getInvolved_ushers' },
+        { text: 'Back to topics', nextNode: 'explore' },
     ]
   },
   getInvolved_singing: {
@@ -136,7 +150,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Join a Ministry</Link></Button>
         </>
     ),
-    options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Ask another question', nextNode: 'start' }]
+    options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Back to topics', nextNode: 'explore' }]
   },
   getInvolved_dancing: {
     sender: 'bot',
@@ -146,7 +160,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Learn about Dancing Stars</Link></Button>
         </>
     ),
-     options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Ask another question', nextNode: 'start' }]
+     options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Back to topics', nextNode: 'explore' }]
   },
    getInvolved_media: {
     sender: 'bot',
@@ -156,7 +170,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Join the Creative Team</Link></Button>
         </>
     ),
-     options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Ask another question', nextNode: 'start' }]
+     options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Back to topics', nextNode: 'explore' }]
   },
    getInvolved_ushers: {
     sender: 'bot',
@@ -166,10 +180,9 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/get-involved">Become an Usher</Link></Button>
         </>
     ),
-     options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Ask another question', nextNode: 'start' }]
+     options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Back to topics', nextNode: 'explore' }]
   },
 
-  // Our Leaders branch
   ourLeaders: {
     sender: 'bot',
     content: 'Our church is blessed with incredible leaders. Who would you like to learn more about?',
@@ -177,6 +190,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
         { text: leaders.dag.name, nextNode: 'leader_dag' },
         { text: leaders.commey.name, nextNode: 'leader_commey' },
         { text: leaders.frantz.name, nextNode: 'leader_frantz' },
+        { text: 'Back to topics', nextNode: 'explore' },
     ]
   },
   leader_dag: {
@@ -188,7 +202,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href={leaders.dag.link}>Read His Full Story</Link></Button>
         </>
     ),
-    options: [{ text: 'Learn about another leader', nextNode: 'ourLeaders'}, { text: 'Back to topics', nextNode: 'start' }],
+    options: [{ text: 'Learn about another leader', nextNode: 'ourLeaders'}, { text: 'Back to topics', nextNode: 'explore' }],
   },
   leader_commey: {
     sender: 'bot',
@@ -199,7 +213,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href={leaders.commey.link}>Read His Full Story</Link></Button>
         </>
     ),
-    options: [{ text: 'Learn about another leader', nextNode: 'ourLeaders'}, { text: 'Back to topics', nextNode: 'start' }],
+    options: [{ text: 'Learn about another leader', nextNode: 'ourLeaders'}, { text: 'Back to topics', nextNode: 'explore' }],
   },
    leader_frantz: {
     sender: 'bot',
@@ -210,10 +224,9 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href={leaders.frantz.link}>Read His Full Story</Link></Button>
         </>
     ),
-    options: [{ text: 'Learn about another leader', nextNode: 'ourLeaders'}, { text: 'Back to topics', nextNode: 'start' }],
+    options: [{ text: 'Learn about another leader', nextNode: 'ourLeaders'}, { text: 'Back to topics', nextNode: 'explore' }],
   },
 
-  // Salvation branch
   salvation: {
     sender: 'bot',
     content: (
@@ -222,7 +235,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <p className="mt-2">Are you ready to take this step?</p>
         </>
     ),
-    options: [{ text: "Yes, I'm ready", nextNode: 'salvation_prayer' }, { text: 'I have some questions', nextNode: 'salvation_moreInfo' }],
+    options: [{ text: "Yes, I'm ready", nextNode: 'salvation_prayer' }, { text: 'I have some questions', nextNode: 'salvation_moreInfo' }, { text: 'Back to topics', nextNode: 'explore' }],
   },
   salvation_prayer: {
     sender: 'bot',
@@ -236,7 +249,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/jesus">I Have Prayed</Link></Button>
         </>
     ),
-    options: [{ text: 'Ask another question', nextNode: 'start' }],
+    options: [{ text: 'Back to topics', nextNode: 'explore' }],
   },
   salvation_moreInfo: {
     sender: 'bot',
@@ -247,7 +260,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
             <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/jesus">Learn about salvation</Link></Button>
         </>
     ),
-    options: [{ text: "I'm ready to pray now", nextNode: 'salvation_prayer' }, { text: 'Ask another question', nextNode: 'start' }],
+    options: [{ text: "I'm ready to pray now", nextNode: 'salvation_prayer' }, { text: 'Back to topics', nextNode: 'explore' }],
   },
   askDeepSearch: {
     sender: 'bot',
@@ -255,18 +268,14 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
     options: [
       { text: 'Just the basics, please', nextNode: 'basicSearch' },
       { text: 'Give me the deep search!', nextNode: 'deepSearch' },
-      { text: 'Back to start', nextNode: 'start' },
+      { text: '↩️ Back to modes', nextNode: 'start' },
     ],
   },
   unrecognized: {
     sender: 'bot',
-    content: "I'm sorry, I'm still learning and didn't quite understand your request. Could you perhaps rephrase it? Or, you can choose from one of the main topics below, and I'll do my best to guide you.",
+    content: "I'm sorry, I'm still learning and didn't quite understand your request. Perhaps you could try rephrasing, or start over by choosing a mode.",
     options: [
-      { text: 'About the Church', nextNode: 'about' },
-      { text: 'Upcoming Events', nextNode: 'events' },
-      { text: 'Get Involved', nextNode: 'getInvolved' },
-      { text: 'Our Leaders', nextNode: 'ourLeaders' },
-      { text: 'Know Jesus', nextNode: 'salvation' },
+      { text: '↩️ Back to modes', nextNode: 'start' },
     ],
   },
 };
@@ -377,9 +386,7 @@ export function Chatbot() {
                     content: searchType === 'deep' 
                         ? <AiMarkdownResponse text={aiResponse} /> 
                         : aiResponse,
-                    options: searchType === 'deep'
-                        ? [{ text: 'Back to topics', nextNode: 'start' }]
-                        : [{ text: 'Ask another question', nextNode: 'start' }]
+                    options: [{ text: '↩️ Back to modes', nextNode: 'start' }]
                 }
             };
             setHistory(prev => [...prev, botMessage]);
@@ -416,6 +423,18 @@ export function Chatbot() {
     setHistory(prev => [...prev, userMessage]);
     setInputValue('');
     
+    const lastBotNodeId = [...history].reverse().find(m => m.node.sender === 'bot')?.node.id;
+
+    if (lastBotNodeId === 'ask') {
+        setPendingQuery(text);
+        const askNode: Message = {
+            id: Date.now() + 1,
+            node: { ...conversationTree.askDeepSearch, id: 'askDeepSearch' }
+        };
+        setHistory(prev => [...prev, askNode]);
+        return;
+    }
+
     const lowerCaseInput = text.toLowerCase();
     let nextNodeId = 'unrecognized';
 
@@ -590,3 +609,5 @@ export function Chatbot() {
     </>
   );
 }
+
+    
