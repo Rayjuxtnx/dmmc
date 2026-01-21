@@ -4,13 +4,14 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MessageSquare, X, Bot, Send } from 'lucide-react';
+import { MessageSquare, X, Bot, Send, Maximize, Minimize } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { generalChat } from '@/ai/flows/chatbot-flow';
+import { cn } from '@/lib/utils';
 
 // Data from the site, centralized for the chatbot
 const events = [
@@ -288,6 +289,7 @@ type Message = {
 // --- Component ---
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [history, setHistory] = useState<Message[]>([
       { id: 0, node: { ...conversationTree.start, id: 'start' } }
   ]);
@@ -574,7 +576,12 @@ export function Chatbot() {
         <PopoverContent
           side="top"
           align="end"
-          className="w-[calc(100vw-2rem)] sm:w-[400px] h-[600px] max-h-[80vh] p-0 border-none shadow-2xl mr-4 mb-2"
+          className={cn(
+            "p-0 border-none shadow-2xl transition-all duration-300",
+            isFullScreen 
+              ? "w-screen h-screen max-h-screen inset-0 m-0 rounded-none" 
+              : "w-[calc(100vw-2rem)] sm:w-[400px] h-[600px] max-h-[80vh] mr-4 mb-2"
+          )}
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <Card className="h-full flex flex-col bg-card/80">
@@ -583,9 +590,15 @@ export function Chatbot() {
                 <CardTitle className="font-headline">DMMC Assistant</CardTitle>
                 <CardDescription>Your friendly guide to our church!</CardDescription>
               </div>
-               <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="rounded-full">
-                  <X className="h-4 w-4" />
-               </Button>
+               <div className="flex items-center">
+                <Button variant="ghost" size="icon" onClick={() => setIsFullScreen(!isFullScreen)} className="rounded-full">
+                    {isFullScreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+                    <span className="sr-only">{isFullScreen ? 'Exit full screen' : 'Enter full screen'}</span>
+                </Button>
+                <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="rounded-full">
+                    <X className="h-4 w-4" />
+                </Button>
+               </div>
             </CardHeader>
             <CardContent className="flex-1 overflow-y-auto p-4 space-y-4" ref={scrollAreaRef}>
               <AnimatePresence initial={false}>
