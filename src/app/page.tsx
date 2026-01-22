@@ -3,28 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, CalendarDays, BookOpen, HeartHandshake } from 'lucide-react';
+import { ArrowRight, CalendarDays, HeartHandshake } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Events } from '@/lib/events';
 
 export default function Home() {
-  const events = [
-    {
-      title: "Sunday Worship",
-      date: "Every Sunday, 10:00 AM",
-      description: "Join us for a time of worship, prayer, and teaching.",
-    },
-    {
-      title: "Mid-week Bible Study",
-      date: "Every Wednesday, 7:00 PM",
-      description: "Dive deeper into the Word with our community.",
-    },
-    {
-      title: "Youth Night",
-      date: "Every Friday, 6:30 PM",
-      description: "A fun and engaging night for teens.",
-    },
-  ];
+  const events = Events.slice(0, 3);
 
   const activityImages = [
     PlaceHolderImages.find(img => img.id === 'activity-1'),
