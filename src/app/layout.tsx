@@ -4,6 +4,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from "@/components/ui/toaster"
 import { Chatbot } from '@/components/chatbot';
+import { PwaInstallPrompt } from '@/components/pwa-install-prompt';
 
 export const metadata: Metadata = {
   title: 'DMMC',
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Footer />
         <Toaster />
         <Chatbot />
+        <PwaInstallPrompt />
       </body>
     </html>
   );
