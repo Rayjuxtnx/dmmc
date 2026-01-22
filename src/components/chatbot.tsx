@@ -667,7 +667,7 @@ export function Chatbot() {
         <PopoverTrigger asChild>
           <Button
             size="lg"
-            className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground"
+            className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground animate-glow-button"
             aria-label="Open Chat"
           >
             <AnimatePresence>

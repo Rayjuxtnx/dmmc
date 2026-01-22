@@ -32,6 +32,15 @@
   }
 }
 
+@keyframes glow-button {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px hsl(var(--primary) / 0.6);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px hsl(var(--accent) / 0.6);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 0%;
@@ -165,5 +174,8 @@
       1px 1px 2px hsl(var(--background) / 0.5), 
       0 0 1em hsl(var(--primary) / 0.3), 
       0 0 0.2em hsl(var(--accent) / 0.3);
+  }
+  .animate-glow-button {
+    animation: glow-button 4s ease-in-out infinite;
   }
 }
