@@ -3,265 +3,265 @@
     {
       "id": "site-logo",
       "description": "The main logo for the DMMC website.",
-      "imageUrl": "https://images.unsplash.com/photo-1719500718275-d7fec17c7dc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBsb2dvfGVufDB8fHx8MTc2ODk5NzQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "church logo"
     },
     {
       "id": "hero-home",
       "description": "A wide-angle shot of a modern church sanctuary, filled with light, empty pews facing the stage.",
-      "imageUrl": "https://images.unsplash.com/photo-1641824106850-0e963ab4f719?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaHVyY2glMjBzYW5jdHVhcnl8ZW58MHx8fHwxNzY5MDIyNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "church sanctuary"
     },
     {
       "id": "about-us-leadership",
       "description": "A group photo of the church leadership team, smiling and looking welcoming.",
-      "imageUrl": "https://images.unsplash.com/photo-1716703742287-2b06c3c6d81a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWFtJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4OTQ0NTk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "team portrait"
     },
     {
       "id": "event-1",
       "description": "A vibrant community gathering, people talking and laughing at an outdoor event.",
-      "imageUrl": "https://images.unsplash.com/photo-1654868537177-86c35bb6b226?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21tdW5pdHklMjBldmVudHxlbnwwfHx8fDE3NjkwMTM2NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "community event"
     },
     {
       "id": "event-2",
       "description": "People engaged in a bible study session in a cozy room.",
-      "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaWJsZSUyMHN0dWR5fGVufDB8fHx8fDE3NjkwMjI1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "bible study"
     },
     {
       "id": "event-youth-camp",
       "description": "Teens around a campfire",
-      "imageUrl": "https://images.unsplash.com/photo-1464808322410-1a934aab61e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGNhbXB8ZW58MHx8fHwxNzY5MDM1Nzg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "youth camp"
     },
     {
       "id": "resource-book",
       "description": "A person reading a book in a comfortable chair.",
-      "imageUrl": "https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyZWFkaW5nJTIwYm9va3xlbnwwfHx8fDE3Njg5NjM4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "reading book"
     },
     {
       "id": "global-outreach",
       "description": "A group of volunteers working on a construction project in a rural village.",
-      "imageUrl": "https://images.unsplash.com/photo-1634051808311-8cfc09fae985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtaXNzaW9uJTIwdHJpcHxlbnwwfHx8fDE3NjkwMjI1NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "mission trip"
     },
     {
       "id": "testimonial-1",
       "description": "Portrait of a smiling person.",
-      "imageUrl": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwZXJzb258ZW58MHx8fHwxNzY4OTI1NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "happy person"
     },
     {
       "id": "testimonial-2",
       "description": "Portrait of another smiling person.",
-      "imageUrl": "https://images.unsplash.com/photo-1607529378676-a20456ee2f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbWlsaW5nJTIwcGVyc29ufGVufDB8fHx8fDE3Njg5MTc4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "smiling person"
     },
     {
       "id": "connect-location",
       "description": "The exterior of a modern church building on a sunny day.",
-      "imageUrl": "https://images.unsplash.com/photo-1661240576949-167764711fe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaHVyY2glMjBleHRlcmlvcnxlbnwwfHx8fDE3NjkwMjI1NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "church exterior"
     },
     {
       "id": "jesus-page-image",
       "description": "A serene landscape with a path leading towards a bright light.",
-      "imageUrl": "https://images.unsplash.com/photo-1631123471942-9fd6ed03c263?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYXRoJTIwbGlnaHR8ZW58MHx8fHwxNzY5MDIyNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "path light"
     },
     {
       "id": "world-map-dark",
       "description": "A dark equirectangular projection of the world map.",
-      "imageUrl": "https://images.unsplash.com/photo-1607503323565-df0558e85843?q=80&w=2000&auto=format&fit=crop",
+      "imageUrl": "",
       "imageHint": "world map"
     },
     {
       "id": "ministry-dance-1",
       "description": "Dancers in motion during a performance.",
-      "imageUrl": "https://images.unsplash.com/photo-1718908721930-31120bc1beb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYW5jZXJzJTIwcGVyZm9ybWluZ3xlbnwwfHx8fDE3NjkwMjYzNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "dancers performing"
     },
     {
       "id": "ministry-dance-2",
       "description": "A group of dancers posing.",
-      "imageUrl": "https://images.unsplash.com/photo-1746983062953-74c19d0dfc5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkYW5jZSUyMGdyb3VwfGVufDB8fHx8MTc2ODk1NDA2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "dance group"
     },
     {
       "id": "ministry-dance-3",
       "description": "A solo dancer in a dynamic pose.",
-      "imageUrl": "https://images.unsplash.com/photo-1758526387735-9b4b0d6f120a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c29sbyUyMGRhbmNlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "solo dancer"
     },
     {
       "id": "ministry-choir-1",
       "description": "A choir singing with passion.",
-      "imageUrl": "https://images.unsplash.com/photo-1709054754811-6c8d2d1ab015?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaG9pciUyMHNpbmdpbmd8ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "choir singing"
     },
     {
       "id": "ministry-choir-2",
       "description": "Portrait of a choir member singing.",
-      "imageUrl": "https://images.unsplash.com/photo-1745852738000-f6b7e53f9662?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaG9pciUyMHNpbmdlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "choir singer"
     },
     {
       "id": "ministry-choir-3",
       "description": "The choir during a service.",
-      "imageUrl": "https://images.unsplash.com/photo-1548795835-264877304664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaHVyY2glMjBjaG9pcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "church choir"
     },
     {
       "id": "ministry-media-1",
       "description": "A person operating a camera during a service.",
-      "imageUrl": "https://images.unsplash.com/photo-1646816221077-964aec055534?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYW1lcmElMjBvcGVyYXRvcnxlbnwwfHx8fDE3Njg5NjUwMjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "camera operator"
     },
     {
       "id": "ministry-media-2",
       "description": "A soundboard with hands adjusting levels.",
-      "imageUrl": "https://images.unsplash.com/photo-1588650033940-30ebeffe46ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb3VuZCUyMGVuZ2luZWVyfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "sound engineer"
     },
     {
       "id": "ministry-media-3",
       "description": "A team managing a live stream production.",
-      "imageUrl": "https://images.unsplash.com/photo-1594394489098-74ac04c0fc2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsaXZlJTIwc3RyZWFtfGVufDB8fHx8MTc2OTAyNjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "live stream"
     },
     {
       "id": "ministry-usher-1",
       "description": "A friendly usher greeting at the door.",
-      "imageUrl": "https://images.unsplash.com/photo-1599355576964-069f01306344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaHVyY2glMjB1c2hlcnxlbnwwfHx8fDE3NjkwMjYzNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "church usher"
     },
     {
       "id": "ministry-usher-2",
       "description": "An usher handing out a program.",
-      "imageUrl": "https://picsum.photos/seed/U2/400/400",
+      "imageUrl": "",
       "imageHint": "usher program"
     },
     {
       "id": "ministry-usher-3",
       "description": "A team of ushers smiling together.",
-      "imageUrl": "https://images.unsplash.com/photo-1666558889375-798fa96b559a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1c2hlciUyMHRlYW18ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "usher team"
     },
     {
       "id": "ministry-design-1",
       "description": "A person designing a graphic on a computer.",
-      "imageUrl": "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduZXJ8ZW58MHx8fHwxNzY5MDI2MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "graphic designer"
     },
     {
       "id": "ministry-design-2",
       "description": "A collection of printed church flyers.",
-      "imageUrl": "https://images.unsplash.com/photo-1715079946886-d2aea1333a1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjaHVyY2glMjBmbHllcnN8ZW58MHx8fHwxNzY5MDI2MzQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "church flyers"
     },
     {
       "id": "ministry-design-3",
       "description": "A person sketching ideas in a notebook.",
-      "imageUrl": "https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkZXNpZ24lMjBza2V0Y2h8ZW58MHx8fHwxNzY4OTE4NjE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "design sketch"
     },
     {
       "id": "dag-heward-mills-portrait",
       "description": "Portrait of Dag Heward-Mills.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjkwMDgzMTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "man portrait"
     },
     {
       "id": "bishop-ob-commey-portrait",
       "description": "Portrait of Bishop OB Commey.",
-      "imageUrl": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjkwMDgzMTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "man portrait"
     },
     {
       "id": "bishop-augustine-frantz-portrait",
       "description": "Portrait of Bishop Augustine Frantz.",
-      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjkwMDgzMTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "man portrait"
     },
     {
       "id": "activity-1",
       "description": "People raising hands in worship",
-      "imageUrl": "https://images.unsplash.com/photo-1630449156471-c426a4afb1da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b3JzaGlwJTIwc2VydmljZXxlbnwwfHx8fDE3NjkwMzM4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "worship service"
     },
     {
       "id": "activity-2",
       "description": "Group of people in a prayer circle",
-      "imageUrl": "https://images.unsplash.com/photo-1609234656381-73e732808098?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcmF5ZXIlMjBncm91cHxlbnwwfHx8fDE3NjkwMzM4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "prayer group"
     },
     {
       "id": "activity-3",
       "description": "Volunteers handing out food",
-      "imageUrl": "https://images.unsplash.com/photo-1565103001996-3fa52eb269d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21tdW5pdHklMjBvdXRyZWFjaHxlbnwwfHx8fDE3NjkwMzM4Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "community outreach"
     },
     {
       "id": "activity-4",
       "description": "Children listening to a story in Sunday school",
-      "imageUrl": "https://images.unsplash.com/photo-1709375635395-7774ae07995a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaGlsZHJlbiUyMG1pbmlzdHJ5fGVufDB8fHx8MTc2OTAzMzg3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "children ministry"
     },
     {
       "id": "activity-5",
       "description": "A person being baptized",
-      "imageUrl": "https://images.unsplash.com/photo-1643487563696-95398e3b1290?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiYXB0aXNtJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4OTU2NzE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "baptism water"
     },
     {
       "id": "activity-6",
       "description": "Youth group having fun",
-      "imageUrl": "https://images.unsplash.com/photo-1566135235200-616a028972c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx5b3V0aCUyMGdyb3VwfGVufDB8fHx8MTc2OTAzMzg3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "youth group"
     },
     {
       "id": "about-hero",
       "description": "A diverse group of happy people in a casual setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkaXZlcnNlJTIwZ3JvdXB8ZW58MHx8fHwxNzY5MDM4ODc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "diverse group"
     },
     {
       "id": "connect-hero",
       "description": "Close-up of two hands shaking.",
-      "imageUrl": "https://images.unsplash.com/photo-1564223288-513253283592?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYW5kc2hha2V8ZW58MHx8fHwxNzY5MDM4ODc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "handshake"
     },
     {
       "id": "events-hero",
       "description": "Colorful event calendar with dates marked.",
-      "imageUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYWxlbmRhcnxlbnwwfHx8fDE3NjkwMzg4NzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "calendar"
     },
     {
       "id": "get-involved-hero",
       "description": "Group of volunteers with their hands in the middle.",
-      "imageUrl": "https://images.unsplash.com/photo-1621451537095-2ca3a2e3eba3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2b2x1bnRlZXJzJTIwaGFuZHN8ZW58MHx8fHwxNzY5MDM4ODc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "volunteers hands"
     },
     {
       "id": "give-hero",
       "description": "A person placing money into a donation box.",
-      "imageUrl": "https://images.unsplash.com/photo-1593113598332-cd288d649433?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkb25hdGlvbnxlbnwwfHx8fDE3NjkwMzg4Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "donation"
     },
     {
       "id": "global-hero",
       "description": "A glowing globe showing network connections across the world.",
-      "imageUrl": "https://images.unsplash.com/photo-1545156521-77bd85492d77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnbG9iYWwlMjBuZXR3b3JrfGVufDB8fHx8fDE3NjkwMzg4Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "global network"
     },
     {
       "id": "stories-hero",
       "description": "An old open book on a wooden table.",
-      "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvdmVyJTIwYm9va3xlbnwwfHx8fDE3NjkwMzg4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "",
       "imageHint": "open book"
     }
   ]
