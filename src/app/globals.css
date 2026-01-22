@@ -13,10 +13,10 @@
 
 @keyframes move-stars {
     from {
-        transform: translateY(0);
+        background-position: 0 0;
     }
     to {
-        transform: translateY(-2000px);
+        background-position: 0 -10000px;
     }
 }
 
@@ -62,7 +62,6 @@
     --border: 215 50% 48% / 0.2;
     --input: 215 50% 48% / 0.2;
     --ring: 215 70% 65%;
-    --radius: 0.5rem;
     --chart-1: 215 70% 65%;
     --chart-2: 50 100% 70%;
     --chart-3: 197 37% 24%;
@@ -157,7 +156,7 @@
       radial-gradient(0.5px 0.5px at 95% 5%, hsl(var(--accent) / 0.7), transparent);
     background-repeat: repeat;
     background-size: 300px 300px;
-    animation: move-stars 120s linear infinite;
+    animation: move-stars 200s linear infinite;
     filter: blur(1.2px);
   }
 }
