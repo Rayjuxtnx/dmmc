@@ -20,16 +20,12 @@ const events = [
     description: "Every Sunday at 6:30 AM at the Prince of Peace Cathedral.",
   },
   {
-    title: "Basenta Area Prayers 🏡",
-    description: "Every Wednesday evening for all church members in the Basenta area.",
-  },
-  {
     title: "Area Center Service ⛪",
     description: "Wednesdays and Thursdays, starting at 6:30 PM at various area centers.",
   },
   {
     title: "Invitation Sunday 👋",
-    description: "Every Sunday at 9:00 AM at the Prince of Peace Cathedral. Bring a friend!",
+    description: "Every Sunday at 9:00 AM at the Prince of Peace Cathedral. Bring a friend! Your Sunday Best is encouraged.",
   },
 ];
 

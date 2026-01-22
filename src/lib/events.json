@@ -10,15 +10,6 @@
       "imageId": "event-1"
     },
     {
-      "id": "basenta-area-prayers",
-      "title": "Basenta Area Prayers",
-      "date": "Every Wednesday",
-      "time": "7:00 PM",
-      "location": "Basenta Area",
-      "description": "A weekly gathering for all church members in the Basenta area for a time of fellowship and focused prayer.",
-      "imageId": "event-2"
-    },
-    {
       "id": "area-center-service",
       "title": "Area Center Service",
       "date": "Wednesdays & Thursdays",
@@ -33,7 +24,7 @@
       "date": "Every Sunday",
       "time": "9:00 AM",
       "location": "Prince of Peace Cathedral",
-      "description": "Extend an invitation to friends and family! A special service designed to welcome newcomers into our church family.",
+      "description": "Extend an invitation to friends and family! A special service designed to welcome newcomers into our church family. Your Sunday Best is encouraged.",
       "imageId": "hero-home"
     }
   ]
