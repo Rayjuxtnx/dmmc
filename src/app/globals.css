@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes slow-pan {
+  0% { transform: translate(10px, -20px) scale(1.05); }
+  20% { transform: translate(-30px, 10px) scale(1); }
+  40% { transform: translate(40px, 50px) scale(1.1); }
+  60% { transform: translate(-20px, -40px) scale(0.95); }
+  80% { transform: translate(30px, 20px) scale(1.0); }
+  100% { transform: translate(10px, -20px) scale(1.05); }
+}
+
+@keyframes move-stars {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 0%;
@@ -69,28 +99,7 @@
     --sidebar-border: 215 50% 48% / 0.2;
     --sidebar-ring: 215 70% 65%;
   }
-}
 
-@keyframes slow-pan {
-  0% { transform: translate(10px, -20px) scale(1.05); }
-  20% { transform: translate(-30px, 10px) scale(1); }
-  40% { transform: translate(40px, 50px) scale(1.1); }
-  60% { transform: translate(-20px, -40px) scale(0.95); }
-  80% { transform: translate(30px, 20px) scale(1.0); }
-  100% { transform: translate(10px, -20px) scale(1.05); }
-}
-
-@keyframes move-stars {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-2000px);
-    }
-}
-
-
-@layer base {
   * {
     @apply border-border;
   }
@@ -141,5 +150,20 @@
     background-size: 300px 300px;
     animation: move-stars 120s linear infinite;
     filter: blur(1.2px);
+  }
+}
+
+@layer utilities {
+  .animated-gradient-text-3d {
+    background: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--primary)), hsl(var(--accent)));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-animation 5s ease infinite;
+    text-shadow: 
+      1px 1px 2px hsl(var(--background) / 0.5), 
+      0 0 1em hsl(var(--primary) / 0.3), 
+      0 0 0.2em hsl(var(--accent) / 0.3);
   }
 }

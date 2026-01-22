@@ -35,7 +35,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-primary/60" />
         <Animate className="relative z-10 p-4 max-w-4xl">
-          <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+          <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight animated-gradient-text-3d">
             Welcome to DMMC
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
