@@ -1,44 +1,34 @@
 {
   "events": [
     {
-      "id": "annual-summer-picnic",
-      "title": "Annual Summer Picnic",
-      "date": "August 15, 2024",
-      "time": "12:00 PM - 4:00 PM",
-      "location": "Central Park",
-      "description": "Join us for a day of fun, food, and fellowship at our annual church picnic. All are welcome!",
+      "id": "prayer-clinic",
+      "title": "Prayer Clinic",
+      "date": "Every Sunday",
+      "time": "6:30 AM",
+      "location": "Prince of Peace Cathedral",
+      "description": "An early morning session of powerful prayer and intercession. All are welcome to start their week in God's presence.",
       "imageId": "event-1",
+      "dressCode": "Come as you are"
+    },
+    {
+      "id": "bosenta-area-prayers",
+      "title": "Bosenta Area Prayers",
+      "date": "Every Wednesday",
+      "time": "7:00 PM",
+      "location": "Bosenta Area",
+      "description": "A weekly gathering for all church members in the Bosenta area for a time of fellowship and focused prayer.",
+      "imageId": "event-2",
       "dressCode": "Casual"
     },
     {
-      "id": "bible-study-romans",
-      "title": "Bible Study: The Book of Romans",
-      "date": "Every Wednesday",
-      "time": "7:00 PM - 8:30 PM",
-      "location": "Fellowship Hall",
-      "description": "Dive deep into Paul's letter to the Romans in this engaging weekly study.",
-      "imageId": "event-2",
-      "dressCode": "Smart Casual"
-    },
-    {
-      "id": "worship-prayer-night",
-      "title": "Worship & Prayer Night",
-      "date": "August 2, 2024",
-      "time": "7:30 PM",
-      "location": "Main Sanctuary",
-      "description": "An extended evening dedicated to worship, prayer, and seeking God's presence together.",
+      "id": "invitation-sunday",
+      "title": "Invitation Sunday",
+      "date": "Every Sunday",
+      "time": "9:00 AM",
+      "location": "Prince of Peace Cathedral",
+      "description": "Extend an invitation to friends and family! A special service designed to welcome newcomers into our church family.",
       "imageId": "hero-home",
-      "dressCode": "Modest"
-    },
-    {
-      "id": "youth-summer-camp",
-      "title": "Youth Summer Camp",
-      "date": "August 19-23, 2024",
-      "time": "All Day",
-      "location": "Mountain View Camp",
-      "description": "An unforgettable week of faith, fun, and friendship for students in grades 6-12.",
-      "imageId": "event-youth-camp",
-      "dressCode": "Camp wear"
+      "dressCode": "Your Sunday Best"
     }
   ]
 }

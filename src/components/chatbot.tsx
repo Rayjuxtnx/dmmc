@@ -16,16 +16,16 @@ import { cn } from '@/lib/utils';
 // Data from the site, centralized for the chatbot
 const events = [
   {
-    title: "Annual Summer Picnic 🧺",
-    description: "Join us for a day of fun, food, and fellowship!",
+    title: "Prayer Clinic 🙏",
+    description: "Every Sunday at 6:30 AM at the Prince of Peace Cathedral.",
   },
   {
-    title: "Bible Study: The Book of Romans 📖",
-    description: "Dive deep into Paul's letter to the Romans.",
+    title: "Bosenta Area Prayers 🏡",
+    description: "Every Wednesday evening for all church members in the Bosenta area.",
   },
   {
-    title: "Worship & Prayer Night 🙏",
-    description: "An evening dedicated to worship and prayer.",
+    title: "Invitation Sunday 👋",
+    description: "Every Sunday at 9:00 AM at the Prince of Peace Cathedral. Bring a friend!",
   },
 ];
 
