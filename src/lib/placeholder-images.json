@@ -323,6 +323,12 @@
       "description": "The church praise team leading worship.",
       "imageUrl": "",
       "imageHint": "praise team"
+    },
+    {
+      "id": "paybill-qr",
+      "description": "A QR code for M-Pesa paybill.",
+      "imageUrl": "",
+      "imageHint": "qr code"
     }
   ]
 }

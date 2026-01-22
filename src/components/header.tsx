@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Church, Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -21,6 +21,14 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -44,6 +52,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const logo = PlaceHolderImages.find(img => img.id === 'site-logo');
+  const paybillImage = PlaceHolderImages.find(img => img.id === 'paybill-qr');
 
   return (
     <Animate as="header" className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
@@ -94,9 +103,50 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button asChild className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/give">Give</Link>
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90">
+                Give
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle className="font-headline text-2xl text-center">Online Giving</DialogTitle>
+                  <DialogDescription className="text-center">
+                    Use the details below for M-Pesa.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="py-4 space-y-6">
+                  <div className="text-center bg-secondary p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-muted-foreground">PAYBILL NUMBER</p>
+                    <p className="text-3xl font-bold tracking-widest text-primary">522522</p>
+                  </div>
+                  <div className="text-center bg-secondary p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-muted-foreground">ACCOUNT NUMBER</p>
+                    <p className="text-xl font-bold text-primary">TITHE / OFFERING</p>
+                  </div>
+                  
+                  {paybillImage && paybillImage.imageUrl && (
+                    <div className="flex flex-col items-center justify-center">
+                        <p className="text-sm font-semibold text-muted-foreground mb-2">OR SCAN THE QR CODE</p>
+                        <div className="relative w-48 h-48 mt-2 p-2 border rounded-lg bg-white">
+                            <Image
+                                src={paybillImage.imageUrl}
+                                alt="M-Pesa Paybill QR Code"
+                                fill
+                                className="object-contain"
+                                data-ai-hint={paybillImage.imageHint}
+                            />
+                        </div>
+                    </div>
+                  )}
+
+                  <p className="text-xs text-muted-foreground text-center pt-4">
+                    "Bring the full tithe into the storehouse, that there may be food in my house." - Malachi 3:10
+                  </p>
+                </div>
+              </DialogContent>
+          </Dialog>
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -161,9 +211,50 @@ export function Header() {
                   })}
                 </nav>
                 <div className="mt-auto">
-                    <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90" size="lg" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Link href="/give">Give</Link>
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" size="lg" onClick={() => setIsMobileMenuOpen(false)}>
+                          Give
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[425px]">
+                        <DialogHeader>
+                          <DialogTitle className="font-headline text-2xl text-center">Online Giving</DialogTitle>
+                          <DialogDescription className="text-center">
+                            Use the details below for M-Pesa.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="py-4 space-y-6">
+                          <div className="text-center bg-secondary p-4 rounded-lg">
+                            <p className="text-sm font-semibold text-muted-foreground">PAYBILL NUMBER</p>
+                            <p className="text-3xl font-bold tracking-widest text-primary">522522</p>
+                          </div>
+                          <div className="text-center bg-secondary p-4 rounded-lg">
+                            <p className="text-sm font-semibold text-muted-foreground">ACCOUNT NUMBER</p>
+                            <p className="text-xl font-bold text-primary">TITHE / OFFERING</p>
+                          </div>
+                          
+                          {paybillImage && paybillImage.imageUrl && (
+                            <div className="flex flex-col items-center justify-center">
+                                <p className="text-sm font-semibold text-muted-foreground mb-2">OR SCAN THE QR CODE</p>
+                                <div className="relative w-48 h-48 mt-2 p-2 border rounded-lg bg-white">
+                                    <Image
+                                        src={paybillImage.imageUrl}
+                                        alt="M-Pesa Paybill QR Code"
+                                        fill
+                                        className="object-contain"
+                                        data-ai-hint={paybillImage.imageHint}
+                                    />
+                                </div>
+                            </div>
+                          )}
+
+                          <p className="text-xs text-muted-foreground text-center pt-4">
+                            "Bring the full tithe into the storehouse, that there may be food in my house." - Malachi 3:10
+                          </p>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                 </div>
               </div>
             </SheetContent>
