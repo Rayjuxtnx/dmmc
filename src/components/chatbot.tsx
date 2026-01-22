@@ -55,6 +55,13 @@ const choirs = [
     "Greater Love Choir ❤️"
 ];
 
+const givingDetails = {
+    paybill: "522522",
+    account: "TITHE / OFFERING",
+    scripture: "Bring the full tithe into the storehouse, that there may be food in my house.",
+    scriptureRef: "Malachi 3:10"
+};
+
 // --- Conversation Tree ---
 type ConversationNode = {
   id: string;
@@ -80,6 +87,7 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
       { text: 'Tell me about the church', nextNode: 'about' },
       { text: 'Upcoming Events', nextNode: 'events' },
       { text: 'How to Get Involved', nextNode: 'getInvolved' },
+      { text: 'How can I give?', nextNode: 'give' },
       { text: 'Our Leaders', nextNode: 'ourLeaders' },
       { text: 'I want to know Jesus', nextNode: 'salvation' },
       { text: '↩️ Back to modes', nextNode: 'start' },
@@ -182,6 +190,28 @@ const conversationTree: { [key: string]: Omit<ConversationNode, 'id'> } = {
         </>
     ),
      options: [{ text: 'Back to involvement types', nextNode: 'getInvolved' }, { text: 'Back to topics', nextNode: 'explore' }]
+  },
+
+  give: {
+    sender: 'bot',
+    content: (
+        <>
+            <p>Thank you for your heart to give! Your generosity helps us fulfill our mission. Here’s how you can give using M-Pesa:</p>
+            <div className="mt-3 space-y-3">
+                <div className="text-center bg-secondary p-3 rounded-lg">
+                    <p className="text-xs font-semibold text-muted-foreground">PAYBILL NUMBER</p>
+                    <p className="text-2xl font-bold tracking-widest text-primary">{givingDetails.paybill}</p>
+                </div>
+                <div className="text-center bg-secondary p-3 rounded-lg">
+                    <p className="text-xs font-semibold text-muted-foreground">ACCOUNT NUMBER</p>
+                    <p className="text-lg font-bold text-primary">{givingDetails.account}</p>
+                </div>
+            </div>
+            <p className="mt-4 text-xs italic text-muted-foreground">"{givingDetails.scripture}" - {givingDetails.scriptureRef}</p>
+            <Button asChild variant="link" className="p-0 h-auto mt-2"><Link href="/give">See all giving options</Link></Button>
+        </>
+    ),
+    options: [{ text: 'Back to topics', nextNode: 'explore' }],
   },
 
   ourLeaders: {
@@ -566,6 +596,8 @@ export function Chatbot() {
       nextNodeId = 'events';
     } else if (lowerCaseInput.includes('involved') || lowerCaseInput.includes('join')) {
       nextNodeId = 'getInvolved';
+    } else if (lowerCaseInput.includes('give') || lowerCaseInput.includes('tithe') || lowerCaseInput.includes('offering') || lowerCaseInput.includes('paybill')) {
+      nextNodeId = 'give';
     } else if (lowerCaseInput.includes('leader') || lowerCaseInput.includes('bishop') || lowerCaseInput.includes('dag')) {
       nextNodeId = 'ourLeaders';
     } else if (lowerCaseInput.includes('jesus') || lowerCaseInput.includes('salvation') || lowerCaseInput.includes('pray')) {
