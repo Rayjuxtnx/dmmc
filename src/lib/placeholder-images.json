@@ -259,6 +259,12 @@
       "imageHint": "global network"
     },
     {
+      "id": "songs-hero",
+      "description": "Sheet music on a stand.",
+      "imageUrl": "",
+      "imageHint": "sheet music"
+    },
+    {
       "id": "stories-hero",
       "description": "An old open book on a wooden table.",
       "imageUrl": "",

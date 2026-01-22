@@ -2,21 +2,38 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Church, Menu, X } from 'lucide-react';
+import { Church, Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/jesus", label: "Jesus" },
   { href: "/about", label: "Who We Are" },
   { href: "/events", label: "Announcements" },
-  { href: "https://daghewardmillsbooks.org/new/", label: "Books" },
+  {
+    label: "Resources",
+    items: [
+      { href: "https://daghewardmillsbooks.org/new/", label: "Books", target: "_blank", rel: "noopener noreferrer" },
+      { href: "/songs", label: "Songs" },
+    ],
+  },
   { href: "/global", label: "Global" },
   { href: "/stories", label: "Our Stories" },
   { href: "/get-involved", label: "Get Involved" },
@@ -41,20 +58,39 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className={cn(
-                "transition-colors hover:text-primary",
-                pathname === link.href ? "text-primary font-semibold" : "text-foreground/60"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if ('items' in link) {
+              return (
+                <DropdownMenu key={link.label}>
+                  <DropdownMenuTrigger className="flex items-center gap-1 transition-colors text-foreground/60 hover:text-primary focus:outline-none data-[state=open]:text-primary">
+                    {link.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {link.items.map((item) => (
+                      <DropdownMenuItem key={item.href} asChild>
+                        <Link href={item.href} target={item.target} rel={item.rel}>
+                          {item.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "transition-colors hover:text-primary",
+                  pathname === link.href ? "text-primary font-semibold" : "text-foreground/60"
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -82,21 +118,47 @@ export function Header() {
                   </Link>
                 </div>
                 <nav className="flex-grow mt-6 flex flex-col gap-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      target={link.href.startsWith('http') ? '_blank' : undefined}
-                      rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                        pathname === link.href ? "text-primary" : "text-foreground/80"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {navLinks.map((link) => {
+                     if ('items' in link) {
+                        return (
+                          <Collapsible key={link.label}>
+                            <CollapsibleTrigger className="flex justify-between items-center w-full text-lg font-medium text-foreground/80 [&[data-state=open]>svg]:rotate-180">
+                              {link.label}
+                              <ChevronDown className="h-5 w-5 transition-transform" />
+                            </CollapsibleTrigger>
+                            <CollapsibleContent>
+                              <div className="flex flex-col gap-4 mt-2 pl-4">
+                                {link.items.map(item => (
+                                  <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    target={item.target}
+                                    rel={item.rel}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="text-lg font-medium text-foreground/70 hover:text-primary"
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </CollapsibleContent>
+                          </Collapsible>
+                        );
+                      }
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={cn(
+                            "text-lg font-medium transition-colors hover:text-primary",
+                            pathname === link.href ? "text-primary" : "text-foreground/80"
+                          )}
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                  })}
                 </nav>
                 <div className="mt-auto">
                     <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90" size="lg" onClick={() => setIsMobileMenuOpen(false)}>
