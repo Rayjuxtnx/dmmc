@@ -329,6 +329,12 @@
       "description": "A QR code for M-Pesa paybill.",
       "imageUrl": "",
       "imageHint": "qr code"
+    },
+    {
+      "id": "area-center-service-image",
+      "description": "A small group gathering for a mid-week service.",
+      "imageUrl": "",
+      "imageHint": "small group"
     }
   ]
 }

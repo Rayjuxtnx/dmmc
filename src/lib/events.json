@@ -19,6 +19,15 @@
       "imageId": "event-2"
     },
     {
+      "id": "area-center-service",
+      "title": "Area Center Service",
+      "date": "Wednesdays & Thursdays",
+      "time": "6:30 PM",
+      "location": "Various Area Centers",
+      "description": "Join us for our mid-week service for a time of worship, prayer, and fellowship.",
+      "imageId": "area-center-service-image"
+    },
+    {
       "id": "invitation-sunday",
       "title": "Invitation Sunday",
       "date": "Every Sunday",
