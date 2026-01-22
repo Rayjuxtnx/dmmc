@@ -699,7 +699,7 @@ export function Chatbot() {
         <PopoverTrigger asChild>
           <Button
             size="lg"
-            className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground animate-glow-button"
+            className="fixed bottom-6 right-6 rounded-full w-16 h-16 shadow-lg z-50 bg-primary/30 backdrop-blur-md border border-white/20 hover:bg-primary/50 text-primary-foreground animate-glow-button"
             aria-label="Open Chat"
           >
             <AnimatePresence>
@@ -718,8 +718,8 @@ export function Chatbot() {
           )}
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
-          <Card className="h-full flex flex-col bg-card/80">
-            <CardHeader className="flex flex-row items-center justify-between border-b">
+          <Card className="h-full flex flex-col chatbot-stars">
+            <CardHeader className="flex flex-row items-center justify-between border-b bg-background/50 backdrop-blur-lg">
               <div>
                 <CardTitle className="font-headline">DMMC Assistant</CardTitle>
                 <CardDescription>Your friendly guide to our church!</CardDescription>
@@ -751,7 +751,7 @@ export function Chatbot() {
               </AnimatePresence>
               {isThinking && <TypingIndicator />}
             </CardContent>
-            <CardFooter className="p-4 border-t flex flex-col items-start gap-2">
+            <CardFooter className="p-4 border-t flex flex-col items-start gap-2 bg-background/50 backdrop-blur-lg">
               <form onSubmit={handleTextInputSubmit} className="w-full flex items-center gap-2">
                  <input
                   type="file"
