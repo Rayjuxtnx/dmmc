@@ -6,10 +6,10 @@ import { CheckCircle } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
 
 const leadership = [
-  { name: 'John Doe', role: 'Senior Pastor', avatar: 'https://picsum.photos/seed/L1/100/100' },
-  { name: 'Jane Smith', role: 'Associate Pastor', avatar: 'https://picsum.photos/seed/L2/100/100' },
-  { name: 'Peter Jones', role: 'Worship Leader', avatar: 'https://picsum.photos/seed/L3/100/100' },
-  { name: 'Mary Williams', role: 'Youth Director', avatar: 'https://picsum.photos/seed/L4/100/100' },
+  { name: 'Rev. Michael David', role: 'Senior Pastor', avatar: 'https://picsum.photos/seed/L1/100/100' },
+  { name: 'Rev. Sarah Johnson', role: 'Associate Pastor', avatar: 'https://picsum.photos/seed/L2/100/100' },
+  { name: 'David Kimani', role: 'Worship Leader', avatar: 'https://picsum.photos/seed/L3/100/100' },
+  { name: 'Grace Mwangi', role: 'Youth Director', avatar: 'https://picsum.photos/seed/L4/100/100' },
 ];
 
 const beliefs = [

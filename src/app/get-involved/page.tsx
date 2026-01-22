@@ -301,7 +301,7 @@ export default function GetInvolvedPage() {
                       <DialogTrigger asChild>
                         <Button variant="outline">Be part of this</Button>
                       </DialogTrigger>
-                      <DialogContent className="sm:max-w-[425px]">
+                      <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle>Join the {ministry.name} Ministry</DialogTitle>
                           <DialogDescription>
@@ -321,5 +321,3 @@ export default function GetInvolvedPage() {
     </div>
   );
 }
-
-    
