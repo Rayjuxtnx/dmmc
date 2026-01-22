@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Church, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Church, Facebook, Youtube } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -22,12 +22,38 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+const InstagramIconWithGradient = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        {...props}
+    >
+        <defs>
+            <radialGradient id="instaGradient" r="150%" cx="30%" cy="107%">
+                <stop stopColor="#fdf497" offset="0" />
+                <stop stopColor="#fdf497" offset="0.05" />
+                <stop stopColor="#fd5949" offset="0.45" />
+                <stop stopColor="#d6249f" offset="0.6" />
+                <stop stopColor="#285AEB" offset="0.9" />
+            </radialGradient>
+        </defs>
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke="url(#instaGradient)" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="url(#instaGradient)" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" stroke="url(#instaGradient)" />
+    </svg>
+);
 
 const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/", name: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/", name: "Instagram" },
-  { icon: TiktokIcon, href: "https://www.tiktok.com/", name: "TikTok" },
-  { icon: Youtube, href: "https://www.youtube.com/", name: "YouTube" },
+  { icon: Facebook, href: "https://www.facebook.com/", name: "Facebook", className: "text-[#4267B2] hover:text-[#3b5998]" },
+  { icon: InstagramIconWithGradient, href: "https://www.instagram.com/", name: "Instagram", className: "opacity-80 hover:opacity-100" },
+  { icon: TiktokIcon, href: "https://www.tiktok.com/", name: "TikTok", className: "text-foreground/80 hover:text-foreground" },
+  { icon: Youtube, href: "https://www.youtube.com/", name: "YouTube", className: "text-[#FF0000] hover:text-[#cc0000]" },
 ];
 
 export function Footer() {
@@ -87,7 +113,7 @@ export function Footer() {
                   href={social.href} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-foreground/80 hover:text-foreground"
+                  className={`transition-all ${social.className}`}
                   aria-label={`Follow us on ${social.name}`}
                 >
                   <social.icon className="h-6 w-6" />
