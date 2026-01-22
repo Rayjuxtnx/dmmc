@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -31,7 +32,7 @@ const navLinks = [
     label: "Resources",
     items: [
       { href: "https://daghewardmillsbooks.org/new/", label: "Books", target: "_blank", rel: "noopener noreferrer" },
-      { href: "/songs", label: "Songs" },
+      { href: "https://firstlovemusic.org/", label: "Songs", target: "_blank", rel: "noopener noreferrer" },
     ],
   },
   { href: "/global", label: "Global" },
