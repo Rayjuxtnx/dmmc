@@ -142,7 +142,7 @@ export default function JesusPage() {
                         <FormItem>
                           <FormLabel>Phone Number</FormLabel>
                           <FormControl>
-                            <Input type="tel" placeholder="+254 7XX XXX XXX" {...field} />
+                            <Input type="tel" placeholder="+254 733 907 339" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

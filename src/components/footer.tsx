@@ -82,7 +82,7 @@ export function Footer() {
             </p>
             <div className="text-sm text-foreground/80">
               <p>Off Jogoo Road, near Aquinas High School, Nairobi</p>
-              <p>WWW.DMMCNAIROBI</p>
+              <a href="mailto:lcikenyahq@gmail.com" className="hover:underline">lcikenyahq@gmail.com</a>
             </div>
           </div>
           

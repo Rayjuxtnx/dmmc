@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Clock, HeartHandshake } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, HeartHandshake, MessageSquare } from "lucide-react"
 import { Animate } from "@/components/ui/animate"
 
 const contactFormSchema = z.object({
@@ -172,7 +172,7 @@ export default function ConnectPage() {
                             <FormItem>
                                 <FormLabel>Phone Number</FormLabel>
                                 <FormControl>
-                                <Input type="tel" placeholder="+254 7XX XXX XXX" {...field} />
+                                <Input type="tel" placeholder="+254 733 907 339" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -260,14 +260,21 @@ export default function ConnectPage() {
                   <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
-                    <p className="text-foreground/80">WWW.DMMCNAIROBI</p>
+                    <a href="mailto:lcikenyahq@gmail.com" className="text-foreground/80 hover:underline">lcikenyahq@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold">Call Us</h3>
-                    <p className="text-foreground/80">+254 714 955 458</p>
+                    <a href="tel:+254733907339" className="text-foreground/80 hover:underline">+254 733 907 339</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <MessageSquare className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold">WhatsApp</h3>
+                    <a href="https://wa.me/254733907339" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:underline">+254 733 907 339</a>
                   </div>
                 </div>
               </div>
@@ -318,7 +325,7 @@ export default function ConnectPage() {
                                         <FormItem>
                                             <FormLabel>Phone Number</FormLabel>
                                             <FormControl>
-                                            <Input type="tel" placeholder="+254 7XX XXX XXX" {...field} />
+                                            <Input type="tel" placeholder="+254 733 907 339" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -374,5 +381,3 @@ export default function ConnectPage() {
     </div>
   )
 }
-
-    

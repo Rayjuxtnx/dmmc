@@ -165,7 +165,7 @@ export default function GlobalPage() {
                         <Phone className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
                         <div>
                             <h3 className="font-bold">WhatsApp us for directions</h3>
-                            <a href="https://wa.me/233246389779" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all">+233 24 638 9779</a>
+                            <a href="https://wa.me/254733907339" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all">+254 733 907 339</a>
                         </div>
                      </CardContent>
                  </Card>
@@ -174,7 +174,7 @@ export default function GlobalPage() {
                         <Mail className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
                         <div>
                             <h3 className="font-bold">Email Us</h3>
-                            <a href="mailto:admin@firstlovecenter.com" className="text-primary hover:underline break-all">admin@firstlovecenter.com</a>
+                            <a href="mailto:lcikenyahq@gmail.com" className="text-primary hover:underline break-all">lcikenyahq@gmail.com</a>
                         </div>
                      </CardContent>
                  </Card>
