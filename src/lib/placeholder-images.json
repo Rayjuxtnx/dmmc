@@ -243,7 +243,7 @@
     {
       "id": "get-involved-hero",
       "description": "Group of volunteers with their hands in the middle.",
-      "imageUrl": "https://images.unsplash.com/photo-1758599668280-317754ffe1aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx2b2x1bnRlZXJzJTIwaGFuZHN8ZW58MHx8fHwxNzY5MDc3MDg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758599668280-317751ffe1aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx2b2x1bnRlZXJzJTIwaGFuZHN8ZW58MHx8fHwxNzY5MDc3MDg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "volunteers hands"
     },
     {
@@ -269,6 +269,60 @@
       "description": "Musical notes on a sheet.",
       "imageUrl": "https://images.unsplash.com/photo-1714252562781-e13836d95d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtdXNpYyUyMG5vdGVzfGVufDB8fHx8MTc2OTA3NzA4NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "music notes"
+    },
+    {
+      "id": "ministry-hallelujah-1",
+      "description": "A classic choir singing traditional music.",
+      "imageUrl": "https://images.unsplash.com/photo-1764176269321-6d14f4af09c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0cmFkaXRpb25hbCUyMGNob2lyfGVufDB8fHx8MTc2OTA3NzQxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "traditional choir"
+    },
+    {
+      "id": "ministry-hallelujah-2",
+      "description": "Sheet music for choral singing.",
+      "imageUrl": "https://images.unsplash.com/photo-1766562914570-282e976912a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaG9yYWwlMjBtdXNpY3xlbnwwfHx8fDE3NjkwNzc0MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "choral music"
+    },
+    {
+      "id": "ministry-hallelujah-3",
+      "description": "An old hymn book open to a page.",
+      "imageUrl": "https://images.unsplash.com/photo-1716666179126-0ce742cfeee0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29yc2hpcCUyMGh5bW5zfGVufDB8fHx8MTc2OTA3NzQxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "worship hymns"
+    },
+    {
+      "id": "ministry-glorious-1",
+      "description": "A gospel choir mid-performance, full of energy.",
+      "imageUrl": "https://images.unsplash.com/photo-1593678820334-91d5f99be314?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnb3NwZWwlMjBjaG9pcnxlbnwwfHx8fDE3NjkwMDYzMTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gospel choir"
+    },
+    {
+      "id": "ministry-glorious-2",
+      "description": "Close-up on soulful singers during worship.",
+      "imageUrl": "https://images.unsplash.com/photo-1669198074495-d04dae22bb90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzb3VsZnVsJTIwc2luZ2Vyc3xlbnwwfHx8fDE3NjkwNzc0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "soulful singers"
+    },
+    {
+      "id": "ministry-glorious-3",
+      "description": "A contemporary worship band on stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1640127249382-831d11a3cf9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29udGVtcG9yYXJ5JTIwd29yc2hpcHxlbnwwfHx8fDE3NjkwNzc0MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "contemporary worship"
+    },
+    {
+      "id": "ministry-greaterlove-1",
+      "description": "Congregation with hands raised in heartfelt worship.",
+      "imageUrl": "https://images.unsplash.com/photo-1583584146409-1c25d07ad686?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxoZWFydGZlbHQlMjB3b3JzaGlwfGVufDB8fHx8MTc2OTA3NzQxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "heartfelt worship"
+    },
+    {
+      "id": "ministry-greaterlove-2",
+      "description": "A diverse group of people singing together in a community.",
+      "imageUrl": "https://images.unsplash.com/photo-1768812186881-a3f67c81a228?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21tdW5pdHklMjBzaW5naW5nfGVufDB8fHx8MTc2OTA3NzQxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community singing"
+    },
+    {
+      "id": "ministry-greaterlove-3",
+      "description": "The church praise team leading worship.",
+      "imageUrl": "https://images.unsplash.com/photo-1762838707329-ac85ccc8b5bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcmFpc2UlMjB0ZWFtfGVufDB8fHx8MTc2OTA3NzQxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "praise team"
     }
   ]
 }

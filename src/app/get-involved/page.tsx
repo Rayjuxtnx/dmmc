@@ -55,9 +55,9 @@ const ministries = [
     name: "Hallelujah Chorus",
     description: "A classic choir that brings powerful and traditional choral music to our worship services.",
     images: [
-        { imageUrl: "", description: "choir", imageHint: "choir singing" },
-        { imageUrl: "", description: "choir", imageHint: "choir members" },
-        { imageUrl: "", description: "choir", imageHint: "church choir" },
+        PlaceHolderImages.find(img => img.id === 'ministry-hallelujah-1'),
+        PlaceHolderImages.find(img => img.id === 'ministry-hallelujah-2'),
+        PlaceHolderImages.find(img => img.id === 'ministry-hallelujah-3'),
     ],
     icon: Music
   },
@@ -65,9 +65,9 @@ const ministries = [
     name: "Glorious Choir - No Ordinary Water",
     description: "This choir is known for their soulful renditions and contemporary gospel sound.",
     images: [
-        { imageUrl: "", description: "choir", imageHint: "gospel choir" },
-        { imageUrl: "", description: "choir", imageHint: "singers" },
-        { imageUrl: "", description: "choir", imageHint: "worship service" },
+        PlaceHolderImages.find(img => img.id === 'ministry-glorious-1'),
+        PlaceHolderImages.find(img => img.id === 'ministry-glorious-2'),
+        PlaceHolderImages.find(img => img.id === 'ministry-glorious-3'),
     ],
     icon: Music
   },
@@ -75,9 +75,9 @@ const ministries = [
     name: "Greater Love Choir",
     description: "A choir focused on sharing the message of God's love through heartfelt song and worship.",
     images: [
-        { imageUrl: "", description: "choir", imageHint: "love worship" },
-        { imageUrl: "", description: "choir", imageHint: "community singing" },
-        { imageUrl: "", description: "choir", imageHint: "praise team" },
+        PlaceHolderImages.find(img => img.id === 'ministry-greaterlove-1'),
+        PlaceHolderImages.find(img => img.id === 'ministry-greaterlove-2'),
+        PlaceHolderImages.find(img => img.id === 'ministry-greaterlove-3'),
     ],
     icon: Music
   },
