@@ -13,7 +13,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
   DialogDescription,
 } from "@/components/ui/dialog";
 import { useForm } from "react-hook-form";
@@ -55,9 +54,9 @@ const ministries = [
     name: "Hallelujah Chorus",
     description: "A classic choir that brings powerful and traditional choral music to our worship services.",
     images: [
-        { imageUrl: "https://picsum.photos/seed/HC1/400/400", description: "choir", imageHint: "choir singing" },
-        { imageUrl: "https://picsum.photos/seed/HC2/400/400", description: "choir", imageHint: "choir members" },
-        { imageUrl: "https://picsum.photos/seed/HC3/400/400", description: "choir", imageHint: "church choir" },
+        { imageUrl: "", description: "choir", imageHint: "choir singing" },
+        { imageUrl: "", description: "choir", imageHint: "choir members" },
+        { imageUrl: "", description: "choir", imageHint: "church choir" },
     ],
     icon: Music
   },
@@ -65,9 +64,9 @@ const ministries = [
     name: "Glorious Choir - No Ordinary Water",
     description: "This choir is known for their soulful renditions and contemporary gospel sound.",
     images: [
-        { imageUrl: "https://picsum.photos/seed/GC1/400/400", description: "choir", imageHint: "gospel choir" },
-        { imageUrl: "https://picsum.photos/seed/GC2/400/400", description: "choir", imageHint: "singers" },
-        { imageUrl: "https://picsum.photos/seed/GC3/400/400", description: "choir", imageHint: "worship service" },
+        { imageUrl: "", description: "choir", imageHint: "gospel choir" },
+        { imageUrl: "", description: "choir", imageHint: "singers" },
+        { imageUrl: "", description: "choir", imageHint: "worship service" },
     ],
     icon: Music
   },
@@ -75,9 +74,9 @@ const ministries = [
     name: "Greater Love Choir",
     description: "A choir focused on sharing the message of God's love through heartfelt song and worship.",
     images: [
-        { imageUrl: "https://picsum.photos/seed/GLC1/400/400", description: "choir", imageHint: "love worship" },
-        { imageUrl: "https://picsum.photos/seed/GLC2/400/400", description: "choir", imageHint: "community singing" },
-        { imageUrl: "https://picsum.photos/seed/GLC3/400/400", description: "choir", imageHint: "praise team" },
+        { imageUrl: "", description: "choir", imageHint: "love worship" },
+        { imageUrl: "", description: "choir", imageHint: "community singing" },
+        { imageUrl: "", description: "choir", imageHint: "praise team" },
     ],
     icon: Music
   },
@@ -192,7 +191,7 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
             <FormItem>
               <FormLabel>Full Name</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="Your Full Name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -205,7 +204,7 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
             <FormItem>
               <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                <Input type="tel" placeholder="+254 7XX XXX XXX" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -322,3 +321,5 @@ export default function GetInvolvedPage() {
     </div>
   );
 }
+
+    

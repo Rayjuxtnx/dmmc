@@ -158,7 +158,7 @@ export default function GivePage() {
                               <FormItem>
                                 <FormLabel>Full Name</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="John Doe" {...field} />
+                                  <Input placeholder="Your Full Name" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -171,7 +171,7 @@ export default function GivePage() {
                               <FormItem>
                                 <FormLabel>Phone Number</FormLabel>
                                 <FormControl>
-                                  <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                                  <Input type="tel" placeholder="+254 7XX XXX XXX" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -215,3 +215,5 @@ export default function GivePage() {
     </div>
   )
 }
+
+    
