@@ -114,8 +114,6 @@
   body {
     @apply bg-background text-foreground;
     background-attachment: fixed;
-    position: relative;
-    overflow-x: hidden;
   }
 
   body::before {

@@ -20,8 +20,8 @@ const events = [
     description: "Every Sunday at 6:30 AM at the Prince of Peace Cathedral.",
   },
   {
-    title: "Bosenta Area Prayers 🏡",
-    description: "Every Wednesday evening for all church members in the Bosenta area.",
+    title: "Basenta Area Prayers 🏡",
+    description: "Every Wednesday evening for all church members in the Basenta area.",
   },
   {
     title: "Invitation Sunday 👋",
