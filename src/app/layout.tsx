@@ -8,6 +8,11 @@ import { Chatbot } from '@/components/chatbot';
 export const metadata: Metadata = {
   title: 'DMMC',
   description: 'PRINCE OF PEACE CATHEDRAL NAIROBI',
+  manifest: '/manifest.webmanifest',
+  icons: {
+    apple: '/apple-touch-icon.png',
+  },
+  themeColor: '#000000',
 };
 
 export default function RootLayout({
