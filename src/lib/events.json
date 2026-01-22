@@ -7,8 +7,7 @@
       "time": "6:30 AM",
       "location": "Prince of Peace Cathedral",
       "description": "An early morning session of powerful prayer and intercession. All are welcome to start their week in God's presence.",
-      "imageId": "event-1",
-      "dressCode": "Come as you are"
+      "imageId": "event-1"
     },
     {
       "id": "basenta-area-prayers",
@@ -17,8 +16,7 @@
       "time": "7:00 PM",
       "location": "Basenta Area",
       "description": "A weekly gathering for all church members in the Basenta area for a time of fellowship and focused prayer.",
-      "imageId": "event-2",
-      "dressCode": "Casual"
+      "imageId": "event-2"
     },
     {
       "id": "invitation-sunday",
@@ -27,8 +25,7 @@
       "time": "9:00 AM",
       "location": "Prince of Peace Cathedral",
       "description": "Extend an invitation to friends and family! A special service designed to welcome newcomers into our church family.",
-      "imageId": "hero-home",
-      "dressCode": "Your Sunday Best"
+      "imageId": "hero-home"
     }
   ]
 }

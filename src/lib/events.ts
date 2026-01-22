@@ -8,7 +8,6 @@ export type Event = {
   location: string;
   description: string;
   imageId: string;
-  dressCode?: string;
 };
 
 export const Events: Event[] = data.events;

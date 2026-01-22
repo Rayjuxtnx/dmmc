@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ArrowRight, CalendarDays, HeartHandshake, Calendar, MapPin, Shirt } from 'lucide-react';
+import { ArrowRight, CalendarDays, HeartHandshake, Calendar, MapPin } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Events } from '@/lib/events';
@@ -140,9 +140,6 @@ export default function Home() {
                     <div className="text-sm text-muted-foreground space-y-1 pt-2">
                       <p className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {event.date} at {event.time}</p>
                       <p className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {event.location}</p>
-                      {event.dressCode && (
-                        <p className="flex items-center gap-2"><Shirt className="h-4 w-4" /> {event.dressCode}</p>
-                      )}
                     </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
