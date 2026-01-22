@@ -1,16 +1,8 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CheckCircle } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
-
-const leadership = [
-  { name: 'Rev. Michael David', role: 'Senior Pastor', avatar: 'https://picsum.photos/seed/L1/100/100' },
-  { name: 'Rev. Sarah Johnson', role: 'Associate Pastor', avatar: 'https://picsum.photos/seed/L2/100/100' },
-  { name: 'David Kimani', role: 'Worship Leader', avatar: 'https://picsum.photos/seed/L3/100/100' },
-  { name: 'Grace Mwangi', role: 'Youth Director', avatar: 'https://picsum.photos/seed/L4/100/100' },
-];
 
 const beliefs = [
     "We believe the Bible is the inspired and infallible Word of God.",
@@ -88,35 +80,6 @@ export default function AboutPage() {
                 ))}
             </div>
           </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <Animate>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">Meet Our Leadership</h2>
-            <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
-              Our team is dedicated to serving our community and guiding our church with wisdom and grace.
-            </p>
-          </Animate>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {leadership.map((leader, index) => (
-              <Animate key={leader.name} transition={{ delay: index * 0.1 }}>
-                <Card className="text-center">
-                  <CardHeader>
-                    <Avatar className="h-24 w-24 mx-auto mb-4">
-                      <AvatarImage src={leader.avatar} alt={leader.name} />
-                      <AvatarFallback>{leader.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <CardTitle className="font-headline text-xl">{leader.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-primary font-semibold">{leader.role}</p>
-                  </CardContent>
-                </Card>
-              </Animate>
-            ))}
-          </div>
-        </div>
       </section>
     </div>
   );
