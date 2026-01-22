@@ -44,7 +44,7 @@ export default function Home() {
             Welcome to DMMC
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            A place to find hope, community, and purpose. We're so glad you're here.
+            2026 A YEAR OF BLESSINGS AND CURSE
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
