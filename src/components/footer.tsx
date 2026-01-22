@@ -78,7 +78,7 @@ export function Footer() {
               <span className="font-headline text-xl font-semibold">DMMC</span>
             </Link>
             <p className="font-bold animated-gradient-text-3d">
-              PRINCE OF PEACE CATHEDRAL NAIROBI
+              PRINCE OF PEACE CATHEDRAL-NAIROBI APARCHE
             </p>
             <div className="text-sm text-foreground/80">
               <p>Off Jogoo Road, near Aquinas High School, Nairobi</p>
