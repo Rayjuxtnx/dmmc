@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Church, Facebook, Youtube } from 'lucide-react';
+import { Facebook, Youtube } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -82,7 +82,7 @@ export function Footer() {
             </p>
             <div className="text-sm text-foreground/80">
               <p>Off Jogoo Road, near Aquinas High School, Nairobi</p>
-              <p>contact@dmmc.org</p>
+              <p>WWW.DMMCNAIROBI</p>
             </div>
           </div>
           
