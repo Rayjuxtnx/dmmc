@@ -55,7 +55,7 @@ export default function Home() {
             Welcome to DMMC
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto font-bold animated-gradient-text-3d">
-            2026 A YEAR OF BLESSINGS AND CURSE
+            2026 A YEAR OF BLESSINGS AND NO CURSE
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
