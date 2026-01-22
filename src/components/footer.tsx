@@ -73,11 +73,11 @@ export function Footer() {
               {logo && logo.imageUrl ? (
                 <Image src={logo.imageUrl} alt="DMMC Logo" width={32} height={32} data-ai-hint={logo.imageHint} className="rounded-full" />
               ) : (
-                <Church className="h-8 w-8 text-primary" />
+                <div className="h-8 w-8 rounded-full bg-secondary" />
               )}
               <span className="font-headline text-xl font-semibold">DMMC</span>
             </Link>
-            <p className="text-sm font-bold animated-gradient-text-3d">
+            <p className="font-bold animated-gradient-text-3d">
               PRINCE OF PEACE CATHEDRAL NAIROBI
             </p>
             <div className="text-sm text-foreground/80">

@@ -52,7 +52,7 @@ export function Header() {
           {logo && logo.imageUrl ? (
             <Image src={logo.imageUrl} alt="DMMC Logo" width={32} height={32} data-ai-hint={logo.imageHint} className="rounded-full" />
           ) : (
-            <Church className="h-6 w-6 text-primary" />
+            <div className="h-8 w-8 rounded-full bg-secondary" />
           )}
           <span className="font-headline text-lg font-bold">DMMC</span>
         </Link>
@@ -112,7 +112,7 @@ export function Header() {
                     {logo && logo.imageUrl ? (
                         <Image src={logo.imageUrl} alt="DMMC Logo" width={24} height={24} data-ai-hint={logo.imageHint} className="rounded-full"/>
                     ) : (
-                        <Church className="h-6 w-6 text-primary" />
+                        <div className="h-6 w-6 rounded-full bg-secondary" />
                     )}
                     <span className="font-headline text-lg font-bold">DMMC</span>
                   </Link>
