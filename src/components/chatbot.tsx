@@ -56,10 +56,10 @@ const choirs = [
 ];
 
 const givingDetails = {
-    paybill: "522522",
+    paybill: "160746",
     account: "TITHE / OFFERING",
-    scripture: "Bring the full tithe into the storehouse, that there may be food in my house.",
-    scriptureRef: "Malachi 3:10"
+    scripture: "Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it.",
+    scriptureRef: "Malachi 3:10 KJV"
 };
 
 // --- Conversation Tree ---

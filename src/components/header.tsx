@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -119,7 +120,7 @@ export function Header() {
                 <div className="py-4 space-y-6">
                   <div className="text-center bg-secondary p-4 rounded-lg">
                     <p className="text-sm font-semibold text-muted-foreground">PAYBILL NUMBER</p>
-                    <p className="text-3xl font-bold tracking-widest text-primary">522522</p>
+                    <p className="text-3xl font-bold tracking-widest text-primary">160746</p>
                   </div>
                   <div className="text-center bg-secondary p-4 rounded-lg">
                     <p className="text-sm font-semibold text-muted-foreground">ACCOUNT NUMBER</p>
@@ -141,8 +142,8 @@ export function Header() {
                     </div>
                   )}
 
-                  <p className="text-xs text-muted-foreground text-center pt-4">
-                    "Bring the full tithe into the storehouse, that there may be food in my house." - Malachi 3:10
+                  <p className="text-xs text-muted-foreground text-center pt-4 italic">
+                    "Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it." - Malachi 3:10 KJV
                   </p>
                 </div>
               </DialogContent>
@@ -227,7 +228,7 @@ export function Header() {
                         <div className="py-4 space-y-6">
                           <div className="text-center bg-secondary p-4 rounded-lg">
                             <p className="text-sm font-semibold text-muted-foreground">PAYBILL NUMBER</p>
-                            <p className="text-3xl font-bold tracking-widest text-primary">522522</p>
+                            <p className="text-3xl font-bold tracking-widest text-primary">160746</p>
                           </div>
                           <div className="text-center bg-secondary p-4 rounded-lg">
                             <p className="text-sm font-semibold text-muted-foreground">ACCOUNT NUMBER</p>
@@ -249,8 +250,8 @@ export function Header() {
                             </div>
                           )}
 
-                          <p className="text-xs text-muted-foreground text-center pt-4">
-                            "Bring the full tithe into the storehouse, that there may be food in my house." - Malachi 3:10
+                          <p className="text-xs text-muted-foreground text-center pt-4 italic">
+                            "Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it." - Malachi 3:10 KJV
                           </p>
                         </div>
                       </DialogContent>

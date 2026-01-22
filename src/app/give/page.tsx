@@ -1,3 +1,4 @@
+
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -90,11 +91,16 @@ export default function GivePage() {
                     <p className="text-foreground/80">
                         Generosity is a fundamental part of our faith journey. Your giving supports our local ministries, community outreach, global missions, and the operational needs of our church. Thank you for partnering with us to make a lasting impact.
                     </p>
+                    <blockquote className="border-l-4 border-primary pl-4 italic">
+                        <p className="text-foreground/90">"Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it."</p>
+                        <footer className="text-right text-sm text-foreground/70 not-italic pt-1">- Malachi 3:10 KJV</footer>
+                    </blockquote>
                     <Card className="bg-secondary">
                         <CardHeader>
                             <CardTitle className="font-headline">Other Ways to Give</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2 text-sm">
+                            <p><span className="font-semibold">M-Pesa:</span> Paybill <strong>160746</strong>, Account: <strong>TITHE / OFFERING</strong></p>
                             <p><span className="font-semibold">In Person:</span> You can give during our Sunday services.</p>
                             <p><span className="font-semibold">By Mail:</span> Send checks to PRINCE OF PEACE CATHEDRAL NAIROBI, Off Jogoo Road, near Aquinas High School, Nairobi.</p>
                         </CardContent>
