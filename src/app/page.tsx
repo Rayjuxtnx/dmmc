@@ -2,14 +2,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, CalendarDays, HeartHandshake } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { ArrowRight, CalendarDays, HeartHandshake, Calendar, MapPin, Shirt } from 'lucide-react';
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Events } from '@/lib/events';
 
 export default function Home() {
-  const events = Events.slice(0, 3);
+  const events = Events.slice(0, 3).map(event => {
+    return {
+      ...event,
+      image: PlaceHolderImages.find(img => img.id === event.imageId)
+    }
+  });
 
   const activityImages = [
     PlaceHolderImages.find(img => img.id === 'activity-1'),
@@ -117,15 +122,37 @@ export default function Home() {
           </Animate>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
             {events.map((event, index) => (
-              <Animate key={index} transition={{ delay: index * 0.1 }}>
+              <Animate key={event.title} transition={{ delay: index * 0.1 }}>
                 <Card className="flex flex-col h-full">
+                  {event.image && event.image.imageUrl ? (
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={event.image.imageUrl}
+                        alt={event.image.description}
+                        fill
+                        className="object-cover rounded-t-lg"
+                        data-ai-hint={event.image.imageHint}
+                      />
+                    </div>
+                  ) : <div className="h-48 w-full bg-muted rounded-t-lg" />}
                   <CardHeader>
-                    <CardTitle className="font-headline">{event.title}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{event.date}</p>
+                    <CardTitle className="font-headline text-xl">{event.title}</CardTitle>
+                    <div className="text-sm text-muted-foreground space-y-1 pt-2">
+                      <p className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {event.date} at {event.time}</p>
+                      <p className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {event.location}</p>
+                      {event.dressCode && (
+                        <p className="flex items-center gap-2"><Shirt className="h-4 w-4" /> {event.dressCode}</p>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
-                    <p>{event.description}</p>
+                    <p className="text-foreground/80">{event.description}</p>
                   </CardContent>
+                  <CardFooter>
+                    <Button asChild variant="outline" className="w-full">
+                      <Link href="/events">View Details</Link>
+                    </Button>
+                  </CardFooter>
                 </Card>
               </Animate>
             ))}

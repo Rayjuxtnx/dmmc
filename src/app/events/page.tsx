@@ -1,7 +1,8 @@
 
 import Image from 'next/image';
-import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { Events, type Event } from '@/lib/events';
+import Link from 'next/link';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Events } from '@/lib/events';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Shirt } from 'lucide-react';
@@ -43,8 +44,8 @@ export default function EventsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {eventsWithImages.map((event, index) => (
               <Animate key={event.title} transition={{ delay: index * 0.1 }}>
-                <Card className="flex flex-col">
-                  {event.image && event.image.imageUrl && (
+                <Card className="flex flex-col h-full">
+                  {event.image && event.image.imageUrl ? (
                     <div className="relative h-48 w-full">
                       <Image
                         src={event.image.imageUrl}
@@ -54,7 +55,7 @@ export default function EventsPage() {
                         data-ai-hint={event.image.imageHint}
                       />
                     </div>
-                  )}
+                  ) : <div className="h-48 w-full bg-muted rounded-t-lg" />}
                   <CardHeader>
                     <CardTitle className="font-headline text-xl">{event.title}</CardTitle>
                     <div className="text-sm text-muted-foreground space-y-1 pt-2">
@@ -69,8 +70,10 @@ export default function EventsPage() {
                     <p className="text-foreground/80">{event.description}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      Learn More & Register
+                    <Button asChild variant="outline" className="w-full">
+                      <Link href="/connect">
+                        Learn More & Register
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>
