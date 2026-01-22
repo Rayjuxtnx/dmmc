@@ -260,7 +260,7 @@ export default function ConnectPage() {
                   <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
-                    <p className="text-foreground/80">contact@dmmc.org</p>
+                    <p className="text-foreground/80">WWW.DMMCNAIROBI</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
