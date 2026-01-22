@@ -1,4 +1,5 @@
 
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,14 @@ import { ArrowRight, CalendarDays, HeartHandshake, Calendar, MapPin } from 'luci
 import { Animate } from '@/components/ui/animate';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Events } from '@/lib/events';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function Home() {
   const events = Events.slice(0, 3).map(event => {
@@ -24,6 +33,8 @@ export default function Home() {
     PlaceHolderImages.find(img => img.id === 'activity-5'),
     PlaceHolderImages.find(img => img.id === 'activity-6'),
   ].filter(Boolean);
+  
+  const paybillImage = PlaceHolderImages.find(img => img.id === 'paybill-qr');
 
   return (
     <div className="flex flex-col">
@@ -147,7 +158,9 @@ export default function Home() {
                   </CardContent>
                   <CardFooter>
                     <Button asChild variant="outline" className="w-full">
-                      <Link href="/events">View Details</Link>
+                      <Link href="/connect">
+                        Learn More & Register
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -171,9 +184,50 @@ export default function Home() {
              <p className="mt-4 text-lg text-foreground/80">
               Your generosity fuels our mission to spread the love of Jesus in our city and around the world. Every gift makes a difference.
              </p>
-             <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
-               <Link href="/give">Give Online</Link>
-             </Button>
+             <Dialog>
+                <DialogTrigger asChild>
+                    <Button size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
+                        Give Online
+                    </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle className="font-headline text-2xl text-center">Online Giving</DialogTitle>
+                        <DialogDescription className="text-center">
+                        Use the details below for M-Pesa.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4 space-y-6">
+                        <div className="text-center bg-secondary p-4 rounded-lg">
+                        <p className="text-sm font-semibold text-muted-foreground">PAYBILL NUMBER</p>
+                        <p className="text-3xl font-bold tracking-widest text-primary">160746</p>
+                        </div>
+                        <div className="text-center bg-secondary p-4 rounded-lg">
+                        <p className="text-sm font-semibold text-muted-foreground">ACCOUNT NUMBER</p>
+                        <p className="text-xl font-bold text-primary">TITHE / OFFERING</p>
+                        </div>
+                        
+                        {paybillImage && paybillImage.imageUrl && (
+                        <div className="flex flex-col items-center justify-center">
+                            <p className="text-sm font-semibold text-muted-foreground mb-2">OR SCAN THE QR CODE</p>
+                            <div className="relative w-48 h-48 mt-2 p-2 border rounded-lg bg-white">
+                                <Image
+                                    src={paybillImage.imageUrl}
+                                    alt="M-Pesa Paybill QR Code"
+                                    fill
+                                    className="object-contain"
+                                    data-ai-hint={paybillImage.imageHint}
+                                />
+                            </div>
+                        </div>
+                        )}
+
+                        <p className="text-xs text-muted-foreground text-center pt-4 italic">
+                        "Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it." - Malachi 3:10 KJV
+                        </p>
+                    </div>
+                </DialogContent>
+             </Dialog>
            </Animate>
         </div>
       </section>
