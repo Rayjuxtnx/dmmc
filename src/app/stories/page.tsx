@@ -16,7 +16,7 @@ export default function StoriesPage() {
   return (
     <div>
       <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {heroImage && (
+        {heroImage && heroImage.imageUrl ? (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
@@ -25,7 +25,7 @@ export default function StoriesPage() {
             priority
             data-ai-hint={heroImage.imageHint}
           />
-        )}
+        ) : <div className="absolute inset-0 bg-primary" />}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Our Stories</h1>
@@ -39,7 +39,7 @@ export default function StoriesPage() {
                 <Card className="overflow-hidden">
                     <div className="md:flex md:gap-8">
                         <div className="md:w-1/3 p-6 flex items-center justify-center">
-                            {dagImage && (
+                            {dagImage && dagImage.imageUrl && (
                                 <div className="relative w-64 h-64">
                                     <Image
                                         src={dagImage.imageUrl}
@@ -77,7 +77,7 @@ export default function StoriesPage() {
                 <Card className="overflow-hidden">
                     <div className="md:flex md:gap-8">
                         <div className="md:w-1/3 p-6 flex items-center justify-center">
-                            {bishopImage && (
+                            {bishopImage && bishopImage.imageUrl && (
                                 <div className="relative w-64 h-64">
                                     <Image
                                         src={bishopImage.imageUrl}
@@ -115,7 +115,7 @@ export default function StoriesPage() {
                 <Card className="overflow-hidden">
                     <div className="md:flex md:gap-8">
                         <div className="md:w-1/3 p-6 flex items-center justify-center">
-                            {frantzImage && (
+                            {frantzImage && frantzImage.imageUrl && (
                                 <div className="relative w-64 h-64">
                                     <Image
                                         src={frantzImage.imageUrl}
@@ -153,5 +153,4 @@ export default function StoriesPage() {
     </div>
   );
 }
-
     

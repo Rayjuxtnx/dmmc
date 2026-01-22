@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -50,7 +49,7 @@ export function Header() {
     <Animate as="header" className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          {logo ? (
+          {logo && logo.imageUrl ? (
             <Image src={logo.imageUrl} alt="DMMC Logo" width={32} height={32} data-ai-hint={logo.imageHint} className="rounded-full" />
           ) : (
             <Church className="h-6 w-6 text-primary" />
@@ -110,7 +109,7 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between pb-4 border-b">
                   <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    {logo ? (
+                    {logo && logo.imageUrl ? (
                         <Image src={logo.imageUrl} alt="DMMC Logo" width={24} height={24} data-ai-hint={logo.imageHint} className="rounded-full"/>
                     ) : (
                         <Church className="h-6 w-6 text-primary" />

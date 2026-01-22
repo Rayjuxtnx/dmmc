@@ -170,7 +170,7 @@ function MinistrySignupForm({ ministryName }: { ministryName: string }) {
       <div className="text-center py-8">
         <h3 className="font-bold text-lg mb-2">Thank You!</h3>
         <p className="text-muted-foreground">
-          Your registration for the {ministryName} ministry has been received. Someone from our team will be in touch with you soon.
+          Your registration for the ${ministryName} ministry has been received. Someone from our team will be in touch with you soon.
         </p>
       </div>
     );
@@ -251,7 +251,7 @@ export default function GetInvolvedPage() {
   return (
     <div>
       <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {heroImage && (
+        {heroImage && heroImage.imageUrl ? (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
@@ -260,7 +260,7 @@ export default function GetInvolvedPage() {
             priority
             data-ai-hint={heroImage.imageHint}
           />
-        )}
+        ) : <div className="absolute inset-0 bg-primary" />}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Get Involved</h1>
@@ -284,7 +284,7 @@ export default function GetInvolvedPage() {
                     <p className="text-foreground/80">{ministry.description}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {ministry.images.map((image, imgIndex) => (
-                        image && (
+                        image && image.imageUrl && (
                            <div key={imgIndex} className="relative h-64 w-full rounded-lg overflow-hidden shadow-md">
                             <Image
                                 src={image.imageUrl}

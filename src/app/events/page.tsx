@@ -20,7 +20,7 @@ export default function EventsPage() {
   return (
     <div>
       <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {heroImage && (
+        {heroImage && heroImage.imageUrl ? (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
@@ -29,7 +29,7 @@ export default function EventsPage() {
             priority
             data-ai-hint={heroImage.imageHint}
           />
-        )}
+        ) : <div className="absolute inset-0 bg-primary" />}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Announcements</h1>
@@ -44,7 +44,7 @@ export default function EventsPage() {
             {eventsWithImages.map((event, index) => (
               <Animate key={event.title} transition={{ delay: index * 0.1 }}>
                 <Card className="flex flex-col">
-                  {event.image && (
+                  {event.image && event.image.imageUrl && (
                     <div className="relative h-48 w-full">
                       <Image
                         src={event.image.imageUrl}

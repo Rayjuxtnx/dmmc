@@ -27,7 +27,7 @@ export default function AboutPage() {
   return (
     <div>
       <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {heroImage && (
+        {heroImage && heroImage.imageUrl ? (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
@@ -36,7 +36,7 @@ export default function AboutPage() {
             priority
             data-ai-hint={heroImage.imageHint}
           />
-        )}
+        ) : <div className="absolute inset-0 bg-primary" />}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">About DMMC</h1>
@@ -47,7 +47,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {aboutImage && (
+            {aboutImage && aboutImage.imageUrl && (
               <Animate variant="fadeInLeft" className="w-full h-80 relative rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src={aboutImage.imageUrl}

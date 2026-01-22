@@ -70,7 +70,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              {logo ? (
+              {logo && logo.imageUrl ? (
                 <Image src={logo.imageUrl} alt="DMMC Logo" width={32} height={32} data-ai-hint={logo.imageHint} className="rounded-full" />
               ) : (
                 <Church className="h-8 w-8 text-primary" />

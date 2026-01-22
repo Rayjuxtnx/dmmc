@@ -90,7 +90,7 @@ export default function Home() {
           <Animate>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {activityImages.map((image, index) => (
-                image && (
+                image && image.imageUrl && (
                   <div key={index} className="relative overflow-hidden rounded-lg shadow-lg aspect-[3/2]">
                     <Image
                       src={image.imageUrl}

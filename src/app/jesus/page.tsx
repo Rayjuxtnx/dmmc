@@ -59,7 +59,7 @@ export default function JesusPage() {
   return (
     <div>
       <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {jesusImage && (
+        {jesusImage && jesusImage.imageUrl ? (
           <Image
             src={jesusImage.imageUrl}
             alt={jesusImage.description}
@@ -68,7 +68,7 @@ export default function JesusPage() {
             priority
             data-ai-hint={jesusImage.imageHint}
           />
-        )}
+        ) : <div className="absolute inset-0 bg-primary" />}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">SALVATION</h1>
@@ -204,5 +204,3 @@ export default function JesusPage() {
     </div>
   );
 }
-
-    

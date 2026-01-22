@@ -77,7 +77,7 @@ export default function GlobalPage() {
   return (
     <div>
       <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white">
-        {heroImage && (
+        {heroImage && heroImage.imageUrl ? (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
@@ -86,7 +86,7 @@ export default function GlobalPage() {
             priority
             data-ai-hint={heroImage.imageHint}
           />
-        )}
+        ) : <div className="absolute inset-0 bg-primary" />}
         <div className="absolute inset-0 bg-primary/70" />
         <Animate className="relative z-10 p-4 max-w-4xl">
           <h1 className="font-headline text-4xl md:text-6xl font-bold">Global Presence</h1>
