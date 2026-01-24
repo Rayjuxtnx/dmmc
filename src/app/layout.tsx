@@ -8,7 +8,7 @@ import { PwaInstallPrompt } from '@/components/pwa-install-prompt';
 
 export const metadata: Metadata = {
   title: 'DMMC',
-  description: 'PRINCE OF PEACE CATHEDRAL NAIROBI',
+  description: 'PRINCE OF PEACE CATHEDRAL-NAIROBI',
   manifest: '/manifest.webmanifest',
   icons: {
     apple: '/apple-touch-icon.png',

@@ -75,7 +75,7 @@ export default function Home() {
             <Animate variant="fadeInLeft">
               <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">A Church That Feels Like Family</h2>
               <p className="mt-4 text-lg text-foreground/80">
-                At PRINCE OF PEACE CATHEDRAL NAIROBI, we are a diverse family united by our love for Jesus. We are passionate about sharing His message of hope and building a community where everyone feels they belong.
+                At PRINCE OF PEACE CATHEDRAL-NAIROBI, we are a diverse family united by our love for Jesus. We are passionate about sharing His message of hope and building a community where everyone feels they belong.
               </p>
               <Button asChild className="mt-6">
                 <Link href="/about">
