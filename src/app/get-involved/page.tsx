@@ -82,7 +82,27 @@ const ministries = [
     icon: Music
   },
   {
-    name: "Media",
+    name: "Film stars",
+    description: "A powerfull team that showcase there talent through presenting the word of God in form of Acting",
+    images: [
+         PlaceHolderImages.find(img => img.id === 'ministry-filmstars-1'),
+         PlaceHolderImages.find(img => img.id === 'ministry-filmstars-2'),
+         PlaceHolderImages.find(img => img.id === 'ministry-filmstars-3'),
+    ],
+    icon: Music
+  },
+  {
+    name: "Rising stars choir",
+    description: "A sensetional choir that consist of youth with determination in singing",
+    images: [
+         PlaceHolderImages.find(img => img.id === 'ministry-rising-stars-1'),
+         PlaceHolderImages.find(img => img.id === 'ministry-rising-stars-2'),
+         PlaceHolderImages.find(img => img.id === 'ministry-rising-stars-3'),
+    ],
+    icon: Music    
+     },
+     {  
+    name: "Media", 
     description: "From camera operation to sound engineering and live streaming, the media team makes our services accessible to all.",
     images: [
         PlaceHolderImages.find(img => img.id === 'ministry-media-1'),

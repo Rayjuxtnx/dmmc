@@ -39,8 +39,9 @@ const locations = [
   { country: 'Malawi', region: 'Southern Africa', count: 4 },
   { country: 'Cameroon', region: 'Central Africa', count: 1 },
   { country: 'Dr Congo', region: 'Central Africa', count: 4 },
-  { country: 'Kenya', region: 'East Africa', count: 2 },
+  { country: 'Kenya', region: 'East Africa', count: 10 },
   { country: 'Philippines', region: 'Asia', count: 2 },
+  { country: 'dubai', region: 'UAE', count: 2 },
 ];
 
 const regions = [
@@ -55,6 +56,7 @@ const regions = [
   "Pacific",
   "Southern Africa",
   "West Africa",
+  "UAE",
 ];
 
 const totalLocations = locations.reduce((sum, loc) => sum + loc.count, 0);
@@ -101,7 +103,7 @@ export default function GlobalPage() {
           <Animate>
             <Card className="max-w-5xl mx-auto">
               <CardHeader>
-                <CardTitle className="font-headline text-2xl md:text-3xl">Find a First Love Church Near You</CardTitle>
+                <CardTitle className="font-headline text-2xl md:text-3xl">Find  First Love Church Near You</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col md:flex-row gap-4 mb-8">
